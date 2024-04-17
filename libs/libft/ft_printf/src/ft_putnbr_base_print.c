@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_base_print.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/08/28 19:09:59 by arsobrei          #+#    #+#             */
+/*   Updated: 2023/10/13 10:33:09 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "ft_printf.h"
 
-int main(int argc, char const *argv[])
+int	ft_putnbr_base_print(long int number, char *base)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	int	length;
+	int	base_length;
+
+	length = 0;
+	base_length = ft_strlen(base);
+	if (number < 0)
+	{
+		length += ft_putchar_print('-');
+		number *= -1;
+	}
+	if (number >= base_length)
+	{
+		length += ft_putnbr_base_print((number / base_length), base);
+	}
+	length += ft_putchar_print(base[number % base_length]);
+	return (length);
 }

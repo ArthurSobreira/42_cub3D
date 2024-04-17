@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/08/03 20:00:45 by arsobrei          #+#    #+#             */
+/*   Updated: 2023/08/04 16:21:59 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	if (lst && f)
+	{
+		while (lst != NULL)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+	}
 }

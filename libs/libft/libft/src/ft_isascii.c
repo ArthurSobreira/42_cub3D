@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/07/19 11:37:30 by arsobrei          #+#    #+#             */
+/*   Updated: 2024/02/07 13:16:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+t_bool	ft_isascii(int c)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	if ((c >= 0) && (c <= 127))
+	{
+		return (TRUE);
+	}
+	else
+	{
+		return (FALSE);
+	}
 }

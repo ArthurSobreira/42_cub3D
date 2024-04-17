@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ispipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2024/01/30 12:18:33 by arsobrei          #+#    #+#             */
+/*   Updated: 2024/01/30 12:22:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+t_bool	ft_ispipe(int c)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	if (c == '|')
+	{
+		return (TRUE);
+	}
+	else
+	{
+		return (FALSE);
+	}
 }

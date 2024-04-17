@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2024/01/20 17:30:02 by phenriq2          #+#    #+#             */
+/*   Updated: 2024/02/07 13:15:55 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+t_bool	ft_isspace(int c)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	if ((c >= 9 && c <= 13) || c == 32)
+	{
+		return (TRUE);
+	}
+	else
+	{
+		return (FALSE);
+	}
 }

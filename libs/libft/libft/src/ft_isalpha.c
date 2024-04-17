@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/07/18 19:20:41 by arsobrei          #+#    #+#             */
+/*   Updated: 2024/02/07 13:16:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+t_bool	ft_isalpha(int c)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	if ((c >= 'A') && (c <= 'Z'))
+	{
+		return (TRUE);
+	}
+	else if ((c >= 'a') && (c <= 'z'))
+	{
+		return (TRUE);
+	}
+	else
+	{
+		return (FALSE);
+	}
 }

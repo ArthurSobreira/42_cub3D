@@ -1,65 +1,81 @@
-#------------------------------------------------------------------------------#
-#                                  GENERICS                                    #
-#------------------------------------------------------------------------------#
+NAME = cub3D
+LIBFT = libs/libft/libft.a
+CFLAGS = -Wall -Wextra -Werror -O3 #-g3
+TEMP_PATH = ./temp/
 
-# Special variables
-DEFAULT_GOAL: all
-.DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re
-# 'HIDE = @' will hide all terminal output from Make
-HIDE =
+# Paths for libraries
+LIB_PATH = ./libs/libft
+LIB_NAME = libft.a
 
+# Colors Definition 
+GREEN = "\033[32;1m"
+RED = "\033[31;1m"
+CYAN = "\033[36;1;3;208m"
+WHITE = "\033[37;1;4m"
+COLOR_LIMITER = "\033[0m"
 
-#------------------------------------------------------------------------------#
-#                                VARIABLES                                     #
-#------------------------------------------------------------------------------#
+# Paths Definitions
+HEADER_PATH = ./includes
+BIN_PATH = ./bin/
+SOURCES_PATH = ./src/
 
-# Compiler and flags
-CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -I. -I./$(INCDIR)
-RM		=	rm -f
+SOURCES = main.c \
 
-# Output file name
-NAME	=	cub3D
+OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
-# Sources are all .c files
-SRCDIR	=	src/
-SRCS	=	$(wildcard $(SRCDIR)*.c) # Wildcard for sources is forbidden by norminette
+all: libft $(BIN_PATH) $(NAME)
 
-# Objects are all .o files
-OBJDIR	=	bin/
-OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
+libft:
+ifeq ($(wildcard $(LIB_PATH)/$(LIB_NAME)),)
+	@make -C $(LIB_PATH) --no-print-directory
+	@make get_next_line -C $(LIB_PATH) --no-print-directory
+	@make ft_printf -C $(LIB_PATH) --no-print-directory
+	@echo $(CYAN)" --------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"|  LIBFT  Was Compiled Successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"--------------------------------------"$(COLOR_LIMITER)
+	@echo " "
+endif
 
-# Includes are all .h files
-INCDIR	=	include/
-INC		=	$(wildcard $(INCDIR)*.h)
+$(BIN_PATH)%.o: $(SOURCES_PATH)%.c
+	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(WHITE)$(notdir $(<))...$(COLOR_LIMITER)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER_PATH)
+	@echo " "
 
+$(NAME): $(OBJECTS)
+	@echo $(CYAN)" ----------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"| CUB3D executable was created successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"----------------------------------------------"$(COLOR_LIMITER)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(RFLAGS) -L $(LIB_PATH) -lft
+	@echo " "
 
-#------------------------------------------------------------------------------#
-#                                 TARGETS                                      #
-#------------------------------------------------------------------------------#
+$(BIN_PATH):
+	@mkdir -p $(BIN_PATH)
 
-all: $(NAME)
-
-# Generates output file
-$(NAME): $(OBJS)
-	$(HIDE)$(CC) $(CFLAGS) -o $@ $^
-
-# Compiles sources into objects
-$(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(INC) | $(OBJDIR)
-	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
-
-# Creates directory for binaries
-$(OBJDIR):
-	$(HIDE)mkdir -p $@
-
-# Removes objects
 clean:
-	$(HIDE)$(RM) $(OBJS)
+	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
+	@make clean -C $(LIB_PATH) --no-print-directory
+	@rm -rf $(BIN_PATH)
 
-# Removes objects and executables
 fclean: clean
-	$(HIDE)$(RM) $(NAME)
+	@echo $(RED)[Removing $(NAME) executable]$(COLOR_LIMITER)
+	@echo $(RED)[Removing $(TEMP_PATH)]$(COLOR_LIMITER)
+	@make fclean -C $(LIB_PATH) --no-print-directory
+	@rm -rf $(NAME)
+	@rm -rf $(TEMP_PATH)
 
-# Removes objects and executables and remakes
-re: fclean all
+re: fclean
+	@make --no-print-directory
+
+make_temp:
+	@mkdir -p $(TEMP_PATH)
+
+valgrind: all make_temp 
+	@valgrind -s -q --leak-check=full \
+	--show-reachable=yes \
+	--show-leak-kinds=all \
+	--track-origins=yes \
+	--track-fds=yes \
+	--suppressions=./suppresion.supp \
+	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME)
+
+.PHONY: all clean fclean re libft make_temp valgrind

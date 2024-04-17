@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/07/25 15:58:56 by arsobrei          #+#    #+#             */
+/*   Updated: 2023/07/25 18:46:58 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+char	*ft_strchr(const char *s, int c)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	size_t	index;
+	char	*first_occ;
+
+	index = 0;
+	first_occ = NULL;
+	while (index <= ft_strlen(s))
+	{
+		if (s[index] == (unsigned char) c)
+		{
+			first_occ = (char *)&s[index];
+			return (first_occ);
+		}
+		index++;
+	}
+	return (first_occ);
 }

@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2023/07/26 11:03:33 by arsobrei          #+#    #+#             */
+/*   Updated: 2023/07/26 11:21:20 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	size_t			index;
+	unsigned char	*s1_temp;
+	unsigned char	*s2_temp;
+
+	index = 0;
+	s1_temp = (unsigned char *)s1;
+	s2_temp = (unsigned char *)s2;
+	while (index < n)
+	{
+		if (s1_temp[index] < s2_temp[index])
+		{
+			return (-1);
+		}
+		else if (s1_temp[index] > s2_temp[index])
+		{
+			return (1);
+		}
+		index++;
+	}
+	return (0);
 }

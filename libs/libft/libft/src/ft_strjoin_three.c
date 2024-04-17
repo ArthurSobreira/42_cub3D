@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin_three.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:31:01 by arsobrei         ###   ########.fr       */
+/*   Created: 2024/01/24 15:41:00 by arsobrei          #+#    #+#             */
+/*   Updated: 2024/01/29 09:55:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int main(int argc, char const *argv[])
+char	*ft_strjoin_three(char const *s1, char const *s2, char const *s3)
 {
-	(void)argc;
-	(void)argv;
-	return 0;
+	char	*temp;
+	char	*result;
+
+	temp = ft_strjoin(s1, s2);
+	result = ft_strjoin(temp, s3);
+	ft_free_pointer((void *)&temp);
+	return (result);
 }
