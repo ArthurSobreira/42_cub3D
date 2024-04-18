@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 12:27:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:38:38 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,35 @@
 # define CUB3D_H
 
 # include "../libs/libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <string.h>
+# include <unistd.h>
+# define PERMITED_MAP_CHARS " 01NSEW"
 
+typedef struct s_core	t_core;
+typedef void			(*t_set_max)(size_t n);
+
+typedef struct s_map
+{
+	char				**map_str;
+	t_set_max			set_max_x;
+	t_set_max			set_max_y;
+	int					max_x;
+	int					max_y;
+}						t_map;
+
+void					set_max_x(size_t x);
+void					set_max_y(size_t y);
+t_map					*get_map(void);
+size_t					maxcol(void);
+int						lenfd(void);
+void					valid_open_map(void);
+void					ft_print_map(void);
+void					ft_error(char *msg);
+void					constructor_map(void);
 
 #endif

@@ -1,6 +1,6 @@
 NAME = cub3D
 LIBFT = libs/libft/libft.a
-CFLAGS = -Wall -Wextra -Werror -O3 #-g3
+CFLAGS = -Wall -Wextra -Werror -g3
 TEMP_PATH = ./temp/
 
 # Paths for libraries
@@ -19,7 +19,7 @@ HEADER_PATH = ./includes
 BIN_PATH = ./bin/
 SOURCES_PATH = ./src/
 
-SOURCES = main.c \
+SOURCES = main.c map_utils.c set_map.c error.c constructor.c getters.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
