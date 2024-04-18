@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 16:13:46 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 13:08:06 by phenriq2         ###   ########.fr       */
+/*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
+/*   Updated: 2024/04/18 11:43:15 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_free_matrix(char **matrix)
+void	ft_error(char *msg)
 {
-	size_t	index;
-
-	index = 0;
-	while (matrix[index] != NULL)
-	{
-		free(matrix[index]);
-		index++;
-	}
-	free(matrix);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putchar_fd('\n', 2);
+	ft_free_matrix(get_map()->map_str);
+	exit(1);
 }

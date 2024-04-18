@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
+/*   getters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 16:13:46 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 13:08:06 by phenriq2         ###   ########.fr       */
+/*   Created: 2024/04/18 11:14:17 by phenriq2          #+#    #+#             */
+/*   Updated: 2024/04/18 11:14:45 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_free_matrix(char **matrix)
+t_map	*get_map(void)
 {
-	size_t	index;
+	static t_map	core;
 
-	index = 0;
-	while (matrix[index] != NULL)
-	{
-		free(matrix[index]);
-		index++;
-	}
-	free(matrix);
+	return (&core);
 }

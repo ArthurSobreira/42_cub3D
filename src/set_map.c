@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
+/*   set_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 16:13:46 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/17 13:08:06 by phenriq2         ###   ########.fr       */
+/*   Created: 2024/04/17 18:57:59 by phenriq2          #+#    #+#             */
+/*   Updated: 2024/04/18 11:23:47 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_free_matrix(char **matrix)
+void	set_max_x(size_t x)
 {
-	size_t	index;
+	t_map	*map;
 
-	index = 0;
-	while (matrix[index] != NULL)
-	{
-		free(matrix[index]);
-		index++;
-	}
-	free(matrix);
+	map = get_map();
+	map->max_x = x;
+}
+
+void	set_max_y(size_t y)
+{
+	t_map	*map;
+
+	map = get_map();
+	map->max_y = y;
 }
