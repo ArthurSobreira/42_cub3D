@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/18 15:38:10 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:38:00 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void					ft_print_map(void);
 void					ft_error(char *msg);
 void					constructor_map(void);
 void					fill_with_spaces(void);
+int						set_max_xy(void);
 
 #endif

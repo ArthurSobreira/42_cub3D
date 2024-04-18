@@ -6,50 +6,34 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/18 16:04:01 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:37:24 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	lenfd(void)
+int	set_max_xy(void)
 {
-	int		bytes;
 	int		fd;
-	char	buf[1];
+	char	*buf;
 	int		lines;
+	int		col;
 
-	bytes = 0;
-	lines = 1;
 	fd = open("./maps/map1.cub", O_RDONLY);
-	bytes = read(fd, buf, 1);
-	while (bytes)
+	lines = 0;
+	col = 0;
+	buf = get_next_line(fd);
+	while (buf)
 	{
-		if (buf[0] == '\n')
-			lines++;
-		bytes = read(fd, buf, 1);
+		lines++;
+		if (col < ft_strlen(buf))
+			col = ft_strlen(buf);
+		free(buf);
+		buf = get_next_line(fd);
 	}
+	get_map()->set_max_x(col);
+	get_map()->set_max_y(lines);
 	close(fd);
-	return (lines);
-}
-
-size_t	maxcol(void)
-{
-	int		i;
-	size_t	max;
-	t_map	*map_struct;
-
-	i = 0;
-	max = 0;
-	map_struct = get_map();
-	while (map_struct->map_str[i])
-	{
-		if (ft_strlen(map_struct->map_str[i]) > max)
-			max = ft_strlen(map_struct->map_str[i]);
-		// printf("max: %zu\n", ft_strlen(map_struct->map_str[i]));
-		i++;
-	}
-	return (max);
 }
 
 void	valid_open_map_x(void)
