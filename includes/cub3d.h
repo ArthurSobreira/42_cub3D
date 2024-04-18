@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/18 11:38:38 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:38:10 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void					set_max_y(size_t y);
 t_map					*get_map(void);
 size_t					maxcol(void);
 int						lenfd(void);
-void					valid_open_map(void);
+void					valid_open_map_x(void);
+void					valid_open_map_y(void);
 void					ft_print_map(void);
 void					ft_error(char *msg);
 void					constructor_map(void);
+void					fill_with_spaces(void);
 
 #endif
