@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/19 18:13:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:19:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ typedef struct s_cub3d
 	uint32_t	colors[COLORS_LEN];
 }				t_cub3d;
 
-void					set_max_x(size_t x);
-void					set_max_y(size_t y);
-t_map					*get_map(void);
-size_t					maxcol(void);
-int						lenfd(void);
-void					valid_open_map(void);
-void					ft_print_map(void);
-void					ft_error(char *msg);
-void					constructor_map(void);
+void			set_max_x(size_t x);
+void			set_max_y(size_t y);
+t_map			*get_map(void);
+t_cub3d			*get_core(void);
+size_t			maxcol(void);
+int				lenfd(void);
+void			valid_open_map(void);
+void			ft_print_map(void);
+void			ft_error(char *msg);
+void			constructor_map(void);
 
 #endif
