@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/18 11:43:15 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:40:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_error(char *msg)
 	ft_putstr_fd(msg, 2);
 	ft_putchar_fd('\n', 2);
 	ft_free_matrix(get_map()->map_str);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
