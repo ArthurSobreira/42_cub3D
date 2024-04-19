@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/19 11:54:56 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:00:20 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,37 @@
 
 void	build_map(void)
 {
-	char	**map;
-}
-
-int	arrumar_depois(void)
-{
-	int	fd;
-	int	i;
+	t_map	*map;
+	int		i;
+	int		fd;
+	char	*line;
 
 	i = 0;
-	constructor_map();
-	get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
+	map = get_map();
+	printf("max_y: %d\n", map->max_y);
 	fd = open("./maps/map1.cub", O_RDONLY);
 	while (i < map->max_y - 1)
 	{
-		get_map()->map_str[i] = get_next_line(fd);
+		line = get_next_line(fd);
+		line[ft_strlen(line) - 1] = ' ';
+		ft_memcpy(map->map_str[i], line, ft_strlen(line));
+		printf("line: [%s]\n", map->map_str[i]);
 		i++;
+		free(line);
 	}
-	get_map()->map_str[i] = get_next_line(fd);
-	ft_print_map();
-	valid_open_map();
-	ft_free_matrix(get_map()->map_str);
-	close(fd);
-	printf("ok\n");
 }
 
 int	main(void)
 {
+	t_map	*map;
+	int		i;
+
+	i = -1;
 	constructor_map();
-	set_max_xy();
-	arrumar_depois();
+	map = get_map();
+	set_max_y(lenfd());
+	set_max_x(maxcol());
+	printf("max_x: %d\n", map->max_x);
+	printf("max_y: %d\n", map->max_y);
 	return (0);
 }
