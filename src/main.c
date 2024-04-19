@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/18 16:42:26 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:54:56 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,22 @@ void	build_map(void)
 
 int	arrumar_depois(void)
 {
-	int		fd;
-	int		i;
-	char	*line;
-	t_map	*map;
+	int	fd;
+	int	i;
 
 	i = 0;
-	map = get_map();
-	map->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
+	constructor_map();
+	get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
 	fd = open("./maps/map1.cub", O_RDONLY);
 	while (i < map->max_y - 1)
 	{
-		line = get_next_line(fd);
-		map->map_str[i] = ft_calloc(sizeof(char), ft_strlen(line) + 1);
+		get_map()->map_str[i] = get_next_line(fd);
 		i++;
 	}
-	map->map_str[i] = get_next_line(fd);
-	map->set_max_x(maxcol());
-	map->set_max_y(lenfd());
+	get_map()->map_str[i] = get_next_line(fd);
 	ft_print_map();
-	fill_with_spaces();
-	ft_print_map();
-	valid_open_map_x();
-	// valid_open_map_y();
-	maxcol();
-	ft_free_matrix(map->map_str);
+	valid_open_map();
+	ft_free_matrix(get_map()->map_str);
 	close(fd);
 	printf("ok\n");
 }

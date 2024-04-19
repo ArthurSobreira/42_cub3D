@@ -6,9 +6,10 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/18 16:38:00 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:54:44 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -40,12 +41,10 @@ void					set_max_y(size_t y);
 t_map					*get_map(void);
 size_t					maxcol(void);
 int						lenfd(void);
-void					valid_open_map_x(void);
-void					valid_open_map_y(void);
+void					valid_open_map(void);
 void					ft_print_map(void);
 void					ft_error(char *msg);
 void					constructor_map(void);
 void					fill_with_spaces(void);
-int						set_max_xy(void);
 
 #endif
