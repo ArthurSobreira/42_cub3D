@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:09:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:28:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,4 @@ char	**get_parser_infos(t_cub3d *core)
 		ft_error(ERROR_INCOMPLETE_MAP);
 	close(fd);
 	return (parser_infos);
-}
-
-t_bool	is_map(char *line)
-{
-	size_t	index;
-
-	index = 0;
-	while (line[index])
-	{
-		if (!ft_strchr(PERMITED_MAP_CHARS, line[index]))
-			return (FALSE);
-		index++;
-	}
-	return (TRUE);
 }
