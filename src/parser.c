@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:09:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:54:28 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ t_bool	valid_map_name(char *map_name)
 	size_t	length;
 	int		fd;
 	char	*first_line;
-	
+
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
 	length = ft_strlen(map_name);
-	if (ft_strncmp(map_name + length - 4, ".cub", 4) \
-		|| length < 5)
+	if (ft_strncmp(map_name + length - 4, ".cub", 4) || length < 5)
 		return (FALSE);
 	first_line = get_next_line(fd);
 	if (!first_line || !*first_line)
