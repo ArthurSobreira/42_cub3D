@@ -22,7 +22,7 @@ SOURCES_PATH = ./src/
 SOURCES = main.c \
 	constructor.c \
 	error.c \
-	getters.c
+	getters.c \
 	map_utils.c \
 	parser.c \
 	set_map.c \
