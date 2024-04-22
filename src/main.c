@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 11:35:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:57:18 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**get_parser_infos(t_cub3d *core)
 		return (NULL);
 	line = NULL;
 	index = 0;
-	parser_infos = (char**)ft_calloc(sizeof(char *), PARSER_INFOS_LEN);
+	parser_infos = (char **)ft_calloc(sizeof(char *), PARSER_INFOS_LEN);
 	fd = open(core->map_path, O_RDONLY);
 	if (fd < 0)
 		ft_error(ERROR_INVALID_MAP_PATH);
@@ -60,8 +60,8 @@ char	**get_parser_infos(t_cub3d *core)
 int	main(int argc, char *argv[])
 {
 	t_cub3d	*core;
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
 
 	core = get_core();
 	core->map_path = argv[1];
@@ -70,18 +70,24 @@ int	main(int argc, char *argv[])
 	i = 0;
 	get_parser_infos(core);
 	constructor_map();
-	get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
-	fd = open("./maps/map1.cub", O_RDONLY);
-	while (i < lenfd())
-	{
-		get_map()->map_str[i] = get_next_line(fd);
-		i++;
-	}
-	get_map()->map_str[i] = get_next_line(fd);
-	ft_print_map();
-	valid_open_map();
-	ft_free_matrix(get_map()->map_str);
-	close(fd);
-	printf("ok\n");
-	return (EXIT_SUCCESS);	
+	// continua no proximo episodio
 }
+
+// int	main(void)
+// {
+// 	t_map	*map;
+// 	int		i;
+
+// 	i = -1;
+// 	constructor_map();
+// 	map = get_map();
+// 	set_max_y(lenfd());
+// 	set_max_x(maxcol());
+// 	build_map();
+// 	ft_print_map();
+// 	valid_open_map();
+// 	ft_free_matrix(get_map()->map_str);
+// 	close(fd);
+// 	printf("ok\n");
+// 	return (EXIT_SUCCESS);
+// }
