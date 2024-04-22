@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/19 18:19:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:35:37 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <string.h>
 # include <unistd.h>
 
-# define ERROR_INVALID_MAP_PATH "Error\nInvalid map path\n"
-# define ERROR_INCOMPLETE_MAP "Error\nIncomplete map file\n"
+# define ERROR_INVALID_MAP_PATH "Error\nInvalid Map Path :(\n"
+# define ERROR_INCOMPLETE_MAP "Error\nIncomplete Map File :(\n"
 # define PERMITED_MAP_CHARS " 01NSEW"
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 5
@@ -54,6 +54,7 @@ typedef struct s_cub3d
 	char		*map_path;
 	char		*textures[TEXTURES_LEN];
 	uint32_t	colors[COLORS_LEN];
+	t_bool		error;
 }				t_cub3d;
 
 void			set_max_x(size_t x);
@@ -66,5 +67,6 @@ void			valid_open_map(void);
 void			ft_print_map(void);
 void			ft_error(char *msg);
 void			constructor_map(void);
+t_bool			valid_map_name(char *map_name);
 
 #endif

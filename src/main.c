@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/19 18:21:59 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:35:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	**get_parser_infos(t_cub3d *core)
 	int		fd;
 	size_t	index;
 
+	if (core->error)
+		return (NULL);
 	line = NULL;
 	index = 0;
 	parser_infos = (char**)ft_calloc(sizeof(char *), PARSER_INFOS_LEN);
@@ -61,28 +63,25 @@ int	main(int argc, char *argv[])
 	int	fd;
 	int	i;
 
-	if (argc == 2)
+	core = get_core();
+	core->map_path = argv[1];
+	if (argc != 2 || !valid_map_name(core->map_path))
+		ft_error(ERROR_INVALID_MAP_PATH);
+	i = 0;
+	get_parser_infos(core);
+	constructor_map();
+	get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
+	fd = open("./maps/map1.cub", O_RDONLY);
+	while (i < lenfd())
 	{
-		i = 0;
-		core = get_core();
-		core->map_path = argv[1];
-		get_parser_infos(core);
-		constructor_map();
-		get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
-		fd = open("./maps/map1.cub", O_RDONLY);
-		while (i < lenfd())
-		{
-			get_map()->map_str[i] = get_next_line(fd);
-			i++;
-		}
 		get_map()->map_str[i] = get_next_line(fd);
-		ft_print_map();
-		valid_open_map();
-		ft_free_matrix(get_map()->map_str);
-		close(fd);
-		printf("ok\n");
-		return (EXIT_SUCCESS);	
+		i++;
 	}
-	ft_error("Error\nInvalid number of arguments\n");
-	return (EXIT_FAILURE);
+	get_map()->map_str[i] = get_next_line(fd);
+	ft_print_map();
+	valid_open_map();
+	ft_free_matrix(get_map()->map_str);
+	close(fd);
+	printf("ok\n");
+	return (EXIT_SUCCESS);	
 }
