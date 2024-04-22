@@ -26,6 +26,9 @@ SOURCES = main.c \
 	map_utils.c \
 	parser.c \
 	set_map.c \
+	map_builder.c \ 
+	map_validation.c \
+	map_validation2.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 

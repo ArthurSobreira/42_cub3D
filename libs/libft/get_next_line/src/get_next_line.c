@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:20:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/01/30 12:16:03 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:51:33 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ char	*get_next_line(int fd)
 
 	if (((fd < 0) && !main_list) || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (fd < 0 && main_list)
+	{
+		ft_wipe_list(&main_list, -1);
+		return (NULL);
+	}
 	if (ft_read_the_file(fd, &main_list) && !main_list)
 		return (NULL);
 	counter = ft_sizelst(&main_list, '\n');
