@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:03:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:07:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,11 @@
 int	main(int argc, char *argv[])
 {
 	t_cub3d	*core;
-	int		fd;
-	int		i;
 
 	core = get_core();
 	core->map_path = argv[1];
 	if (argc != 2 || !valid_map_name(core->map_path))
 		ft_error(ERROR_INVALID_MAP_PATH);
-	i = 0;
 	get_parser_infos(core);
 	constructor_map();
 	// continua no proximo episodio
