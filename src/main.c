@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 11:57:18 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:42:17 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,19 @@ char	**get_parser_infos(t_cub3d *core)
 int	main(int argc, char *argv[])
 {
 	t_cub3d	*core;
-	int		fd;
-	int		i;
 
 	core = get_core();
 	core->map_path = argv[1];
 	if (argc != 2 || !valid_map_name(core->map_path))
 		ft_error(ERROR_INVALID_MAP_PATH);
-	i = 0;
 	get_parser_infos(core);
 	constructor_map();
-	// continua no proximo episodio
+	map_builder();
+	map_validation();
+	ft_free_matrix(get_map()->map_str);
+	return (EXIT_SUCCESS);
 }
+// continua no proximo episodio
 
 // int	main(void)
 // {
