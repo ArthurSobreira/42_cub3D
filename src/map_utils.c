@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 11:17:39 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:16:32 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@ int	lenfd(void)
 	int		lines;
 
 	fd = open("./maps/map1.cub", O_RDONLY);
-	lines = 0;
+	lines = 1;
 	buf = get_next_line(fd);
 	while (buf)
 	{
 		free(buf);
-		lines++;
 		buf = get_next_line(fd);
+		lines++;
 	}
-	free(buf);
+	if (buf)
+		free(buf);
 	close(fd);
-	buf = get_next_line(fd);
+	get_next_line(-1);
 	return (lines);
 }
 
@@ -52,7 +53,7 @@ size_t	maxcol(void)
 		free(line);
 	}
 	close(fd);
-	printf("%d\n", fd);
+	get_next_line(-1);
 	return (max);
 }
 
@@ -87,24 +88,15 @@ void	valid_open_map(void)
 void	ft_print_map(void)
 {
 	int		i;
-	int		j;
 	char	**map;
 
 	map = get_map()->map_str;
 	i = 0;
-	printf("\n");
 	while (map[i])
 	{
-		j = 0;
-		printf("%c", '[');
-		while (map[i][j])
-		{
-			printf("%c", map[i][j]);
-			j++;
-		}
-		printf("%c", ']');
+		printf("[%s]\n", map[i]);
 		i++;
-		printf("\n");
 	}
-	printf("\n");
+	printf("[%d]\n", i);
+	printf("%p\n", map[i]);
 }
