@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/18 11:36:32 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:17:39 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,45 @@
 
 int	lenfd(void)
 {
-	int		bytes;
 	int		fd;
-	char	buf[1];
+	char	*buf;
 	int		lines;
 
-	bytes = 0;
-	lines = 1;
 	fd = open("./maps/map1.cub", O_RDONLY);
-	bytes = read(fd, buf, 1);
-	while (bytes)
+	lines = 0;
+	buf = get_next_line(fd);
+	while (buf)
 	{
-		if (buf[0] == '\n')
-			lines++;
-		bytes = read(fd, buf, 1);
+		free(buf);
+		lines++;
+		buf = get_next_line(fd);
 	}
+	free(buf);
 	close(fd);
-	get_map()->set_max_y(lines);
+	buf = get_next_line(fd);
 	return (lines);
 }
 
 size_t	maxcol(void)
 {
-	int		i;
 	size_t	max;
-	t_map	*map_struct;
+	int		fd;
+	char	*line;
+	int		i;
 
-	i = 0;
 	max = 0;
-	map_struct = get_map();
-	while (map_struct->map_str[i])
+	i = -1;
+	fd = open("./maps/map1.cub", O_RDONLY);
+	line = "get";
+	while (++i < lenfd() - 1)
 	{
-		if (ft_strlen(map_struct->map_str[i]) > max)
-			max = ft_strlen(map_struct->map_str[i]);
-		i++;
+		line = get_next_line(fd);
+		if (ft_strlen(line) > max)
+			max = ft_strlen(line);
+		free(line);
 	}
-	map_struct->set_max_x(max);
+	close(fd);
+	printf("%d\n", fd);
 	return (max);
 }
 
@@ -67,10 +70,13 @@ void	valid_open_map(void)
 		while (map[i][j])
 		{
 			if (map[i][j] == '0')
-				if ((i - 1 >= 0 && map[i - 1][j] == ' ') ||
-					(i + 1 <= get_map()->max_y && map[i + 1][j] == ' ') ||
+				if ((i - 1 >= 0 && (map[i - 1][j] == ' ' || map[i
+							- 1][j] == '\0')) ||
+					(i + 1 <= get_map()->max_y && (map[i + 1][j] == ' ' || map[i
+								+ 1][j] == '\0')) ||
 					(j - 1 >= 0 && map[i][j - 1] == ' ') ||
-					(j + 1 <= get_map()->max_x && map[i][j + 1] == ' '))
+					(j + 1 <= get_map()->max_x && (map[i][j + 1] == ' '
+								|| map[i][j + 1] == '\0')))
 					ft_error("Map is not closed");
 			j++;
 		}
@@ -86,15 +92,19 @@ void	ft_print_map(void)
 
 	map = get_map()->map_str;
 	i = 0;
+	printf("\n");
 	while (map[i])
 	{
 		j = 0;
+		printf("%c", '[');
 		while (map[i][j])
 		{
 			printf("%c", map[i][j]);
 			j++;
 		}
+		printf("%c", ']');
 		i++;
+		printf("\n");
 	}
 	printf("\n");
 }

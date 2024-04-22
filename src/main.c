@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 11:35:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:56:12 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,37 @@ int	main(int argc, char *argv[])
 	constructor_map();
 	get_map()->map_str = ft_calloc(sizeof(char *), (lenfd() + 1));
 	fd = open("./maps/map1.cub", O_RDONLY);
-	while (i < lenfd())
+	map->map_str = malloc(sizeof(char *) * map->max_y);
+	while (i < map->max_y)
 	{
-		get_map()->map_str[i] = get_next_line(fd);
+		map->map_str[i] = malloc(sizeof(char) * map->max_x);
 		i++;
 	}
-	get_map()->map_str[i] = get_next_line(fd);
+	i = 0;
+	while (i < map->max_y - 1)
+	{
+		line = get_next_line(fd);
+		line[ft_strlen(line) - 1] = '\0';
+		ft_memcpy(map->map_str[i], line, ft_strlen(line));
+		i++;
+		free(line);
+	}
+	line = get_next_line(-1);
+	map->map_str[lenfd() - 1] = NULL;
+	close(fd);
+}
+
+int	main(void)
+{
+	t_map	*map;
+	int		i;
+
+	i = -1;
+	constructor_map();
+	map = get_map();
+	set_max_y(lenfd());
+	set_max_x(maxcol());
+	build_map();
 	ft_print_map();
 	valid_open_map();
 	ft_free_matrix(get_map()->map_str);
