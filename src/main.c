@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:07:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:45:04 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,5 @@ int	main(int argc, char *argv[])
 		ft_error(ERROR_INVALID_MAP_PATH);
 	get_parser_infos(core);
 	constructor_map();
-	// continua no proximo episodio
 }
-
-// int	main(void)
-// {
-// 	t_map	*map;
-// 	int		i;
-
-// 	i = -1;
-// 	constructor_map();
-// 	map = get_map();
-// 	set_max_y(lenfd());
-// 	set_max_x(maxcol());
-// 	build_map();
-// 	ft_print_map();
-// 	valid_open_map();
-// 	ft_free_matrix(get_map()->map_str);
-// 	close(fd);
-// 	printf("ok\n");
-// 	return (EXIT_SUCCESS);
-// }
+	// continua no proximo episodio
