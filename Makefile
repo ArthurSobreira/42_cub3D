@@ -24,6 +24,7 @@ SOURCES = main.c \
 	error.c \
 	getters.c \
 	map_utils.c \
+	parser_utils.c \
 	parser.c \
 	set_map.c \
 
