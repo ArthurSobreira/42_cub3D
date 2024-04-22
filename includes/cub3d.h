@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:09:03 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:27:48 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,11 @@ void			ft_print_map(void);
 void			ft_error(char *msg);
 void			constructor_map(void);
 // void			fill_with_spaces(void);
+
 t_bool			valid_map_name(char *map_name);
 char			**get_parser_infos(t_cub3d *core);
 t_bool			is_map(char *line);
+t_bool			is_texture(char *line);
+t_bool			is_color(char *line);
 
 #endif
