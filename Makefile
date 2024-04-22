@@ -19,7 +19,13 @@ HEADER_PATH = ./includes
 BIN_PATH = ./bin/
 SOURCES_PATH = ./src/
 
-SOURCES = main.c map_utils.c set_map.c error.c constructor.c getters.c
+SOURCES = main.c \
+	constructor.c \
+	error.c \
+	getters.c \
+	map_utils.c \
+	parser.c \
+	set_map.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 11:54:53 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:09:03 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,20 @@ typedef struct s_cub3d
 	t_bool		error;
 }				t_cub3d;
 
-void					set_max_x(size_t x);
-void					set_max_y(size_t y);
-t_map					*get_map(void);
-size_t					maxcol(void);
-int						lenfd(void);
-void					valid_open_map(void);
-void					ft_print_map(void);
-void					ft_error(char *msg);
-void					constructor_map(void);
-void					fill_with_spaces(void);
+t_cub3d			*get_core(void);
+t_map			*get_map(void);
+
+void			set_max_x(size_t x);
+void			set_max_y(size_t y);
+size_t			maxcol(void);
+int				lenfd(void);
+void			valid_open_map(void);
+void			ft_print_map(void);
+void			ft_error(char *msg);
+void			constructor_map(void);
+// void			fill_with_spaces(void);
+t_bool			valid_map_name(char *map_name);
+char			**get_parser_infos(t_cub3d *core);
+t_bool			is_map(char *line);
 
 #endif
