@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 15:35:48 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:49:40 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	map_builder(void)
 	char	*line;
 	int		index;
 
-	fd = open("./maps/map1.cub", O_RDONLY);
+	fd = open("./assets/maps/map1.cub", O_RDONLY);
 	map_alloc();
 	line = get_next_line(fd);
 	index = 0;

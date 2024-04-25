@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 15:16:32 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:50:13 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	lenfd(void)
 	char	*buf;
 	int		lines;
 
-	fd = open("./maps/map1.cub", O_RDONLY);
+	fd = open("./assets/maps/map1.cub", O_RDONLY);
 	lines = 1;
 	buf = get_next_line(fd);
 	while (buf)
@@ -43,7 +43,7 @@ size_t	maxcol(void)
 
 	max = 0;
 	i = -1;
-	fd = open("./maps/map1.cub", O_RDONLY);
+	fd = open("./assets/maps/map1.cub", O_RDONLY);
 	line = "get";
 	while (++i < lenfd() - 1)
 	{
