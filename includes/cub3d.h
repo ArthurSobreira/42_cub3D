@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:27:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/25 12:23:44 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,26 @@
 # define ERROR_INVALID_MAP_PATH "Error\nInvalid Map Path :(\n"
 # define ERROR_INCOMPLETE_MAP "Error\nIncomplete Map File :(\n"
 # define PERMITED_MAP_CHARS " 01NSEW"
-# define PARSER_INFOS_LEN 6
-# define TEXTURES_LEN 5
+# define PARSER_INFOS_LEN 7
+# define TEXTURES_LEN 4
 # define COLORS_LEN 2
 
 typedef struct s_core	t_core;
 typedef void			(*t_set_max)(size_t n);
 
-enum	e_colors
+typedef	enum	e_textures
 {
-	CEILING,
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST
+} 	t_textures;
+
+typedef	enum	e_colors
+{
+	CEILING = 4,
 	FLOOR
-};
+}	t_textures;
 
 typedef struct s_map
 {
@@ -52,7 +60,8 @@ typedef struct s_cub3d
 {
 	t_map		*map;
 	char		*map_path;
-	char		*textures[TEXTURES_LEN];
+	char		*temp_map_path;
+	char 		**parser_infos;
 	uint32_t	colors[COLORS_LEN];
 	t_bool		error;
 }				t_cub3d;
@@ -70,8 +79,8 @@ void			ft_error(char *msg);
 void			constructor_map(void);
 // void			fill_with_spaces(void);
 
+char			**get_parser_infos(void);
 t_bool			valid_map_name(char *map_name);
-char			**get_parser_infos(t_cub3d *core);
 t_bool			is_map(char *line);
 t_bool			is_texture(char *line);
 t_bool			is_color(char *line);
