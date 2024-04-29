@@ -54,3 +54,4 @@ dkms.conf
 .vscode/
 cub3D
 bin/
+temp/
