@@ -99,6 +99,6 @@ valgrind: all make_temp
 	--track-origins=yes \
 	--track-fds=yes \
 	--suppressions=./suppresion.supp \
-	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME)
+	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME) assets/maps/map1.cub
 
 .PHONY: all clean fclean re libft make_temp valgrind
