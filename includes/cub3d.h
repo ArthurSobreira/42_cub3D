@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 16:52:24 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:54:20 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 5
 # define COLORS_LEN 2
+# define ESC MLX_KEY_ESCAPE
+# define UP MLX_KEY_UP
+# define DOWN MLX_KEY_DOWN
+# define LEFT MLX_KEY_LEFT
+# define RIGHT MLX_KEY_RIGHT
+# define W MLX_KEY_W
+# define S MLX_KEY_S
+# define A MLX_KEY_A
+# define D MLX_KEY_D
+# define Q MLX_KEY_Q
+# define P MLX_PRESS
+# define R MLX_REPEAT
 
 typedef struct s_core	t_core;
 typedef void			(*t_set_max)(size_t n);
@@ -49,6 +61,12 @@ typedef struct s_map
 	int					max_y;
 }						t_map;
 
+typedef struct s_image
+{
+	mlx_texture_t		*texture;
+	mlx_image_t			*image;
+}						t_image;
+
 typedef struct s_cub3d
 {
 	t_map				*map;
@@ -56,6 +74,8 @@ typedef struct s_cub3d
 	char				*textures[TEXTURES_LEN];
 	uint32_t			colors[COLORS_LEN];
 	t_bool				error;
+	mlx_t				*mlx;
+	t_image				image[1000];
 }						t_cub3d;
 
 void					set_max_x(size_t x);
