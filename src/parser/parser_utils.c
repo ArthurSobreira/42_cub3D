@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:28:20 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/22 12:32:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:38:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,30 @@ t_bool	is_color(char *line)
 	if (line[index] == 'F' || line[index] == 'C')
 		return (TRUE);
 	return (FALSE);
+}
+
+void	normalize_element(char *start)
+{
+	char	*end;
+
+	end = start;
+	while (*end && *end == ' ')
+		end++;
+	if (start != end)
+		ft_memmove(start, end, ft_strlen(end) + 1);
+	while (*start)
+	{
+		if (*start == ' ')
+		{
+			end = start + 1;
+			while (*end && *end == ' ')
+				end++;
+			if (start + 1 != end)
+				ft_memmove(start + 1, end, ft_strlen(end) + 1);
+		}
+		if ((*start == '\n' || *start == '\r') && start[1] == '\0')
+			*start = 0;
+		if (*start)
+			start++;
+	}
 }
