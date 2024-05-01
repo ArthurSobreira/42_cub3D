@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 12:09:09 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:56:09 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_error(char *msg)
 {
-	get_core()->error = TRUE;
+	t_cub3d	*core;
+
+	core = get_core();
 	ft_putstr_fd(msg, 2);
-	if (get_map()->map_str)
-		ft_free_matrix(get_map()->map_str);
+	clear_all();
 	exit(EXIT_FAILURE);
 }
