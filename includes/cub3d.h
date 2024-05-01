@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/29 18:54:20 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:14:23 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # include <string.h>
 # include <unistd.h>
 
+# define TEST_PATH_IMG "./assets/textures/minecraft_diamond.png"
+# define MAX_Y 100
+# define MAP_I 6
+
 # define ERROR_INVALID_MAP_PATH "Error\nInvalid Map Path :(\n"
 # define ERROR_INCOMPLETE_MAP "Error\nIncomplete Map File :(\n"
 # define PERMITED_MAP_CHARS " 01NSEW"
@@ -30,6 +34,8 @@
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 5
 # define COLORS_LEN 2
+# define WIDTH 1280
+# define HEIGHT 720
 # define ESC MLX_KEY_ESCAPE
 # define UP MLX_KEY_UP
 # define DOWN MLX_KEY_DOWN
@@ -54,29 +60,29 @@ enum					e_colors
 
 typedef struct s_map
 {
-	char				**map_str;
+	char				*map_str[MAX_Y];
 	t_set_max			set_max_y;
 	t_set_max			set_max_x;
 	int					max_x;
 	int					max_y;
 }						t_map;
 
-typedef struct s_image
-{
-	mlx_texture_t		*texture;
-	mlx_image_t			*image;
-}						t_image;
-
 typedef struct s_cub3d
 {
 	t_map				*map;
+
 	char				*map_path;
 	char				*textures[TEXTURES_LEN];
 	uint32_t			colors[COLORS_LEN];
 	t_bool				error;
-	mlx_t				*mlx;
-	t_image				image[1000];
 }						t_cub3d;
+
+typedef struct s_mlx
+{
+	void				*mlx;
+	mlx_image_t			*img;
+	mlx_texture_t		*texture;
+}						t_mlx;
 
 void					set_max_x(size_t x);
 void					set_max_y(size_t y);
@@ -95,5 +101,9 @@ t_bool					valid_map_name(char *map_name);
 void					map_validation(void);
 int						player_locale_y_valid(void);
 int						player_locale_x_valid(void);
+void					mlx_teste(void);
+t_mlx					*get_mlx(void);
+void					constructor_gnl(void);
+void					print_initial_buffer(void);
 
 #endif
