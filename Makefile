@@ -25,6 +25,7 @@ SOURCES = main.c \
 	$(PARSER_PATH)parser_textures.c \
 	$(PARSER_PATH)parser_utils.c \
 	$(PARSER_PATH)parser.c \
+	clear.c \
 	constructor.c \
 	error.c \
 	getters.c \
