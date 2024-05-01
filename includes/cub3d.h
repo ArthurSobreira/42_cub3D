@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/30 22:56:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/01 07:47:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ERROR_INVALID_MAP_PATH "\033[0;31mError\nInvalid Map Path :(\033[0;31m\n"
 # define ERROR_INCOMPLETE_MAP "\033[0;31mError\nIncomplete Map File :(\033[0;31m\n"
 # define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0;31m\n"
+# define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0;31m\n"
 # define PERMITED_MAP_CHARS " 01NSEW"
 # define PARSER_INFOS_LEN 7
 # define TEXTURES_LEN 4
@@ -82,12 +83,15 @@ void			constructor_map(void);
 // void			fill_with_spaces(void);
 
 void			get_parser_infos(void);
+void			parser_line(char **parser_infos, char *line, \
+											t_bool *is_map_flag);
 t_bool			valid_map_name(char *map_name);
 t_bool			is_map(char *line);
 t_bool			is_texture(char *line);
 t_bool			is_color(char *line);
 void			normalize_element(char *start);
 short			parser_texture(char **s_line, char **parser_infos);
+short			parser_color(char **s_line, char **parser_infos);
 
 void	ft_free_local_matrix(char **matrix);
 void	clear_all(void);
