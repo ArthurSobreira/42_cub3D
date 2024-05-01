@@ -6,56 +6,11 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/23 17:50:13 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:18:33 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	lenfd(void)
-{
-	int		fd;
-	char	*buf;
-	int		lines;
-
-	fd = open("./assets/maps/map1.cub", O_RDONLY);
-	lines = 1;
-	buf = get_next_line(fd);
-	while (buf)
-	{
-		free(buf);
-		buf = get_next_line(fd);
-		lines++;
-	}
-	if (buf)
-		free(buf);
-	close(fd);
-	get_next_line(-1);
-	return (lines);
-}
-
-size_t	maxcol(void)
-{
-	size_t	max;
-	int		fd;
-	char	*line;
-	int		i;
-
-	max = 0;
-	i = -1;
-	fd = open("./assets/maps/map1.cub", O_RDONLY);
-	line = "get";
-	while (++i < lenfd() - 1)
-	{
-		line = get_next_line(fd);
-		if (ft_strlen(line) > max)
-			max = ft_strlen(line);
-		free(line);
-	}
-	close(fd);
-	get_next_line(-1);
-	return (max);
-}
 
 void	valid_open_map(void)
 {
@@ -64,7 +19,7 @@ void	valid_open_map(void)
 	int		j;
 
 	map = get_map()->map_str;
-	i = 0;
+	i = MAP_I;
 	while (map[i])
 	{
 		j = 0;
@@ -91,7 +46,7 @@ void	ft_print_map(void)
 	char	**map;
 
 	map = get_map()->map_str;
-	i = 0;
+	i = MAP_I;
 	while (map[i])
 	{
 		printf("[%s]\n", map[i]);

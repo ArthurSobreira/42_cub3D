@@ -31,7 +31,8 @@ SOURCES = main.c \
 	set_map.c \
 	map_builder.c \
 	map_validation.c \
-	map_validation2.c
+	map_validation2.c \
+	mlx_tester.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
@@ -99,6 +100,6 @@ valgrind: all make_temp
 	--track-origins=yes \
 	--track-fds=yes \
 	--suppressions=./suppresion.supp \
-	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME) assets/maps/map1.cub
+	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME) assets/maps/map.cub
 
 .PHONY: all clean fclean re libft make_temp valgrind
