@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:21:58 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 15:50:09 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:17:14 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	permited_map_chars(void)
 	int		j;
 
 	map = get_map()->map_str;
-	i = 0;
+	i = MAP_I;
 	while (map[i])
 	{
 		j = 0;
@@ -43,7 +43,7 @@ static int	closed_map_x_validation(void)
 
 	map = get_map()->map_str;
 	map_struct = get_map();
-	i = 0;
+	i = MAP_I;
 	while (map[i])
 	{
 		j = 0;
@@ -69,7 +69,7 @@ static int	closed_map_y_validation(void)
 
 	map = get_map()->map_str;
 	map_struct = get_map();
-	i = 0;
+	i = MAP_I;
 	while (map[i])
 	{
 		j = 0;
@@ -96,7 +96,7 @@ static int	number_players_validation(void)
 
 	map = get_map()->map_str;
 	map_struct = get_map();
-	i = 0;
+	i = MAP_I;
 	player_count = 0;
 	while (map[i])
 	{
