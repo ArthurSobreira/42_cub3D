@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/30 22:59:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/01 07:43:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	get_parser_infos(void)
 	char	*line;
 
 	core = get_core();
-	core->texture_count = 0;
-	core->color_count = 0;
 	fd = open(core->map_path, O_RDONLY);
 	if (fd < 0)
 		ft_error(ERROR_INVALID_MAP_PATH);
@@ -38,6 +36,8 @@ void	get_parser_infos(void)
 	close(fd);
 	if (core->texture_count != TEXTURES_LEN)
 		ft_error(ERROR_INVALID_TEXTURE);
+	if (core->color_count != COLORS_LEN)
+		ft_error(ERROR_INVALID_COLOR);
 }
 
 void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
@@ -60,11 +60,10 @@ void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
 	if (!splited_line)
 		ft_error(ERROR_INCOMPLETE_MAP);
 	else if (is_texture(splited_line[0]))
-		core->texture_count = \
-			parser_texture(splited_line, parser_infos);
-	// else if (is_color(splited_line[0]))
-		
-	// else
-	// 	ft_error(ERROR_INCOMPLETE_MAP);
+		core->texture_count = parser_texture(splited_line, parser_infos);
+	else if (is_color(splited_line[0]))
+		core->color_count = parser_color(splited_line, parser_infos);
+	else
+		ft_error(ERROR_INCOMPLETE_MAP);
 	ft_free_matrix(splited_line);
 }
