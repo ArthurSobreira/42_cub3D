@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/30 22:50:03 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:56:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_cub3d
 	short		color_count;
 	char 		*parser_infos[PARSER_INFOS_LEN];
 	uint32_t	colors[COLORS_LEN];
-	t_bool		error;
 }				t_cub3d;
 
 t_cub3d			*get_core(void);
