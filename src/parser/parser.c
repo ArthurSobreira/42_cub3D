@@ -6,25 +6,38 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/30 22:50:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:59:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	valid_map_name(char *map_name)
+void	get_parser_infos(void)
 {
-	size_t	length;
+	t_cub3d	*core;
+	t_bool	is_map_flag;
 	int		fd;
-	
-	length = ft_strlen(map_name);
-	if (!ft_strnstr(map_name, ".cub", length))
-		return (FALSE);
-	fd = open(map_name, O_RDONLY);
+	char	*line;
+
+	core = get_core();
+	core->texture_count = 0;
+	core->color_count = 0;
+	fd = open(core->map_path, O_RDONLY);
 	if (fd < 0)
-		return (FALSE);
+		ft_error(ERROR_INVALID_MAP_PATH);
+	is_map_flag = FALSE;
+	get_next_line(CLEAR_STATIC);
+	while (is_map_flag == FALSE)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			ft_error(ERROR_INCOMPLETE_MAP);
+		parser_line(core->parser_infos, line, &is_map_flag);
+		free(line);
+	}
 	close(fd);
-	return (TRUE);
+	if (core->texture_count != TEXTURES_LEN)
+		ft_error(ERROR_INVALID_TEXTURE);
 }
 
 void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
@@ -54,32 +67,4 @@ void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
 	// else
 	// 	ft_error(ERROR_INCOMPLETE_MAP);
 	ft_free_matrix(splited_line);
-}
-
-void	get_parser_infos(void)
-{
-	t_cub3d	*core;
-	t_bool	is_map_flag;
-	int		fd;
-	char	*line;
-
-	core = get_core();
-	core->texture_count = 0;
-	core->color_count = 0;
-	fd = open(core->map_path, O_RDONLY);
-	if (fd < 0)
-		ft_error(ERROR_INVALID_MAP_PATH);
-	is_map_flag = FALSE;
-	get_next_line(CLEAR_STATIC);
-	while (is_map_flag == FALSE)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			ft_error(ERROR_INCOMPLETE_MAP);
-		parser_line(core->parser_infos, line, &is_map_flag);
-		free(line);
-	}
-	close(fd);
-	if (core->texture_count != TEXTURES_LEN)
-		ft_error(ERROR_INVALID_TEXTURE);
 }
