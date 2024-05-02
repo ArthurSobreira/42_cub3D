@@ -6,14 +6,14 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:44:04 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/01 07:45:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:09:13 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static t_bool	match_texture(char *identifier, t_textures match, \
-												short texture_count)
+												short *texture_count)
 {
 	static char		*parser_checker[TEXTURES_LEN] = {
 		"NO", "SO", "WE", "EA"
@@ -22,8 +22,9 @@ static t_bool	match_texture(char *identifier, t_textures match, \
 	if (ft_strcmp(identifier, parser_checker[match]) == 0)
 	{
 		parser_checker[match] = NULL;
-		if (texture_count > TEXTURES_LEN)
+		if (*texture_count > TEXTURES_LEN)
 			return (FALSE);
+		*texture_count += 1;
 		return (TRUE);
 	}
 	return (FALSE);
@@ -39,18 +40,13 @@ short	parser_texture(char **s_line, char **parser_infos)
 	texture = s_line[1];
 	if (is_texture(identifier))
 	{
-		texture_count++;
-		if (ft_strcmp(identifier, "NO") == 0 && \
-			match_texture(identifier, NORTH, texture_count))
+		if (match_texture(identifier, NORTH, &texture_count))
 			parser_infos[NORTH] = ft_strdup(texture);
-		else if (ft_strcmp(identifier, "SO") == 0 && \
-			match_texture(identifier, SOUTH, texture_count))
+		else if (match_texture(identifier, SOUTH, &texture_count))
 			parser_infos[SOUTH] = ft_strdup(texture);
-		else if (ft_strcmp(identifier, "WE") == 0 && \
-			match_texture(identifier, WEST, texture_count))
+		else if (match_texture(identifier, WEST, &texture_count))
 			parser_infos[WEST] = ft_strdup(texture);
-		else if (ft_strcmp(identifier, "EA") == 0 && \
-			match_texture(identifier, EAST, texture_count))
+		else if (match_texture(identifier, EAST, &texture_count))
 			parser_infos[EAST] = ft_strdup(texture);
 	}
 	else
