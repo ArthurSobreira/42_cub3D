@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/01 07:43:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:38:56 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	get_parser_infos(void)
 		parser_line(core->parser_infos, line, &is_map_flag);
 		free(line);
 	}
+	get_next_line(CLEAR_STATIC);
 	close(fd);
 	if (core->texture_count != TEXTURES_LEN)
 		ft_error(ERROR_INVALID_TEXTURE);
