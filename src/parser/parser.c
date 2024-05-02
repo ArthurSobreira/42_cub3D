@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/02 12:38:56 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:20:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_parser_infos(void)
 		ft_error(ERROR_INVALID_MAP_PATH);
 	is_map_flag = FALSE;
 	get_next_line(CLEAR_STATIC);
-	while (is_map_flag == FALSE)
+	while (!is_map_flag && !core->bad_flag)
 	{
 		line = get_next_line(fd);
 		if (!line)
