@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/01 07:47:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:27:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0;31m\n"
 # define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0;31m\n"
 # define PERMITED_MAP_CHARS " 01NSEW"
-# define PARSER_INFOS_LEN 7
+# define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
 
@@ -45,8 +45,8 @@ typedef	enum	e_textures
 
 typedef	enum	e_colors
 {
-	CEILING = 4,
-	FLOOR
+	FLOOR = 4,
+	CEILING,
 }	t_colors;
 
 typedef struct s_map
@@ -66,7 +66,7 @@ typedef struct s_cub3d
 	short		texture_count;
 	short		color_count;
 	char 		*parser_infos[PARSER_INFOS_LEN];
-	uint32_t	colors[COLORS_LEN];
+	t_bool		bad_flag;
 }				t_cub3d;
 
 t_cub3d			*get_core(void);
