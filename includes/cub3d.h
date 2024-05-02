@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/01 18:14:23 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:29:41 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 # define TEST_PATH_IMG "./assets/textures/minecraft_diamond.png"
 # define MAX_Y 100
+# define MAX_X 100
 # define MAP_I 6
 
 # define ERROR_INVALID_MAP_PATH "Error\nInvalid Map Path :(\n"
@@ -60,7 +61,7 @@ enum					e_colors
 
 typedef struct s_map
 {
-	char				*map_str[MAX_Y];
+	char				**map_str;
 	t_set_max			set_max_y;
 	t_set_max			set_max_x;
 	int					max_x;
@@ -89,7 +90,6 @@ void					set_max_y(size_t y);
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
 size_t					maxcol(void);
-int						lenfd(void);
 void					valid_open_map(void);
 void					ft_print_map(void);
 void					ft_error(char *msg);
