@@ -39,6 +39,7 @@ LIB_SOURCES = \
 	ft_issemicolon.c \
 	ft_isspace.c \
 	ft_itoa.c \
+	ft_lenfd.c \
 	ft_lstrip.c \
 	ft_matrix_len.c \
 	ft_memchr.c \
