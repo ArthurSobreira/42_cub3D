@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/02 12:52:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:02:48 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	exit_program(void)
 {
-	// mlx_terminate(get_mlx()->mlx);
+	mlx_terminate(get_mlx()->mlx);
 	ft_free_matrix(get_map()->map_str);
 	exit(EXIT_SUCCESS);
 }
