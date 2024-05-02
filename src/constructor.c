@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:15:44 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/01 18:25:29 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:44:08 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 void	constructor_map(void)
 {
-	get_map()->max_y = 0;
+	int fd;
+
+	fd = open(get_core()->map_path, O_RDONLY);
+	if (fd < 0)
+		ft_error("Error opening map file");
+	
+	get_map()->max_y = ft_lenfd(fd);
 	get_map()->max_x = 0;
 	get_map()->set_max_x = &set_max_x;
 	get_map()->set_max_y = &set_max_y;
+	close(fd);
+	get_next_line(-1);
 }
 
 void	constructor_gnl(void)
@@ -28,8 +36,9 @@ void	constructor_gnl(void)
 
 	i = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
+	get_map()->map_str = ft_calloc(get_map()->max_y, sizeof(char *));
 	get_next_line(-1);
-	while (i <= MAX_Y)
+	while (i < get_map()->max_y - 1)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -44,7 +53,6 @@ void	constructor_gnl(void)
 		free(line);
 		i++;
 	}
-	get_map()->map_str[i+1] = NULL;
-	get_map()->set_max_y(i);
+	get_map()->map_str[i] = NULL;
 	close(fd);
 }
