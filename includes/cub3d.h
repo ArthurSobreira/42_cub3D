@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/02 12:29:41 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:15:35 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,23 @@
 # define D MLX_KEY_D
 # define Q MLX_KEY_Q
 # define P MLX_PRESS
-# define R MLX_REPEAT
+# define RE MLX_REPEAT
 
 typedef struct s_core	t_core;
 typedef void			(*t_set_max)(size_t n);
 
-enum					e_colors
+// enum					e_colors
+// {
+// 	CEILING,
+// 	FLOOR
+// };
+
+enum e_colors
 {
-	CEILING,
-	FLOOR
+	RED,
+	GREEN,
+	BLUE,
+	ALPHA
 };
 
 typedef struct s_map
@@ -81,22 +89,20 @@ typedef struct s_cub3d
 typedef struct s_mlx
 {
 	void				*mlx;
-	mlx_image_t			*img;
-	mlx_texture_t		*texture;
+	mlx_image_t			*img[4];
+	mlx_texture_t		*texture[4];
+	uint32_t			ceil;
+	uint32_t			floor;
 }						t_mlx;
 
 void					set_max_x(size_t x);
 void					set_max_y(size_t y);
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
-size_t					maxcol(void);
 void					valid_open_map(void);
 void					ft_print_map(void);
 void					ft_error(char *msg);
 void					constructor_map(void);
-void					fill_with_spaces(void);
-void					map_alloc(void);
-void					map_builder(void);
 t_bool					valid_map_name(char *map_name);
 void					map_validation(void);
 int						player_locale_y_valid(void);
@@ -104,6 +110,5 @@ int						player_locale_x_valid(void);
 void					mlx_teste(void);
 t_mlx					*get_mlx(void);
 void					constructor_gnl(void);
-void					print_initial_buffer(void);
 
 #endif
