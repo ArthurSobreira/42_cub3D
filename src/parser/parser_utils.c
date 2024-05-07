@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:28:20 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/04/30 22:57:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:24:23 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_bool	valid_map_name(char *map_name)
 {
 	size_t	length;
 	int		fd;
-	
+
 	length = ft_strlen(map_name);
 	if (!ft_strnstr(map_name, ".cub", length))
 		return (FALSE);
@@ -82,7 +82,7 @@ t_bool	is_texture(char *line)
 	return (FALSE);
 }
 
-t_bool	is_color(char *line)	
+t_bool	is_color(char *line)
 {
 	size_t	index;
 
