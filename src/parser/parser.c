@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/02 17:20:36 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:25:01 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
 	t_cub3d		*core;
 	size_t		index;
 	char		**splited_line;
-	
+
 	if (*line == '\0' || *line == '\n')
 		return ;
 	if (!is_color(line) && !is_texture(line))
