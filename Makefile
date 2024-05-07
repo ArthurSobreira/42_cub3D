@@ -21,13 +21,18 @@ COLOR_LIMITER = "\033[0m"
 HEADER_PATH = ./includes
 BIN_PATH = ./bin/
 SOURCES_PATH = ./src/
+PARSER_PATH = parser/
 
 SOURCES = main.c \
+	$(PARSER_PATH)parser_colors.c \
+	$(PARSER_PATH)parser_textures.c \
+	$(PARSER_PATH)parser_utils.c \
+	$(PARSER_PATH)parser.c \
+	clear.c \
 	constructor.c \
 	error.c \
 	getters.c \
 	map_utils.c \
-	parser.c \
 	set_map.c \
 	map_builder.c \
 	map_validation.c \
@@ -72,6 +77,7 @@ $(NAME): $(OBJECTS)
 
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
+	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
 
 clean:
 	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
@@ -99,6 +105,7 @@ valgrind: all make_temp
 	--track-origins=yes \
 	--track-fds=yes \
 	--suppressions=./suppresion.supp \
-	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME) assets/maps/map1.cub
+	--log-file=$(TEMP_PATH)valgrind.log \
+	./$(NAME) ./assets/maps/valid.cub
 
 .PHONY: all clean fclean re libft make_temp valgrind

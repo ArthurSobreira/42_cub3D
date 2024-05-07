@@ -6,73 +6,110 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:22:45 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 11:33:24 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:14:04 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_wipe_list(t_gnl **list_of_char, int counter)
+size_t	ft_strlen_gnl(const char *s)
 {
-	t_gnl	*current;
-	t_gnl	*temp;
+	size_t	length;
 
-	current = *list_of_char;
-	if (counter == -1)
+	length = 0;
+	while (s[length] != '\0')
 	{
-		while (current != NULL)
+		length++;
+	}
+	return (length);
+}
+
+char	*ft_strncpy_gnl(char *dest, const char *src, size_t n)
+{
+	size_t	index;
+
+	index = 0;
+	while ((src[index] != '\0') && (index < n))
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	while (index < n)
+	{
+		dest[index] = '\0';
+		index++;
+	}
+	return (dest);
+}
+
+char	*ft_strchr_gnl(const char *s, int c)
+{
+	size_t	index;
+	char	*first_occ;
+
+	if (s == NULL)
+		return (NULL);
+	index = 0;
+	first_occ = NULL;
+	while (s[index] != '\0')
+	{
+		if (s[index] == (unsigned char)c)
 		{
-			temp = current;
-			current = current->next;
-			free(temp);
+			first_occ = (char *)&s[index];
+			return (first_occ);
 		}
-		*list_of_char = current;
+		index++;
 	}
-	else
+	if ((unsigned char)c == '\0')
 	{
-		while (counter > 0 && current != NULL)
-		{
-			temp = current;
-			current = current->next;
-			free(temp);
-			counter--;
-		}
-		*list_of_char = current;
+		first_occ = (char *)&s[index];
 	}
+	return (first_occ);
 }
 
-int	ft_read_error(t_gnl **main_list, char *current)
+char	*ft_strdup_gnl(const char *s)
 {
-	ft_wipe_list(main_list, -1);
-	*main_list = NULL;
-	free(current);
-	return (1);
+	size_t	index;
+	char	*new_string;
+
+	new_string = malloc(ft_strlen_gnl(s) + 1);
+	index = 0;
+	if (new_string == NULL)
+	{
+		return (NULL);
+	}
+	while (s[index])
+	{
+		new_string[index] = s[index];
+		index++;
+	}
+	new_string[index] = '\0';
+	return (new_string);
 }
 
-int	ft_sizelst(t_gnl **list_of_char, char c)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
-	t_gnl	*size;
-	int		counter;
+	int		new_index;
+	int		index;
+	char	*new;
 
-	size = *list_of_char;
-	counter = 1;
-	while (size != NULL && size->data != c)
+	if (s1 == NULL)
+		s1 = ft_strdup_gnl("");
+	new = malloc((ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1) * sizeof(char));
+	if (new == NULL)
+		return (NULL);
+	new_index = 0;
+	index = 0;
+	while (s1[index])
 	{
-		counter++;
-		size = size->next;
+		new[new_index++] = s1[index++];
 	}
-	return (counter);
-}
-
-void	ft_start_gnl(t_gnl **caracter, char c)
-{
-	t_gnl	*new_list;
-
-	new_list = (t_gnl *)malloc(sizeof(t_gnl));
-	if (new_list != NULL)
+	index = 0;
+	while (s2[index])
 	{
-		new_list->data = c;
-		new_list->next = NULL;
-		*caracter = new_list;
+		new[new_index++] = s2[index++];
 	}
+	new[new_index] = '\0';
+	free((char *)s1);
+	return (new);
 }
