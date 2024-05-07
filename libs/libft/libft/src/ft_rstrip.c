@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.c                                          :+:      :+:    :+:   */
+/*   ft_rstrip.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 11:14:17 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/30 16:44:10 by phenriq2         ###   ########.fr       */
+/*   Created: 2024/05/01 16:09:14 by phenriq2          #+#    #+#             */
+/*   Updated: 2024/05/02 11:34:50 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-t_map	*get_map(void)
+char	*ft_rstrip(char *str)
 {
-	static t_map	core;
+	ssize_t	i;
 
-	return (&core);
-}
-
-t_cub3d	*get_core(void)
-{
-	static t_cub3d	core;
-
-	return (&core);
-}
-
-t_mlx	*get_mlx(void)
-{
-	static t_mlx	core;
-
-	return (&core);
+	i = ft_strlen(str) - 1;
+	while (i >= 0 && ft_isspace(str[i]))
+	{
+		str[i] = '\0';
+		i--;
+	}
+	return (str);
 }

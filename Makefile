@@ -1,6 +1,9 @@
 NAME = cub3D
 LIBFT = libs/libft/libft.a
 CFLAGS = -Wall -Wextra -Werror -g3
+MFLAGS = -Iinclude -ldl -lglfw -pthread -lm
+MLX = ./libs/MLX42/build/libmlx42.a
+MLX_PATH = libs/MLX42
 TEMP_PATH = ./temp/
 
 # Paths for libraries
@@ -31,10 +34,24 @@ SOURCES = main.c \
 	getters.c \
 	map_utils.c \
 	set_map.c \
+	map_builder.c \
+	map_validation.c \
+	map_validation2.c \
+	mlx_tester.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
-all: libft $(BIN_PATH) $(NAME)
+all: libft $(MLX) $(BIN_PATH) $(NAME)
+
+$(MLX):
+	@mkdir -p $(MLX_PATH)/build
+	@cd $(MLX_PATH)/build && cmake ..
+	@cmake --build $(MLX_PATH)/build -j4
+	@echo $(CYAN)" --------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"|  MLX  Was Compiled Successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"--------------------------------------"$(COLOR_LIMITER)
+	@echo " "
+
 
 libft:
 ifeq ($(wildcard $(LIB_PATH)/$(LIB_NAME)),)
@@ -56,7 +73,7 @@ $(NAME): $(OBJECTS)
 	@echo $(CYAN)" ----------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| CUB3D executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"----------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(RFLAGS) -L $(LIB_PATH) -lft
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(RFLAGS) $(MLX) -L $(LIB_PATH) -lft $(MFLAGS)
 	@echo " "
 
 $(BIN_PATH):

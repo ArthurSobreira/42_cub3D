@@ -6,55 +6,11 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/04/22 11:17:39 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:46:51 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	lenfd(void)
-{
-	int		fd;
-	char	*buf;
-	int		lines;
-
-	fd = open("./maps/map1.cub", O_RDONLY);
-	lines = 0;
-	buf = get_next_line(fd);
-	while (buf)
-	{
-		free(buf);
-		lines++;
-		buf = get_next_line(fd);
-	}
-	free(buf);
-	close(fd);
-	buf = get_next_line(fd);
-	return (lines);
-}
-
-size_t	maxcol(void)
-{
-	size_t	max;
-	int		fd;
-	char	*line;
-	int		i;
-
-	max = 0;
-	i = -1;
-	fd = open("./maps/map1.cub", O_RDONLY);
-	line = "get";
-	while (++i < lenfd() - 1)
-	{
-		line = get_next_line(fd);
-		if (ft_strlen(line) > max)
-			max = ft_strlen(line);
-		free(line);
-	}
-	close(fd);
-	printf("%d\n", fd);
-	return (max);
-}
 
 void	valid_open_map(void)
 {
@@ -62,8 +18,8 @@ void	valid_open_map(void)
 	int		i;
 	int		j;
 
-	map = get_map()->map_str;
-	i = 0;
+	map = (char **)get_map()->map_str;
+	i = MAP_I;
 	while (map[i])
 	{
 		j = 0;
@@ -86,25 +42,20 @@ void	valid_open_map(void)
 
 void	ft_print_map(void)
 {
-	int		i;
-	int		j;
-	char	**map;
+	int	i;
+	int	j;
 
-	map = get_map()->map_str;
-	i = 0;
-	printf("\n");
-	while (map[i])
+	j = 0;
+	i = MAP_I;
+	while (j < i)
 	{
-		j = 0;
-		printf("%c", '[');
-		while (map[i][j])
-		{
-			printf("%c", map[i][j]);
-			j++;
-		}
-		printf("%c", ']');
-		i++;
-		printf("\n");
+		printf("[%s]\n", (char *)get_map()->map_str[j]);
+		j++;
 	}
-	printf("\n");
+	printf("=====================================\n");
+	while (i < get_map()->max_y)
+	{
+		printf("[%s]\n", (char *)get_map()->map_str[i]);
+		i++;
+	}
 }
