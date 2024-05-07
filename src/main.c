@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/07 17:30:22 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:36:16 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	main(int argc, char *argv[])
 	core->color_count = 0;
 	get_parser_infos();
 	print_parser_infos(core->parser_infos);
+	mlx_teste();
 	clear_all();
-	// constructor_map();
-	// continua no proximo episodio
 }
+// constructor_map();
+// continua no proximo episodio
