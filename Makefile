@@ -90,6 +90,7 @@ fclean: clean
 	@echo $(RED)[Removing $(TEMP_PATH)]$(COLOR_LIMITER)
 	@make fclean -C $(LIB_PATH) --no-print-directory
 	@rm -rf ./tests/$(NAME)
+	@rm -rf ./libs/MLX42/build
 	@rm -rf $(NAME)
 	@rm -rf $(TEMP_PATH)
 
