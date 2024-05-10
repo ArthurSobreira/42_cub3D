@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/10 16:29:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:21:28 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,6 @@
 # define RE MLX_REPEAT
 
 typedef struct s_core	t_core;
-typedef void			(*t_set_max)(size_t n);
-
-// enum					e_colors
-// {
-// 	CEILING,
-// 	FLOOR
-// };
 
 enum					e_rgb
 {
@@ -68,6 +61,7 @@ enum					e_rgb
 	BLUE,
 	ALPHA
 };
+
 typedef enum e_textures
 {
 	NORTH,
@@ -85,8 +79,6 @@ typedef enum e_colors
 typedef struct s_map
 {
 	char				**map_str;
-	t_set_max			set_max_y;
-	t_set_max			set_max_x;
 	int					max_x;
 	int					max_y;
 }						t_map;
@@ -111,33 +103,16 @@ typedef struct s_mlx
 	uint32_t			floor;
 }						t_mlx;
 
-void					set_max_x(size_t x);
-void					set_max_y(size_t y);
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
-void					valid_open_map(void);
-void					ft_print_map(void);
-void					ft_error(char *msg);
-void					constructor_map(void);
-t_bool					valid_map_name(char *map_name);
-void					map_validation(void);
-int						player_locale_y_valid(void);
-int						player_locale_x_valid(void);
-void					mlx_teste(void);
 t_mlx					*get_mlx(void);
-void					constructor_gnl(void);
-t_cub3d					*get_core(void);
-t_map					*get_map(void);
 
-void					set_max_x(size_t x);
-void					set_max_y(size_t y);
-size_t					maxcol(void);
-int						lenfd(void);
-void					valid_open_map(void);
 void					ft_print_map(void);
 void					ft_error(char *msg);
-void					constructor_map(void);
-// void			fill_with_spaces(void);
+t_bool					valid_map_name(char *map_name);
+
+void					mlx_teste(void);
+void					ft_error(char *msg);
 
 void					get_parser_infos(void);
 void					parser_line(char **parser_infos, char *line,
@@ -152,5 +127,16 @@ short					parser_color(char **s_line, char **parser_infos);
 void					ft_free_local_matrix(char **matrix);
 void					clear_all(void);
 void					print_parser_infos(char **parser_infos);
+
+// constructor matrix map
+
+void					map_builder(void);
+t_bool					is_map_line(char *line);
+
+// validation map
+
+int						player_locale_y_valid(void);
+int						player_locale_x_valid(void);
+void					map_validation(void);
 
 #endif
