@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/10 17:58:48 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:04:41 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void	map_builder(void)
 	get_map()->map_str = ft_calloc(get_map()->max_y + 1, sizeof(char *));
 	get_map()->map_str[get_map()->max_y] = NULL;
 	map_generate();
+	printf("max_x: %d\n", get_map()->max_x);
+	printf("max_y: %d\n", get_map()->max_y);
+	ft_print_map();
 	map_validation();
 	// normalize_map();
 }
