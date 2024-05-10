@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/02 17:15:35 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:17:10 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,6 @@
 typedef struct s_core	t_core;
 typedef void			(*t_set_max)(size_t n);
 
-// enum					e_colors
-// {
-// 	CEILING,
-// 	FLOOR
-// };
-
 enum e_colors
 {
 	RED,
@@ -79,7 +73,6 @@ typedef struct s_map
 typedef struct s_cub3d
 {
 	t_map				*map;
-
 	char				*map_path;
 	char				*textures[TEXTURES_LEN];
 	uint32_t			colors[COLORS_LEN];

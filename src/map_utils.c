@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/02 12:46:51 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:20:19 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,14 @@ void	valid_open_map(void)
 
 void	ft_print_map(void)
 {
-	int	i;
-	int	j;
+	char	**map;
+	int		i;
 
-	j = 0;
-	i = MAP_I;
-	while (j < i)
+	map = get_map()->map_str;
+	i = 0;
+	while (map[i])
 	{
-		printf("[%s]\n", (char *)get_map()->map_str[j]);
-		j++;
-	}
-	printf("=====================================\n");
-	while (i < get_map()->max_y)
-	{
-		printf("[%s]\n", (char *)get_map()->map_str[i]);
+		printf("%s\n", map[i]);
 		i++;
 	}
 }
