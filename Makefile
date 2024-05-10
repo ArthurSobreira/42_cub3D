@@ -34,10 +34,8 @@ SOURCES = main.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
 	clear.c \
-	constructor.c \
 	error.c \
 	getters.c \
-	set_map.c \
 	mlx_tester.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
