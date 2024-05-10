@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:43:55 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/07 20:21:31 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:19:24 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	player_locale_x_valid(void)
 
 	map = get_map()->map_str;
 	map_struct = get_map();
-	i = MAP_I;
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -47,7 +47,7 @@ int	player_locale_y_valid(void)
 
 	map = get_map()->map_str;
 	map_struct = get_map();
-	i = MAP_I;
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
