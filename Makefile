@@ -21,17 +21,23 @@ COLOR_LIMITER = "\033[0m"
 HEADER_PATH = ./includes
 BIN_PATH = ./bin/
 SOURCES_PATH = ./src/
+PARSER_PATH = parser/
+MAP_PATH = map/
 
 SOURCES = main.c \
+	$(PARSER_PATH)parser_colors.c \
+	$(PARSER_PATH)parser_textures.c \
+	$(PARSER_PATH)parser_utils.c \
+	$(PARSER_PATH)parser.c \
+	$(MAP_PATH)map_builder.c \
+	$(MAP_PATH)map_utils.c \
+	$(MAP_PATH)map_validation_utils.c \
+	$(MAP_PATH)map_validation.c \
+	clear.c \
 	constructor.c \
 	error.c \
 	getters.c \
-	map_utils.c \
-	parser.c \
 	set_map.c \
-	map_builder.c \
-	map_validation.c \
-	map_validation2.c \
 	mlx_tester.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
@@ -73,6 +79,8 @@ $(NAME): $(OBJECTS)
 
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
+	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
+	@mkdir -p $(BIN_PATH)$(MAP_PATH)
 
 clean:
 	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
@@ -84,6 +92,7 @@ fclean: clean
 	@echo $(RED)[Removing $(TEMP_PATH)]$(COLOR_LIMITER)
 	@make fclean -C $(LIB_PATH) --no-print-directory
 	@rm -rf ./tests/$(NAME)
+	@rm -rf ./libs/MLX42/build
 	@rm -rf $(NAME)
 	@rm -rf $(TEMP_PATH)
 
@@ -100,6 +109,7 @@ valgrind: all make_temp
 	--track-origins=yes \
 	--track-fds=yes \
 	--suppressions=./suppresion.supp \
-	--log-file=$(TEMP_PATH)valgrind.log ./$(NAME) assets/maps/map.cub
+	--log-file=$(TEMP_PATH)valgrind.log \
+	./$(NAME) ./assets/maps/valid.cub
 
 .PHONY: all clean fclean re libft make_temp valgrind

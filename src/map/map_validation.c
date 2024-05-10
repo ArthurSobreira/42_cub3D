@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:21:58 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/02 12:48:21 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:30:46 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ void	map_validation(void)
 		ft_error("Map is not closed in y axis");
 	if (!number_players_validation())
 		ft_error("Map has more than one player");
-	if (!player_locale_x_valid())
-		ft_error("Player is not closed in x axis");
-	if (!player_locale_y_valid())
-		ft_error("Player is not closed in y axis");
+	// if (!player_locale_x_valid())
+	// 	ft_error("Player is not closed in x axis");
+	// if (!player_locale_y_valid())
+	// 	ft_error("Player is not closed in y axis");
 }
