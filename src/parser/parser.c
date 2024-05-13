@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/07 16:25:01 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:36:54 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	get_parser_infos(void)
 {
-	t_cub3d	*core;
-	t_bool	is_map_flag;
-	int		fd;
-	char	*line;
+	t_cub3d		*core;
+	t_bool		is_map_flag;
+	int			fd;
+	char		*line;
 
 	core = get_core();
 	fd = open(core->map_path, O_RDONLY);
