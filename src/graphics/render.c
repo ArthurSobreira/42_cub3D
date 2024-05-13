@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:07:36 by arsobrei         ###   ########.fr       */
+/*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
+/*   Updated: 2024/05/13 13:30:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free_local_matrix(char **matrix)
+void	render_background(t_mlx *mlx)
 {
-	size_t	index;
+	int	x;
+	int	y;
 
-	index = 0;
-	while (index < PARSER_INFOS_LEN)
+	y = 0;
+	while (y < WINDOW_HEIGHT)
 	{
-		if (matrix[index])
-			free(matrix[index]);
-		index++;
+		x = 0;
+		while (x < WINDOW_WIDTH)
+		{
+			if (y < WINDOW_HEIGHT / 2)
+				mlx_put_pixel(mlx->img_ptr, x, y, mlx->ceil_color);
+			else
+				mlx_put_pixel(mlx->img_ptr, x, y, mlx->floor_color);
+			++x;
+		}
+		++y;
 	}
-}
-
-void	clear_all(void)
-{
-	t_cub3d	*core;
-
-	core = get_core();
-	ft_free_local_matrix(core->parser_infos);
-	if (get_map()->map_str)
-		ft_free_matrix(get_map()->map_str);
-	if (get_mlx()->win_ptr)
-		mlx_terminate(get_mlx()->win_ptr);
 }

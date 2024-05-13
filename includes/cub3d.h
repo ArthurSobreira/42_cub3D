@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/10 17:21:28 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:18:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../libs/libft/libft.h"
+# include "defines.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
@@ -22,35 +23,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-# define TEST_PATH_IMG "./assets/textures/minecraft_diamond.png"
-# define MAX_Y 100
-# define MAX_X 100
-# define MAP_I 6
-
-# define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0m\n"
-# define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0m\n"
-# define ERROR_INVALID_MAP_PATH "Error\nInvalid Map Path :(\n"
-# define ERROR_INCOMPLETE_MAP "Error\nIncomplete Map File :(\n"
-# define PERMITED_MAP_CHARS " 01NSEW"
-# define PERMITED_PLAYER_CHARS "NSEW"
-# define PARSER_INFOS_LEN 6
-# define TEXTURES_LEN 4
-# define COLORS_LEN 2
-# define WIDTH 1280
-# define HEIGHT 720
-# define ESC MLX_KEY_ESCAPE
-# define UP MLX_KEY_UP
-# define DOWN MLX_KEY_DOWN
-# define LEFT MLX_KEY_LEFT
-# define RIGHT MLX_KEY_RIGHT
-# define W MLX_KEY_W
-# define S MLX_KEY_S
-# define A MLX_KEY_A
-# define D MLX_KEY_D
-# define Q MLX_KEY_Q
-# define P MLX_PRESS
-# define RE MLX_REPEAT
 
 typedef struct s_core	t_core;
 
@@ -73,7 +45,7 @@ typedef enum e_textures
 typedef enum e_colors
 {
 	FLOOR = 4,
-	CEILING,
+	CEIL,
 }						t_colors;
 
 typedef struct s_map
@@ -83,9 +55,17 @@ typedef struct s_map
 	int					max_y;
 }						t_map;
 
+typedef struct s_mlx
+{
+	mlx_t				*win_ptr;
+	mlx_image_t			*img_ptr;
+	mlx_texture_t		*textures[4];
+	uint32_t			ceil_color;
+	uint32_t			floor_color;
+}						t_mlx;
+
 typedef struct s_cub3d
 {
-	t_map				*map;
 	char				*map_path;
 	char				*temp_map_path;
 	short				texture_count;
@@ -94,47 +74,40 @@ typedef struct s_cub3d
 	t_bool				bad_flag;
 }						t_cub3d;
 
-typedef struct s_mlx
-{
-	void				*mlx;
-	mlx_image_t			*img[4];
-	mlx_texture_t		*texture[4];
-	uint32_t			ceil;
-	uint32_t			floor;
-}						t_mlx;
-
+/* Getters Functions */
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
 t_mlx					*get_mlx(void);
 
-void					ft_print_map(void);
-void					ft_error(char *msg);
-t_bool					valid_map_name(char *map_name);
-
-void					mlx_teste(void);
-void					ft_error(char *msg);
-
+/* Parser Functions */
 void					get_parser_infos(void);
 void					parser_line(char **parser_infos, char *line,
 							t_bool *is_map_flag);
+short					parser_texture(char **s_line, char **parser_infos);
+short					parser_color(char **s_line, char **parser_infos);
+void					normalize_element(char *start);
 t_bool					valid_map_name(char *map_name);
 t_bool					is_map(char *line);
 t_bool					is_texture(char *line);
 t_bool					is_color(char *line);
-void					normalize_element(char *start);
-short					parser_texture(char **s_line, char **parser_infos);
-short					parser_color(char **s_line, char **parser_infos);
+
+/* Graphic Functions */
+t_mlx					*init_mlx(void);
+void					get_color(t_mlx *mlx, t_colors identifier);
+uint32_t				create_rgb(char *r, char *g, char *b);
+void					render_background(t_mlx *mlx);
+
+
+/* Utils Functions */
 void					ft_free_local_matrix(char **matrix);
 void					clear_all(void);
 void					print_parser_infos(char **parser_infos);
+void					ft_error(char *msg);
 
-// constructor matrix map
-
+/* Map Functions */
+void					ft_print_map(void);
 void					map_builder(void);
 t_bool					is_map_line(char *line);
-
-// validation map
-
 int						player_locale_y_valid(void);
 int						player_locale_x_valid(void);
 void					map_validation(void);

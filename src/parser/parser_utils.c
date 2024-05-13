@@ -6,26 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:28:20 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/07 16:24:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:00:02 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-t_bool	valid_map_name(char *map_name)
-{
-	size_t	length;
-	int		fd;
-
-	length = ft_strlen(map_name);
-	if (!ft_strnstr(map_name, ".cub", length))
-		return (FALSE);
-	fd = open(map_name, O_RDONLY);
-	if (fd < 0)
-		return (FALSE);
-	close(fd);
-	return (TRUE);
-}
 
 void	normalize_element(char *start)
 {
@@ -51,6 +36,21 @@ void	normalize_element(char *start)
 		if (*start)
 			start++;
 	}
+}
+
+t_bool	valid_map_name(char *map_name)
+{
+	size_t	length;
+	int		fd;
+
+	length = ft_strlen(map_name);
+	if (!ft_strnstr(map_name, ".cub", length))
+		return (FALSE);
+	fd = open(map_name, O_RDONLY);
+	if (fd < 0)
+		return (FALSE);
+	close(fd);
+	return (TRUE);
 }
 
 t_bool	is_map(char *line)
