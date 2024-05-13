@@ -107,7 +107,6 @@ valgrind: all make_temp
 	--show-reachable=yes \
 	--show-leak-kinds=all \
 	--track-origins=yes \
-	--track-fds=yes \
 	--suppressions=./suppresion.supp \
 	--log-file=$(TEMP_PATH)valgrind.log \
 	./$(NAME) ./assets/maps/map.cub 
