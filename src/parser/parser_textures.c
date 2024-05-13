@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:44:04 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:40:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:50:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ short	parser_texture(char **s_line, char **parser_infos)
 	if (is_texture(identifier))
 	{
 		if (match_texture(identifier, NORTH, &texture_count))
-			parser_infos[NORTH] = ft_strdup(ft_strtrim(texture, "\n"));
+			parser_infos[NORTH] = ft_strtrim(texture, "\n");
 		else if (match_texture(identifier, SOUTH, &texture_count))
-			parser_infos[SOUTH] = ft_strdup(ft_strtrim(texture, "\n"));
+			parser_infos[SOUTH] = ft_strtrim(texture, "\n");
 		else if (match_texture(identifier, WEST, &texture_count))
-			parser_infos[WEST] = ft_strdup(ft_strtrim(texture, "\n"));
+			parser_infos[WEST] = ft_strtrim(texture, "\n");
 		else if (match_texture(identifier, EAST, &texture_count))
-			parser_infos[EAST] = ft_strdup(ft_strtrim(texture, "\n"));
+			parser_infos[EAST] = ft_strtrim(texture, "\n");
 		else
 		{
 			get_core()->bad_flag = TRUE;
