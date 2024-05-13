@@ -1,9 +1,9 @@
-NO       textures/fern_north.png
-           SO        textures/fern_south.png
-WE ./textures/fern_west.png
-EA ./textures/fern_east.png
+NO       assets/textures/fern_north.png
+           SO        assets/textures/fern_south.png
+WE assets/textures/fern_west.png
+EA assets/textures/fern_east.png
 
-C     255,255,255
+C     200,85,0
 F 42,84,168
 
         1111111111111111111111111
