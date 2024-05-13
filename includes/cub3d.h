@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:18:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:23:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ void					render_background(t_mlx *mlx);
 
 
 /* Utils Functions */
-void					ft_free_local_matrix(char **matrix);
+void					free_local_matrix(char **matrix);
+void					clear_mlx(void);
 void					clear_all(void);
 void					print_parser_infos(char **parser_infos);
 void					ft_error(char *msg);
