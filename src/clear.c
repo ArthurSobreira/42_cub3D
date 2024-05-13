@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:07:36 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:58:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	clear_all(void)
 	if (get_map()->map_str)
 		ft_free_matrix(get_map()->map_str);
 	if (get_mlx()->win_ptr)
+	{
 		mlx_terminate(get_mlx()->win_ptr);
+		free(get_mlx());
+	}
 }
