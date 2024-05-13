@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:59:32 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/07 16:37:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:58:20 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ short	parser_color(char **s_line, char **parser_infos)
 		if (match_color(identifier, FLOOR, color_count) && \
 			is_valid_color(color))
 			parser_infos[FLOOR] = ft_strdup(color);
-		else if (match_color(identifier, CEILING, color_count) && \
+		else if (match_color(identifier, CEIL, color_count) && \
 			is_valid_color(color))
-			parser_infos[CEILING] = ft_strdup(color);
+			parser_infos[CEIL] = ft_strdup(color);
 		else
 		{
 			color_count -= 2;
