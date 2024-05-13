@@ -34,10 +34,8 @@ SOURCES = main.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
 	clear.c \
-	constructor.c \
 	error.c \
 	getters.c \
-	set_map.c \
 	mlx_tester.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
@@ -110,6 +108,6 @@ valgrind: all make_temp
 	--track-fds=yes \
 	--suppressions=./suppresion.supp \
 	--log-file=$(TEMP_PATH)valgrind.log \
-	./$(NAME) ./assets/maps/valid.cub
+	./$(NAME) ./assets/maps/map.cub 
 
 .PHONY: all clean fclean re libft make_temp valgrind
