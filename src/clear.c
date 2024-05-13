@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/10 17:30:52 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:07:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	clear_all(void)
 	ft_free_local_matrix(core->parser_infos);
 	if (get_map()->map_str)
 		ft_free_matrix(get_map()->map_str);
-	if (get_mlx()->mlx)
-		mlx_terminate(get_mlx()->mlx);
+	if (get_mlx()->win_ptr)
+		mlx_terminate(get_mlx()->win_ptr);
 }
