@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:37:25 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:47:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ t_mlx	*init_mlx(void)
 	mlx->win_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME, 0);
 	if (!mlx->win_ptr)
 		ft_error(ERROR_MLX_INIT);
-	printf("north: '%s'\n", get_core()->parser_infos[NORTH]);
-	printf("south: '%s'\n", get_core()->parser_infos[SOUTH]);
-	printf("west: '%s'\n", get_core()->parser_infos[WEST]);
-	printf("east: '%s'\n", get_core()->parser_infos[EAST]);
-	// mlx->textures[NORTH] = mlx_load_png(get_core()->parser_infos[NORTH]);
-	// mlx->textures[SOUTH] = mlx_load_png(get_core()->parser_infos[SOUTH]);
-	// mlx->textures[WEST] = mlx_load_png(get_core()->parser_infos[WEST]);
+	mlx->textures[NORTH] = mlx_load_png(get_core()->parser_infos[NORTH]);
+	mlx->textures[SOUTH] = mlx_load_png(get_core()->parser_infos[SOUTH]);
+	mlx->textures[WEST] = mlx_load_png(get_core()->parser_infos[WEST]);
 	mlx->textures[EAST] = mlx_load_png(get_core()->parser_infos[EAST]);
 	if (!mlx->textures[NORTH] || !mlx->textures[SOUTH] || \
 		!mlx->textures[WEST] || !mlx->textures[EAST])
