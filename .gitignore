@@ -53,6 +53,7 @@ dkms.conf
 
 # Local files
 .vscode/
+.dist/
 cub3D
 bin/
 temp/
