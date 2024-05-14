@@ -24,6 +24,7 @@ SOURCES_PATH = ./src/
 GRAPHICS_PATH = graphics/
 MAP_PATH = map/
 PARSER_PATH = parser/
+UTILS_PATH = utils/
 
 SOURCES = main.c \
 	$(GRAPHICS_PATH)init.c \
@@ -36,9 +37,9 @@ SOURCES = main.c \
 	$(MAP_PATH)map_utils.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
-	clear.c \
-	error.c \
-	getters.c \
+	$(UTILS_PATH)clear.c \
+	$(UTILS_PATH)error.c \
+	$(UTILS_PATH)getters.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
@@ -81,6 +82,7 @@ $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)$(GRAPHICS_PATH)
 	@mkdir -p $(BIN_PATH)$(MAP_PATH)
 	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
+	@mkdir -p $(BIN_PATH)$(UTILS_PATH)
 
 clean:
 	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
