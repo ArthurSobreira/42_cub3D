@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 17:22:56 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:43:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	mlx_process(void)
 	mlx = init_mlx();
 	mlx_loop_hook(mlx->win_ptr, render, mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
 	mlx_loop(mlx->win_ptr);
 }
 

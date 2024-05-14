@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 17:22:49 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:42:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,9 @@ int						player_locale_y_valid(void);
 int						player_locale_x_valid(void);
 void					map_validation(void);
 void					map_cpy(void);
+
+/* keyhook */
+
+void					my_keyhook(mlx_key_data_t keydata, void *param);
 
 #endif

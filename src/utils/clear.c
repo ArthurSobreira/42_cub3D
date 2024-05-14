@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 16:39:09 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:15:51 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	clear_mlx(void)
 	t_mlx	*mlx;
 
 	mlx = get_mlx();
-  if (mlx->img_ptr)
-	  mlx_delete_image(mlx->win_ptr, mlx->img_ptr);
+	if (mlx->img_ptr)
+		mlx_delete_image(mlx->win_ptr, mlx->img_ptr);
 	if (mlx->textures[NORTH])
 		mlx_delete_texture(mlx->textures[NORTH]);
 	if (mlx->textures[SOUTH])
