@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 13:36:46 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:04:35 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,9 @@ int						player_locale_y_valid(void);
 int						player_locale_x_valid(void);
 void					map_validation(void);
 void					map_cpy(void);
+
+/* keyhook */
+
+void					my_keyhook(mlx_key_data_t keydata, void *param);
 
 #endif

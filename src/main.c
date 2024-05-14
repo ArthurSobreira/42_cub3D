@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 16:37:39 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:05:27 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	mlx_process(void)
 	mlx = init_mlx();
 	render_background(mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
 	mlx_loop(mlx->win_ptr);
 }
 
