@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/10 18:04:41 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:39:22 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	map_generate(void)
 	i = 0;
 	max_x = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
-	get_next_line(-1);
+	get_next_line(CLEAR_STATIC);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -49,7 +49,7 @@ void	get_map_size_y(void)
 
 	i = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
-	get_next_line(-1);
+	get_next_line(CLEAR_STATIC);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -72,9 +72,8 @@ void	map_builder(void)
 	get_map()->map_str = ft_calloc(get_map()->max_y + 1, sizeof(char *));
 	get_map()->map_str[get_map()->max_y] = NULL;
 	map_generate();
-	printf("max_x: %d\n", get_map()->max_x);
-	printf("max_y: %d\n", get_map()->max_y);
-	ft_print_map();
 	map_validation();
+	map_cpy();
+	ft_print_map();
 	// normalize_map();
 }
