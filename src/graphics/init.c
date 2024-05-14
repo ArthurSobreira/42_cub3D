@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 14:00:09 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:22:06 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ uint32_t	create_rgb(char *r, char *g, char *b)
 {
 	uint32_t	rgb;
 
-	rgb = 0;
+	rgb = 0b0;
 	rgb |= ft_atoi(r) << 24;
 	rgb |= ft_atoi(g) << 16;
 	rgb |= ft_atoi(b) << 8;
-	rgb |= 255;
+	rgb |= 0b11111111;
 	return (rgb);
 }
