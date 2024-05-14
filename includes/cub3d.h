@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 17:04:35 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:42:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ t_bool					is_color(char *line);
 t_mlx					*init_mlx(void);
 void					get_color(t_mlx *mlx, t_colors identifier);
 uint32_t				create_rgb(char *r, char *g, char *b);
+void					render(void *param);
 void					render_background(t_mlx *mlx);
 
 /* Utils Functions */

@@ -3,8 +3,8 @@ NO       assets/textures/fern_north.png
 WE assets/textures/fern_west.png
 EA assets/textures/fern_east.png
 
-C     200,85,0
-F 42,84,168
+C     122,233,255
+F 100,100,100
 
         1111111111111111111111111
         1000000000100000000000001
