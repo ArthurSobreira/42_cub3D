@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 12:55:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:01:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
+# define MAP_CUB 16
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+
+# define COLOR_BORDER 0x3d3d3dff
+# define COLOR_WALL 0x616060ff
+# define COLOR_FLOOR 0xd1d1d1ff
 
 # define ESC MLX_KEY_ESCAPE
 # define UP MLX_KEY_UP
