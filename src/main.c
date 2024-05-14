@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 17:20:38 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:47:11 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ int	main(int argc, char *argv[])
 	get_parser_infos();
 	map_builder();
 	mlx = init_mlx();
-	
 	render_background(mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_loop(mlx->win_ptr);
-
-	// print_parser_infos(core->parser_infos);
-	// constructor_map();
 	clear_all();
 }
+// print_parser_infos(core->parser_infos);
+// constructor_map();
 // continua no proximo episodio
