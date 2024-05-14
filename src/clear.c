@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 13:14:55 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:47:34 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	clear_mlx(void)
 		mlx_delete_texture(mlx->textures[EAST]);
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
-	// free(mlx);
 }
 
+	// free(mlx);
 void	clear_all(void)
 {
 	t_cub3d	*core;
