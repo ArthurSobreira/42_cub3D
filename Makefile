@@ -39,6 +39,7 @@ SOURCES = main.c \
 	clear.c \
 	error.c \
 	getters.c \
+	keyhook.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
