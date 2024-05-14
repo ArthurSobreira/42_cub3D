@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 16:23:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:36:46 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void					get_color(t_mlx *mlx, t_colors identifier);
 uint32_t				create_rgb(char *r, char *g, char *b);
 void					render_background(t_mlx *mlx);
 
-
 /* Utils Functions */
 void					free_local_matrix(char **matrix);
 void					clear_mlx(void);
@@ -112,5 +111,6 @@ t_bool					is_map_line(char *line);
 int						player_locale_y_valid(void);
 int						player_locale_x_valid(void);
 void					map_validation(void);
+void					map_cpy(void);
 
 #endif
