@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 13:47:11 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:37:39 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,19 @@ void	print_parser_infos(char **parser_infos)
 	}
 }
 
+static void	mlx_process(void)
+{
+	t_mlx	*mlx;
+
+	mlx = init_mlx();
+	render_background(mlx);
+	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_loop(mlx->win_ptr);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_cub3d	*core;
-	t_mlx	*mlx;
 
 	core = get_core();
 	core->map_path = argv[1];
@@ -37,10 +46,7 @@ int	main(int argc, char *argv[])
 	core->color_count = 0;
 	get_parser_infos();
 	map_builder();
-	mlx = init_mlx();
-	render_background(mlx);
-	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
-	mlx_loop(mlx->win_ptr);
+	mlx_process();
 	clear_all();
 }
 // print_parser_infos(core->parser_infos);
