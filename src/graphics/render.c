@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:30:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:02:34 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,58 @@ void	render_background(t_mlx *mlx)
 		}
 		++y;
 	}
+}
+
+void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= MAP_CUB)
+	{
+		j = 0;
+		while (j <= MAP_CUB)
+		{
+			if ((color == COLOR_WALL) && \
+				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
+			else
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
+			++j;
+		}
+		++i;
+	}
+}
+
+void	draw_minimap(t_mlx *mlx)
+{
+	char	**map;
+	int	x;
+	int	y;
+
+	map = get_map()->map_str;
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == '1')
+				draw_square(mlx, x * MAP_CUB, y * MAP_CUB, COLOR_WALL);
+			else
+				draw_square(mlx, x * MAP_CUB, y * MAP_CUB, COLOR_FLOOR);
+			++x;
+		}
+		++y;
+	}
+}
+
+void	render(void *param)
+{
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
+	render_background(mlx);
+	draw_minimap(mlx);
 }
