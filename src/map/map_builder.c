@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/14 13:39:22 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:08:47 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,4 @@ void	map_builder(void)
 	map_generate();
 	map_validation();
 	map_cpy();
-	ft_print_map();
-	// normalize_map();
 }
