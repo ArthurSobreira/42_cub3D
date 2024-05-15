@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 14:05:59 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:11:31 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # include <unistd.h>
 
 typedef struct s_core	t_core;
+typedef struct s_map	t_map;
+typedef struct s_wall	t_wall;
+typedef struct s_mlx	t_mlx;
 
 enum					e_rgb
 {
@@ -51,6 +54,7 @@ typedef enum e_colors
 typedef struct s_map
 {
 	char				**map_str;
+	t_wall				**map;
 	int					max_x;
 	int					max_y;
 }						t_map;
@@ -68,6 +72,9 @@ typedef struct s_player
 {
 	double				x;
 	double				y;
+	double				dy;
+	double				dx;
+	double				degree;
 }						t_player;
 
 typedef struct s_cub3d
@@ -78,6 +85,7 @@ typedef struct s_cub3d
 	short				color_count;
 	char				*parser_infos[PARSER_INFOS_LEN];
 	t_bool				bad_flag;
+	t_wall				*wall;
 }						t_cub3d;
 
 /* Getters Functions */
@@ -126,5 +134,8 @@ void					map_cpy(void);
 void					my_keyhook(mlx_key_data_t keydata, void *param);
 
 void					draw_player(int x, int y, uint32_t color);
+
+void					set_coordinates(void);
+void					print_map(void);
 
 #endif
