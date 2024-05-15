@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 14:23:26 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:42:03 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static void	mlx_process(void)
 	t_mlx	*mlx;
 
 	mlx = init_mlx();
-	get_player()->x = 200;
-	get_player()->y = 200;
 	mlx_loop_hook(mlx->win_ptr, render, mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
