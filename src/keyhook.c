@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhook.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/15 14:34:52 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:07:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 void	my_keyhook(mlx_key_data_t keydata, void *param)
 {
-	(void)param;
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
 	if (keydata.key == ESC && (keydata.action == P || keydata.action == RE))
 	{
 		clear_all();
 		exit(EXIT_SUCCESS);
 	}
-	if ((keydata.key == UP || keydata.key == W) && (keydata.action == P
-			|| keydata.action == RE))
+	if (mlx_is_key_down(mlx->win_ptr, W) || \
+		mlx_is_key_down(mlx->win_ptr, UP))
 		get_player()->y -= 4;
-	if ((keydata.key == RIGHT || keydata.key == D) && (keydata.action == P
-			|| keydata.action == RE))
+	if (mlx_is_key_down(mlx->win_ptr, D) || \
+		mlx_is_key_down(mlx->win_ptr, RIGHT))
 		get_player()->x += 4;
-	if ((keydata.key == LEFT || keydata.key == A) && (keydata.action == P
-			|| keydata.action == RE))
+	if (mlx_is_key_down(mlx->win_ptr, A) || \
+		mlx_is_key_down(mlx->win_ptr, LEFT))
 		get_player()->x -= 4;
-	if ((keydata.key == DOWN || keydata.key == S) && (keydata.action == P
-			|| keydata.action == RE))
+	if (mlx_is_key_down(mlx->win_ptr, S) || \
+		mlx_is_key_down(mlx->win_ptr, DOWN))
 		get_player()->y += 4;
 }
