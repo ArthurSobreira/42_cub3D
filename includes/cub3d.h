@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 18:42:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:05:59 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ typedef struct s_mlx
 	uint32_t			floor_color;
 }						t_mlx;
 
+typedef struct s_player
+{
+	double				x;
+	double				y;
+}						t_player;
+
 typedef struct s_cub3d
 {
 	char				*map_path;
@@ -78,6 +84,7 @@ typedef struct s_cub3d
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
 t_mlx					*get_mlx(void);
+t_player				*get_player(void);
 
 /* Parser Functions */
 void					get_parser_infos(void);
@@ -117,5 +124,7 @@ void					map_cpy(void);
 /* keyhook */
 
 void					my_keyhook(mlx_key_data_t keydata, void *param);
+
+void					draw_player(int x, int y, uint32_t color);
 
 #endif
