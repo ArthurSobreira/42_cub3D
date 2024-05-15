@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:43:55 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/10 17:19:24 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:46:02 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ int	player_locale_x_valid(void)
 		while (map[i][j])
 		{
 			if (ft_strchr("NSWE", map[i][j]))
+			{
 				if ((j + 1 < map_struct->max_x && map[i][j + 1] == ' ') || (j
 						- 1 >= 0 && map[i][j - 1] == ' ') || j == 0)
 					return (FALSE);
+				get_player()->x = j * 16;
+			}
 			j++;
 		}
 		i++;
@@ -54,9 +57,12 @@ int	player_locale_y_valid(void)
 		while (map[i][j])
 		{
 			if (ft_strchr("NSWE", map[i][j]))
+			{
 				if ((i + 1 < map_struct->max_y && map[i + 1][j] == ' ') || (i
 						- 1 >= 0 && map[i - 1][j] == ' ') || i == 0)
 					return (FALSE);
+				get_player()->y = i * 16;
+			}
 			j++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 18:42:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:11:31 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # include <unistd.h>
 
 typedef struct s_core	t_core;
+typedef struct s_map	t_map;
+typedef struct s_wall	t_wall;
+typedef struct s_mlx	t_mlx;
 
 enum					e_rgb
 {
@@ -51,6 +54,7 @@ typedef enum e_colors
 typedef struct s_map
 {
 	char				**map_str;
+	t_wall				**map;
 	int					max_x;
 	int					max_y;
 }						t_map;
@@ -64,6 +68,15 @@ typedef struct s_mlx
 	uint32_t			floor_color;
 }						t_mlx;
 
+typedef struct s_player
+{
+	double				x;
+	double				y;
+	double				dy;
+	double				dx;
+	double				degree;
+}						t_player;
+
 typedef struct s_cub3d
 {
 	char				*map_path;
@@ -72,12 +85,14 @@ typedef struct s_cub3d
 	short				color_count;
 	char				*parser_infos[PARSER_INFOS_LEN];
 	t_bool				bad_flag;
+	t_wall				*wall;
 }						t_cub3d;
 
 /* Getters Functions */
 t_map					*get_map(void);
 t_cub3d					*get_core(void);
 t_mlx					*get_mlx(void);
+t_player				*get_player(void);
 
 /* Parser Functions */
 void					get_parser_infos(void);
@@ -117,5 +132,10 @@ void					map_cpy(void);
 /* keyhook */
 
 void					my_keyhook(mlx_key_data_t keydata, void *param);
+
+void					draw_player(int x, int y, uint32_t color);
+
+void					set_coordinates(void);
+void					print_map(void);
 
 #endif
