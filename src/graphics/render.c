@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 18:02:34 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:30:20 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
 void	draw_minimap(t_mlx *mlx)
 {
 	char	**map;
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 
 	map = get_map()->map_str;
 	y = 0;
@@ -78,6 +78,24 @@ void	draw_minimap(t_mlx *mlx)
 	}
 }
 
+void	draw_player(int x, int y, uint32_t color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= 7)
+	{
+		j = 0;
+		while (j <= 7)
+		{
+			mlx_put_pixel(get_mlx()->img_ptr, x + i, y + j, color);
+			++j;
+		}
+		++i;
+	}
+}
+
 void	render(void *param)
 {
 	t_mlx	*mlx;
@@ -85,4 +103,5 @@ void	render(void *param)
 	mlx = (t_mlx *)param;
 	render_background(mlx);
 	draw_minimap(mlx);
+	draw_player(get_player()->x, get_player()->y, 0xFF0000FF);
 }
