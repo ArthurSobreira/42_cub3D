@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 18:01:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/15 19:30:12 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
-# define MAP_CUB 16
+# define MAP_CUB 32
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
@@ -52,5 +52,12 @@
 # define Q MLX_KEY_Q
 # define P MLX_PRESS
 # define RE MLX_REPEAT
+
+// math defines
+
+# define PI 3.14159265358979323846
+# define TWO_PI 6.28318530717958647692
+# define HALF_PI 1.57079632679489661923
+# define PI_270 4.71238898038468985769
 
 #endif
