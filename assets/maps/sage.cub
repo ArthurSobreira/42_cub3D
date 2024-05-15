@@ -1,0 +1,16 @@
+NO       assets/textures/fern_north.png
+           SO        assets/textures/fern_south.png
+WE assets/textures/fern_west.png
+EA assets/textures/fern_east.png
+
+C     122,233,255
+F 100,100,100
+
+11111111
+10100001
+10100001
+10100001
+1000N001
+10000101
+10000001
+11111111
