@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 14:23:26 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/15 19:01:04 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static void	mlx_process(void)
 	t_mlx	*mlx;
 
 	mlx = init_mlx();
-	get_player()->x = 200;
-	get_player()->y = 200;
 	mlx_loop_hook(mlx->win_ptr, render, mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
@@ -49,9 +47,12 @@ int	main(int argc, char *argv[])
 	core->color_count = 0;
 	get_parser_infos();
 	map_builder();
+	get_player()->dx = cos(get_player()->degree);
+	get_player()->dy = sin(get_player()->degree);
 	mlx_process();
 	clear_all();
 }
+
 // print_parser_infos(core->parser_infos);
 // constructor_map();
 // continua no proximo episodio
