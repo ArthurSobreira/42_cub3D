@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:05:02 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:11:25 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ t_player	*get_player(void);
 
 /* Parser Functions */
 void		get_parser_infos(void);
-void		parser_line(char **parser_infos, char *line, \
-						t_bool *is_map_flag);
+void		parser_line(char **parser_infos, char *line, t_bool *is_map_flag);
 short		parser_texture(char **s_line, char **parser_infos);
 short		parser_color(char **s_line, char **parser_infos);
 void		normalize_element(char *start);
@@ -53,14 +52,13 @@ void		draw_minimap(t_mlx *mlx);
 void		draw_player(int x, int y, uint32_t color);
 void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
-void		init_bres(t_bres *bres_info, t_point initial_point, \
-							t_point end_point);
-void		bresenham(t_point inital_point, t_point end_point, \
-							int thickness);
-void		bresenham_high(t_point initial_point, t_point end_point, \
-							int thickness);
-void		bresenham_low(t_point initial_point, t_point end_point, \
-							int thickness);
+void		init_bres(t_bres *bres_info, t_point initial_point,
+				t_point end_point);
+void		bresenham(t_point inital_point, t_point end_point, int thickness);
+void		bresenham_high(t_point initial_point, t_point end_point,
+				int thickness);
+void		bresenham_low(t_point initial_point, t_point end_point,
+				int thickness);
 
 /* Utils Functions */
 void		free_local_matrix(char **matrix);
@@ -72,7 +70,8 @@ void		ft_error(char *msg);
 /* Map Functions */
 void		ft_print_map(void);
 void		map_builder(void);
-t_bool		is_map_line(char *line);
+t_bool		in_map_line(void);
+t_bool		in_map_line2(void);
 int			player_locale_y_valid(void);
 int			player_locale_x_valid(void);
 void		map_validation(void);
@@ -81,6 +80,7 @@ void		map_cpy(void);
 /* keyhook */
 
 void		my_keyhook(mlx_key_data_t keydata, void *param);
+void		my_cursor(double x, double y, void *param);
 
 /* Player Functions */
 void		init_player(void);

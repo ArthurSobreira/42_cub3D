@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 13:27:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:12:53 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_map	t_map;
 typedef struct s_wall	t_wall;
 typedef struct s_mlx	t_mlx;
 
-enum	e_rgb
+enum					e_rgb
 {
 	RED,
 	GREEN,
@@ -55,8 +55,10 @@ typedef struct s_mlx
 	mlx_t				*win_ptr;
 	mlx_image_t			*img_ptr;
 	mlx_texture_t		*textures[4];
+	mlx_texture_t		*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
+
 }						t_mlx;
 
 typedef struct s_player
@@ -85,7 +87,7 @@ typedef struct s_point
 	float				x;
 	float				y;
 	uint32_t			color;
-}			t_point;
+}						t_point;
 
 typedef struct s_bres
 {
