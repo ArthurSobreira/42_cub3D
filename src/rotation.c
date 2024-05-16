@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:54:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 10:59:07 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:49:12 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ void	move_right(void)
 	player->dx = cos(player->degree);
 	player->dy = sin(player->degree);
 }
+ 
