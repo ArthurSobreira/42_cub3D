@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 11:42:21 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:26:16 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,53 +32,21 @@ t_mlx	*init_mlx(void)
 		ft_error(ERROR_MLX_INIT);
 	get_color(mlx, CEIL);
 	get_color(mlx, FLOOR);
+	init_player();
 	return (mlx);
 }
 
-// t_player	*init_player(void)
-// {
-// 	t_player	*player;
-
-// 	player = get_player();
-// 	player->pos_x = 0;
-// 	player->pos_y = 0;
-// 	player->angle = PI / 2;
-// 	player->delta_x = cos(player->angle) * 5;
-// 	player->delta_y = -sin(player->angle) * 5;
-// 	return (player);
-// }
-
-void	get_color(t_mlx *mlx, t_colors identifier)
+void	init_player(void)
 {
-	char	**splited_color;
-	char	*r;
-	char	*g;
-	char	*b;
-
-	if (identifier == FLOOR)
-		splited_color = ft_split(get_core()->parser_infos[FLOOR], ',');
-	else
-		splited_color = ft_split(get_core()->parser_infos[CEIL], ',');
-	if (!splited_color[0] || !splited_color[1] || !splited_color[2])
-		ft_error(ERROR_INVALID_COLOR);
-	r = splited_color[0];
-	g = splited_color[1];
-	b = splited_color[2];
-	if (identifier == FLOOR)
-		mlx->floor_color = create_rgb(r, g, b);
-	else
-		mlx->ceil_color = create_rgb(r, g, b);
-	ft_free_matrix(splited_color);
-}
-
-uint32_t	create_rgb(char *r, char *g, char *b)
-{
-	uint32_t	rgb;
-
-	rgb = 0b00000000;
-	rgb |= ft_atoi(r) << 24;
-	rgb |= ft_atoi(g) << 16;
-	rgb |= ft_atoi(b) << 8;
-	rgb |= 0b11111111;
-	return (rgb);
+	set_player_direction();
+	get_player()->delta_x = cos(get_player()->angle);
+	get_player()->delta_y = sin(get_player()->angle);
+	if (get_player()->direction == 'N')
+		get_player()->angle = PI_270;
+	else if (get_player()->direction == 'S')
+		get_player()->angle = HALF_PI;
+	else if (get_player()->direction == 'W')
+		get_player()->angle = TWO_PI;
+	else if (get_player()->direction == 'E')
+		get_player()->angle = 0;
 }
