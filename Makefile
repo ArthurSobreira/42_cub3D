@@ -43,6 +43,7 @@ SOURCES = main.c \
 	keyhook.c \
 	player.c \
 	rotation.c \
+	cursorhook.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
