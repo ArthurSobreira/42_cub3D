@@ -27,8 +27,11 @@ PARSER_PATH = parser/
 UTILS_PATH = utils/
 
 SOURCES = main.c \
+	$(GRAPHICS_PATH)init_utils.c \
 	$(GRAPHICS_PATH)init.c \
+	$(GRAPHICS_PATH)keyhook.c \
 	$(GRAPHICS_PATH)render.c \
+	$(GRAPHICS_PATH)rotation.c \
 	$(PARSER_PATH)parser_colors.c \
 	$(PARSER_PATH)parser_textures.c \
 	$(PARSER_PATH)parser_utils.c \
@@ -40,7 +43,6 @@ SOURCES = main.c \
 	$(UTILS_PATH)clear.c \
 	$(UTILS_PATH)error.c \
 	$(UTILS_PATH)getters.c \
-	keyhook.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
