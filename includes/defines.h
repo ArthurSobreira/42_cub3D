@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 11:04:05 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:49:13 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
+# define CURSOR_PATH "./assets/textures/aim2.png"
 # define PERMITED_MAP_CHARS " 01NSEW"
 # define PERMITED_PLAYER_CHARS "NSEW"
 
