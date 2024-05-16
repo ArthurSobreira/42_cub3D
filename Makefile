@@ -27,6 +27,8 @@ PARSER_PATH = parser/
 UTILS_PATH = utils/
 
 SOURCES = main.c \
+	$(GRAPHICS_PATH)bresenham.c \
+	$(GRAPHICS_PATH)draw.c \
 	$(GRAPHICS_PATH)init_utils.c \
 	$(GRAPHICS_PATH)init.c \
 	$(GRAPHICS_PATH)keyhook.c \

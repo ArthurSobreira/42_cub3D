@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:55:50 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:05:02 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../libs/libft/libft.h"
 # include "defines.h"
+# include "structs.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
@@ -24,127 +25,68 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct s_core	t_core;
-typedef struct s_map	t_map;
-typedef struct s_wall	t_wall;
-typedef struct s_mlx	t_mlx;
-
-enum					e_rgb
-{
-	RED,
-	GREEN,
-	BLUE,
-	ALPHA
-};
-
-typedef enum e_textures
-{
-	NORTH,
-	SOUTH,
-	WEST,
-	EAST
-}						t_textures;
-
-typedef enum e_colors
-{
-	FLOOR = 4,
-	CEIL,
-}						t_colors;
-
-typedef struct s_map
-{
-	char				**map_str;
-	t_wall				**map;
-	int					max_x;
-	int					max_y;
-}						t_map;
-
-typedef struct s_mlx
-{
-	mlx_t				*win_ptr;
-	mlx_image_t			*img_ptr;
-	mlx_texture_t		*textures[4];
-	uint32_t			ceil_color;
-	uint32_t			floor_color;
-}						t_mlx;
-
-typedef struct s_player
-{
-	double				pos_x;
-	double				pos_y;
-	double				delta_y;
-	double				delta_x;
-	double				angle;
-	char				direction;
-}						t_player;
-
-typedef struct s_cub3d
-{
-	char				*map_path;
-	char				*temp_map_path;
-	short				texture_count;
-	short				color_count;
-	char				*parser_infos[PARSER_INFOS_LEN];
-	t_bool				bad_flag;
-	t_wall				*wall;
-}						t_cub3d;
-
 /* Getters Functions */
-t_map					*get_map(void);
-t_cub3d					*get_core(void);
-t_mlx					*get_mlx(void);
-t_player				*get_player(void);
+t_map		*get_map(void);
+t_cub3d		*get_core(void);
+t_mlx		*get_mlx(void);
+t_player	*get_player(void);
 
 /* Parser Functions */
-void					get_parser_infos(void);
-void					parser_line(char **parser_infos, char *line,
-							t_bool *is_map_flag);
-short					parser_texture(char **s_line, char **parser_infos);
-short					parser_color(char **s_line, char **parser_infos);
-void					normalize_element(char *start);
-t_bool					valid_map_name(char *map_name);
-t_bool					is_map(char *line);
-t_bool					is_texture(char *line);
-t_bool					is_color(char *line);
+void		get_parser_infos(void);
+void		parser_line(char **parser_infos, char *line, \
+						t_bool *is_map_flag);
+short		parser_texture(char **s_line, char **parser_infos);
+short		parser_color(char **s_line, char **parser_infos);
+void		normalize_element(char *start);
+t_bool		valid_map_name(char *map_name);
+t_bool		is_map(char *line);
+t_bool		is_texture(char *line);
+t_bool		is_color(char *line);
 
 /* Graphic Functions */
-t_mlx					*init_mlx(void);
-void					get_color(t_mlx *mlx, t_colors identifier);
-void					render(void *param);
-void					render_background(t_mlx *mlx);
+t_mlx		*init_mlx(void);
+void		mlx_process(void);
+void		get_color(t_mlx *mlx, t_colors identifier);
+void		render(void *param);
+void		draw_background(t_mlx *mlx);
+void		draw_minimap(t_mlx *mlx);
+void		draw_player(int x, int y, uint32_t color);
+void		draw_direction(t_player *player);
+void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
+void		init_bres(t_bres *bres_info, t_point initial_point, \
+							t_point end_point);
+void		bresenham(t_point inital_point, t_point end_point, \
+							int thickness);
+void		bresenham_high(t_point initial_point, t_point end_point, \
+							int thickness);
+void		bresenham_low(t_point initial_point, t_point end_point, \
+							int thickness);
 
 /* Utils Functions */
-void					free_local_matrix(char **matrix);
-void					clear_mlx(void);
-void					clear_all(void);
-void					print_parser_infos(char **parser_infos);
-void					ft_error(char *msg);
+void		free_local_matrix(char **matrix);
+void		clear_mlx(void);
+void		clear_all(void);
+void		print_parser_infos(char **parser_infos);
+void		ft_error(char *msg);
 
 /* Map Functions */
-void					ft_print_map(void);
-void					map_builder(void);
-t_bool					is_map_line(char *line);
-int						player_locale_y_valid(void);
-int						player_locale_x_valid(void);
-void					map_validation(void);
-void					map_cpy(void);
+void		ft_print_map(void);
+void		map_builder(void);
+t_bool		is_map_line(char *line);
+int			player_locale_y_valid(void);
+int			player_locale_x_valid(void);
+void		map_validation(void);
+void		map_cpy(void);
 
 /* keyhook */
 
-void					my_keyhook(mlx_key_data_t keydata, void *param);
+void		my_keyhook(mlx_key_data_t keydata, void *param);
 
 /* Player Functions */
-void					init_player(void);
-void					set_player_direction(void);
-void					draw_player(int x, int y, uint32_t color);
-void					move_right(void);
-void					move_left(void);
-
-/* Cursor Functions */
-
-void					my_cursor(double x, double y, void *param);
-
-t_bool					in_map_line(void);
-t_bool					in_map_line2(void);
+void		init_player(void);
+void		set_player_direction(void);
+void		draw_player(int x, int y, uint32_t color);
+void		move_right(void);
+void		move_left(void);
 
 #endif

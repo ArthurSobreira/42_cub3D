@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:57:37 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:05:10 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define MOVE_SPEED 4
+# define DIRECTION_OFFSET 4
+# define DIRECTION_LEN 11
 
 /* Color Defines */
 # define COLOR_BORDER 0x3d3d3dff
