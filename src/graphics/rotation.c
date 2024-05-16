@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:54:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 10:59:07 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:35:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	move_left(void)
 	t_player	*player;
 
 	player = get_player();
-	player->degree -= 0.1;
-	if (player->degree < 0)
-		player->degree += TWO_PI;
-	player->dx = cos(player->degree);
-	player->dy = sin(player->degree);
+	player->angle -= 0.1;
+	if (player->angle < 0)
+		player->angle += TWO_PI;
+	player->delta_x = cos(player->angle);
+	player->delta_y = sin(player->angle);
 }
 
 void	move_right(void)
@@ -29,9 +29,9 @@ void	move_right(void)
 	t_player	*player;
 
 	player = get_player();
-	player->degree += 0.1;
-	if (player->degree > TWO_PI)
-		player->degree -= TWO_PI;
-	player->dx = cos(player->degree);
-	player->dy = sin(player->degree);
+	player->angle += 0.1;
+	if (player->angle > TWO_PI)
+		player->angle -= TWO_PI;
+	player->delta_x = cos(player->angle);
+	player->delta_y = sin(player->angle);
 }
