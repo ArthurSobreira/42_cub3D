@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 19:01:04 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:48:30 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(int argc, char *argv[])
 	core->color_count = 0;
 	get_parser_infos();
 	map_builder();
-	get_player()->dx = cos(get_player()->degree);
-	get_player()->dy = sin(get_player()->degree);
+	start_player();
+	ft_print_map();
 	mlx_process();
 	clear_all();
 }
