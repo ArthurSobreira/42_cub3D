@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:17:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:22:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_player	*get_player(void);
 
 /* Parser Functions */
 void		get_parser_infos(void);
-void		parser_line(char **parser_infos, char *line,
+void		parser_line(char **parser_infos, char *line, \
 						t_bool *is_map_flag);
 short		parser_texture(char **s_line, char **parser_infos);
 short		parser_color(char **s_line, char **parser_infos);
@@ -55,7 +55,7 @@ void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point, \
 							t_point end_point);
-void		bresenham(t_point inital_point, t_point end_point,\
+void		bresenham(t_point inital_point, t_point end_point, \
 							int thickness);
 void		bresenham_high(t_point initial_point, t_point end_point, \
 							int thickness);
