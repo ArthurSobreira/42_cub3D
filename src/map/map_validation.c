@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:21:58 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/15 15:34:14 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:32:55 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,15 @@ static int	number_players_validation(void)
 void	map_validation(void)
 {
 	if (!permited_map_chars())
-		ft_error("Map contains invalid characters");
+		ft_error(ERROR_MAP_CHARS);
 	if (!closed_map_x_validation())
-		ft_error("Map is not closed in x axis");
+		ft_error(ERROR_MAP_CLOSED_X);
 	if (!closed_map_y_validation())
-		ft_error("Map is not closed in y axis");
+		ft_error(ERROR_MAP_CLOSED_Y);
 	if (!number_players_validation())
-		ft_error("Map has more than one player");
+		ft_error(ERROR_MAP_PLAYER);
 	if (!player_locale_x_valid())
-		ft_error("Player is not closed in x axis");
+		ft_error(ERROR_MAP_PLAYER);
 	if (!player_locale_y_valid())
-		ft_error("Player is not closed in y axis");
+		ft_error(ERROR_MAP_PLAYER);
 }
