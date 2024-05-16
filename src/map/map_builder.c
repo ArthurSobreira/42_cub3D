@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/15 18:08:47 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:13:13 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	map_generate(void)
 		if (!line)
 			break ;
 		line = ft_rstrip(line);
-		if (line[0] != '\0' && is_map_line(line))
+		if (line[0] != '\0' && in_map_line2())
 		{
 			get_map()->map_str[i++] = ft_strdup(line);
 			if (max_x < (int)ft_strlen(line))
@@ -46,8 +46,10 @@ void	get_map_size_y(void)
 	int		fd;
 	char	*line;
 	int		i;
+	int ignore;
 
 	i = 0;
+	ignore = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
 	get_next_line(CLEAR_STATIC);
 	while (1)
@@ -56,7 +58,7 @@ void	get_map_size_y(void)
 		if (!line)
 			break ;
 		line = ft_rstrip(line);
-		if (line[0] != '\0' && is_map_line(line))
+		if (line[0] != '\0' && in_map_line())
 			i++;
 		free(line);
 	}
@@ -72,6 +74,7 @@ void	map_builder(void)
 	get_map()->map_str = ft_calloc(get_map()->max_y + 1, sizeof(char *));
 	get_map()->map_str[get_map()->max_y] = NULL;
 	map_generate();
+	ft_print_map();
 	map_validation();
 	map_cpy();
 }

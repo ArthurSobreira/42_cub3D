@@ -45,6 +45,8 @@ SOURCES = main.c \
 	$(UTILS_PATH)clear.c \
 	$(UTILS_PATH)error.c \
 	$(UTILS_PATH)getters.c \
+	cursorhook.c \
+
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 

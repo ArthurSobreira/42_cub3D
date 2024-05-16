@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:04:52 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:06:15 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # define MAP_I 6
 
 /* Error Defines */
-# define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters :(\033[0m\n"
-# define ERROR_MAP_CLOSED_X "\033[0;31mError\nMap is not Closed in X Axis :(\033[0m\n"
-# define ERROR_MAP_CLOSED_Y "\033[0;31mError\nMap is not Closed in Y Axis :(\033[0m\n"
+# define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
+# define ERROR_MAP_CLOSED_X "\033[0;31mError\nMap is not Closed in X Axis\033[0m\n"
+# define ERROR_MAP_CLOSED_Y "\033[0;31mError\nMap is not Closed in Y Axis\033[0m\n"
 # define ERROR_MAP_PLAYER "\033[0;31mError\nMap Contains Invalid Player :(\033[0m\n"
 # define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0m\n"
 # define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0m\n"
@@ -30,6 +30,7 @@
 # define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
+# define CURSOR_PATH "./assets/textures/aim2.png"
 
 /* Utils Defines */
 # define PERMITED_MAP_CHARS " 01NSEW"
