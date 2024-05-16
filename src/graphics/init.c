@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 19:03:44 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:42:21 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ t_mlx	*init_mlx(void)
 	return (mlx);
 }
 
-t_player	*init_player(void)
-{
-	t_player	*player;
+// t_player	*init_player(void)
+// {
+// 	t_player	*player;
 
-	player = get_player();
-	player->pos_x = 0;
-	player->pos_y = 0;
-	player->angle = PI / 2;
-	player->delta_x = cos(player->angle) * 5;
-	player->delta_y = -sin(player->angle) * 5;
-	return (player);
-}
+// 	player = get_player();
+// 	player->pos_x = 0;
+// 	player->pos_y = 0;
+// 	player->angle = PI / 2;
+// 	player->delta_x = cos(player->angle) * 5;
+// 	player->delta_y = -sin(player->angle) * 5;
+// 	return (player);
+// }
 
 void	get_color(t_mlx *mlx, t_colors identifier)
 {
