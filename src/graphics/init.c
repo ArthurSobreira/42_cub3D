@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 13:47:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:17:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_mlx	*init_mlx(void)
 {
 	t_mlx	*mlx;
 
-	mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	mlx = get_mlx();
 	mlx->win_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME, 0);
 	if (!mlx->win_ptr)
 		ft_error(ERROR_MLX_INIT);
@@ -35,37 +35,38 @@ t_mlx	*init_mlx(void)
 	return (mlx);
 }
 
-void	get_color(t_mlx *mlx, t_colors identifier)
+void	init_player(void)
 {
-	char	**splited_color;
-	char	*r;
-	char	*g;
-	char	*b;
-
-	if (identifier == FLOOR)
-		splited_color = ft_split(get_core()->parser_infos[FLOOR], ',');
-	else
-		splited_color = ft_split(get_core()->parser_infos[CEIL], ',');
-	if (!splited_color[0] || !splited_color[1] || !splited_color[2])
-		ft_error(ERROR_INVALID_COLOR);
-	r = splited_color[0];
-	g = splited_color[1];
-	b = splited_color[2];
-	if (identifier == FLOOR)
-		mlx->floor_color = create_rgb(r, g, b);
-	else
-		mlx->ceil_color = create_rgb(r, g, b);
-	ft_free_matrix(splited_color);
+	set_player_direction();
+	if (get_player()->direction == 'N')
+		get_player()->angle = THREE_PI_OVER_TWO;
+	else if (get_player()->direction == 'S')
+		get_player()->angle = PI_OVER_TWO;
+	else if (get_player()->direction == 'W')
+		get_player()->angle = PI;
+	else if (get_player()->direction == 'E')
+		get_player()->angle = TWO_PI;
+	get_player()->delta_x = cos(get_player()->angle);
+	get_player()->delta_y = sin(get_player()->angle);
 }
 
-uint32_t	create_rgb(char *r, char *g, char *b)
+void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point)
 {
-	uint32_t	rgb;
-
-	rgb = 0;
-	rgb |= ft_atoi(r) << 24;
-	rgb |= ft_atoi(g) << 16;
-	rgb |= ft_atoi(b) << 8;
-	rgb |= 255;
-	return (rgb);
+	bres_info->delta_x = end_point.x - initial_point.x;
+	bres_info->delta_y = end_point.y - initial_point.y;
+	bres_info->initial_x = initial_point.x;
+	bres_info->initial_y = initial_point.y;
+	bres_info->x_increment = 1;
+	bres_info->y_increment = 1;
+	bres_info->decision = 0;
+	if (bres_info->delta_y < 0)
+	{
+		bres_info->y_increment = -1;
+		bres_info->delta_y = fabs(bres_info->delta_y);
+	}
+	if (bres_info->delta_x < 0)
+	{
+		bres_info->x_increment = -1;
+		bres_info->delta_x = fabs(bres_info->delta_x);
+	}
 }

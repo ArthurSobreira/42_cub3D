@@ -1,10 +1,10 @@
 C 130,202,255
 F 0,127,0
 
-NO textures/minecraft_diamond.png
-SO textures/minecraft_gold.png
-WE textures/minecraft_emerald.png
-EA textures/minecraft_iron.png
+NO assets/textures/minecraft_diamond.png
+SO assets/textures/minecraft_gold.png
+WE assets/textures/minecraft_emerald.png
+EA assets/textures/minecraft_iron.png
 
 111111111111111111
 1S0000000000000001
