@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 18:11:31 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:57:02 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_player
 	double				dy;
 	double				dx;
 	double				degree;
+	char				direction;
 }						t_player;
 
 typedef struct s_cub3d
@@ -133,9 +134,10 @@ void					map_cpy(void);
 
 void					my_keyhook(mlx_key_data_t keydata, void *param);
 
+/* Player Functions */
 void					draw_player(int x, int y, uint32_t color);
-
-void					set_coordinates(void);
-void					print_map(void);
+void					start_player(void);
+void					move_right(void);
+void					move_left(void);
 
 #endif

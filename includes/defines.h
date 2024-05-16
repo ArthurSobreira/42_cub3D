@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 19:30:12 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:04:05 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@
 # define PARSER_INFOS_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
-# define MAP_CUB 32
+# define MAP_CUB 16
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+# define MOVE_SPEED 4
 
 # define COLOR_BORDER 0x3d3d3dff
 # define COLOR_WALL 0x616060ff
