@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 10:57:02 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:38:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ typedef struct s_mlx
 
 typedef struct s_player
 {
-	double				x;
-	double				y;
-	double				dy;
-	double				dx;
-	double				degree;
+	double				pos_x;
+	double				pos_y;
+	double				delta_y;
+	double				delta_x;
+	double				angle;
 	char				direction;
 }						t_player;
 
@@ -110,7 +110,6 @@ t_bool					is_color(char *line);
 /* Graphic Functions */
 t_mlx					*init_mlx(void);
 void					get_color(t_mlx *mlx, t_colors identifier);
-uint32_t				create_rgb(char *r, char *g, char *b);
 void					render(void *param);
 void					render_background(t_mlx *mlx);
 
@@ -135,8 +134,9 @@ void					map_cpy(void);
 void					my_keyhook(mlx_key_data_t keydata, void *param);
 
 /* Player Functions */
+void					init_player(void);
+void					set_player_direction(void);
 void					draw_player(int x, int y, uint32_t color);
-void					start_player(void);
 void					move_right(void);
 void					move_left(void);
 
