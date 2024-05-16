@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:28:08 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:17:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:29:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 static void	plot_thick_pixel(t_point point, int thickness)
 {
-	int i;
-	
+	short	i;
+	short	j;
+
 	i = -thickness / 2;
 	while (i <= thickness / 2)
 	{
-		int j = -thickness / 2;
+		j = -thickness / 2;
 		while (j <= thickness / 2)
 		{
 			if ((point.x + i >= 0) && (point.y + j >= 0) && \
