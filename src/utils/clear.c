@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/14 17:15:51 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:14:36 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	clear_mlx(void)
 		mlx_delete_texture(mlx->textures[WEST]);
 	if (mlx->textures[EAST])
 		mlx_delete_texture(mlx->textures[EAST]);
+	if (mlx->cursor)
+		mlx_delete_texture(mlx->cursor);
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
 }

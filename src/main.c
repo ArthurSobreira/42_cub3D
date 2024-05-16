@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:08:15 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:09:59 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,6 @@ void	print_parser_infos(char **parser_infos)
 		printf("%s\n", parser_infos[i]);
 		i++;
 	}
-}
-
-static void	mlx_cursor(void)
-{
-	mlx_texture_t		*texture;
-	mlx_win_cursor_t	*cursor;
-	t_mlx				*mlx;
-
-	mlx = get_mlx();
-	texture = mlx_load_png(CURSOR_PATH);
-	cursor = mlx_create_cursor(texture);
-	mlx_set_cursor(mlx->win_ptr, cursor);
-	mlx_cursor_hook(mlx->win_ptr, my_cursor, NULL);
 }
 
 int	main(int argc, char *argv[])
