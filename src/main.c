@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 12:24:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:57:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char *argv[])
 	core->color_count = 0;
 	get_parser_infos();
 	map_builder();
+	init_player();
 	ft_print_map();
 	mlx_process();
 	clear_all();
