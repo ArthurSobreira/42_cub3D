@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/15 19:47:01 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:58:34 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,31 @@ void	ft_print_map(void)
 	i = 0;
 	while (map[i])
 	{
-		printf("%s\n", map[i]);
+		printf("[%s]\n", map[i]);
 		i++;
 	}
 }
 
-t_bool	is_map_line(char *line)
+t_bool	in_map_line(void)
 {
-	int	i;
+	static int	map_started = 0;
 
-	i = 0;
-	while (line[i])
+	if (map_started < 6)
 	{
-		if (ft_strchr(" 01NSEW", line[i]) == NULL)
-			return (FALSE);
-		i++;
+		map_started++;
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
+t_bool	in_map_line2(void)
+{
+	static int	map_started = 0;
+
+	if (map_started < 6)
+	{
+		map_started++;
+		return (FALSE);
 	}
 	return (TRUE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:21:58 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 12:32:55 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:59:49 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	permited_map_chars(void)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!ft_strchr(PERMITED_MAP_CHARS, map[i][j]))
+			if (!ft_strchr(" 10NSWE", map[i][j]))
 				return (FALSE);
 			j++;
 		}
@@ -34,51 +34,39 @@ static int	permited_map_chars(void)
 	return (TRUE);
 }
 
-static int	closed_map_x_validation(void)
+static t_bool	xy_process(char **map, int i, int j)
 {
-	char	**map;
-	t_map	*map_struct;
-	int		i;
-	int		j;
-
-	map = get_map()->map_str;
-	map_struct = get_map();
-	i = 0;
-	while (map[i])
+	if (map[i][j] == '0')
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == '0')
-				if ((j + 1 < map_struct->max_x && map[i][j + 1] == ' ') || (j
-						- 1 >= 0 && map[i][j - 1] == ' ') || j == 0)
-					return (FALSE);
-			j++;
-		}
-		i++;
+		if (i - 1 < 0 || map[i - 1][j] == ' ' || map[i - 1][j] == '\0')
+			return (FALSE);
+		if (i + 1 >= get_map()->max_y || map[i + 1][j] == ' ' || map[i
+			+ 1][j] == '\0')
+			return (FALSE);
+		if (j - 1 < 0 || map[i][j - 1] == ' ' || map[i][j - 1] == '\0')
+			return (FALSE);
+		if (j + 1 >= get_map()->max_x || map[i][j + 1] == ' ' || map[i][j
+			+ 1] == '\0')
+			return (FALSE);
 	}
 	return (TRUE);
 }
 
-static int	closed_map_y_validation(void)
+static int	closed_map_validation(void)
 {
 	char	**map;
-	t_map	*map_struct;
 	int		i;
 	int		j;
 
 	map = get_map()->map_str;
-	map_struct = get_map();
 	i = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '0')
-				if ((i + 1 < map_struct->max_y - 1 && map[i + 1][j] == ' ')
-					|| (i - 1 >= 0 && map[i - 1][j] == ' ') || i == 0)
-					return (FALSE);
+			if (xy_process(map, i, j) == FALSE)
+				return (FALSE);
 			j++;
 		}
 		i++;
@@ -117,11 +105,9 @@ static int	number_players_validation(void)
 void	map_validation(void)
 {
 	if (!permited_map_chars())
-		ft_error(ERROR_MAP_CHARS);
-	if (!closed_map_x_validation())
-		ft_error(ERROR_MAP_CLOSED_X);
-	if (!closed_map_y_validation())
-		ft_error(ERROR_MAP_CLOSED_Y);
+		ft_error("Map contains invalid characters");
+	if (!closed_map_validation())
+		ft_error("Map is not closed");
 	if (!number_players_validation())
 		ft_error(ERROR_MAP_PLAYER);
 	if (!player_locale_x_valid())

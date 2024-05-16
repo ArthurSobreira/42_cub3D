@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 12:38:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:55:50 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,12 @@ void					set_player_direction(void);
 void					draw_player(int x, int y, uint32_t color);
 void					move_right(void);
 void					move_left(void);
+
+/* Cursor Functions */
+
+void					my_cursor(double x, double y, void *param);
+
+t_bool					in_map_line(void);
+t_bool					in_map_line2(void);
 
 #endif
