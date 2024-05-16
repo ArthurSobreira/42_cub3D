@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:14:17 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/15 13:58:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:41:58 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_map	*get_map(void)
 {
-	static t_map	core;
+	static t_map	map;
 
-	return (&core);
+	return (&map);
 }
 
 t_cub3d	*get_core(void)
@@ -28,14 +28,14 @@ t_cub3d	*get_core(void)
 
 t_mlx	*get_mlx(void)
 {
-	static t_mlx	core;
+	static t_mlx	mlx;
 
-	return (&core);
+	return (&mlx);
 }
 
 t_player	*get_player(void)
 {
-	static t_player	core;
+	static t_player	player;
 
-	return (&core);
+	return (&player);
 }
