@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/15 19:04:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:42:13 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,6 @@ void	render(void *param)
 	mlx = (t_mlx *)param;
 	render_background(mlx);
 	draw_minimap(mlx);
-	draw_direction(get_player()->pos_x + 4, get_player()->pos_y + 4, COLOR_PLAYER);
+	// draw_direction(get_player()->pos_x + 4, get_player()->pos_y + 4, COLOR_PLAYER);
 	draw_player(get_player()->pos_x, get_player()->pos_y, COLOR_PLAYER);
 }
