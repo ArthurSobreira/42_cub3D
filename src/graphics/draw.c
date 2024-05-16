@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:25:13 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:32:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	draw_direction(t_player *player)
 {
 	t_point	initial_point;
 	t_point	end_point;
-	int		thickness;
+	short	thickness;
 
 	thickness = 2;
 	initial_point.x = player->pos_x + DIRECTION_OFFSET;
