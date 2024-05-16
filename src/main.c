@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 12:57:04 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:14:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@ void	print_parser_infos(char **parser_infos)
 		printf("%s\n", parser_infos[i]);
 		i++;
 	}
-}
-
-static void	mlx_process(void)
-{
-	t_mlx	*mlx;
-
-	mlx = init_mlx();
-	mlx_loop_hook(mlx->win_ptr, render, mlx);
-	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
-	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
-	mlx_loop(mlx->win_ptr);
 }
 
 int	main(int argc, char *argv[])

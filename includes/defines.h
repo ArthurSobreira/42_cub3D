@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 13:16:16 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:04:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define MOVE_SPEED 4
+# define DIRECTION_OFFSET 4
+# define DIRECTION_LEN 11
 
 /* Color Defines */
 # define COLOR_BORDER 0x3d3d3dff
