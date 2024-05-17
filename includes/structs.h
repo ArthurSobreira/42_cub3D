@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 12:38:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:40:10 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,12 @@ typedef struct s_bres
 
 typedef struct s_cub3d
 {
+	char				*parser_infos[PARSER_INFOS_LEN];
 	char				*map_path;
 	char				*temp_map_path;
 	short				texture_count;
 	short				color_count;
-	char				*parser_infos[PARSER_INFOS_LEN];
 	t_bool				bad_flag;
-	t_wall				*wall;
 }						t_cub3d;
 
 #endif
