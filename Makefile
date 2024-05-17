@@ -25,15 +25,17 @@ GRAPHICS_PATH = graphics/
 MAP_PATH = map/
 PARSER_PATH = parser/
 UTILS_PATH = utils/
+HOOKS_PATH = hooks/
 
 SOURCES = main.c \
-	$(GRAPHICS_PATH)bresenham.c \
+	$(GRAPHICS_PATH)draw_line.c \
 	$(GRAPHICS_PATH)draw.c \
 	$(GRAPHICS_PATH)init_utils.c \
 	$(GRAPHICS_PATH)init.c \
-	$(GRAPHICS_PATH)keyhook.c \
 	$(GRAPHICS_PATH)render.c \
-	$(GRAPHICS_PATH)rotation.c \
+	$(HOOKS_PATH)cursorhooks.c \
+	$(HOOKS_PATH)keyhooks_rotation.c \
+	$(HOOKS_PATH)keyhooks.c \
 	$(PARSER_PATH)parser_colors.c \
 	$(PARSER_PATH)parser_textures.c \
 	$(PARSER_PATH)parser_utils.c \
@@ -45,8 +47,6 @@ SOURCES = main.c \
 	$(UTILS_PATH)clear.c \
 	$(UTILS_PATH)error.c \
 	$(UTILS_PATH)getters.c \
-	cursorhook.c \
-
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
@@ -87,6 +87,7 @@ $(NAME): $(OBJECTS)
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
 	@mkdir -p $(BIN_PATH)$(GRAPHICS_PATH)
+	@mkdir -p $(BIN_PATH)$(HOOKS_PATH)
 	@mkdir -p $(BIN_PATH)$(MAP_PATH)
 	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
 	@mkdir -p $(BIN_PATH)$(UTILS_PATH)
