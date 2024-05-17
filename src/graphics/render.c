@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:14:02 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:29:11 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,12 @@ void	render(void *param)
 	draw_direction(get_player());
 	draw_player(get_player()->pos_x, \
 		get_player()->pos_y, COLOR_PLAYER);
+	cat();
+	bresenham((t_point){(get_player()->pos_x + DIRECTION_OFFSET), \
+				(get_player()->pos_y + DIRECTION_OFFSET), COLOR_PLAYER}, \
+			(t_point){get_math()->rx, get_math()->ry, COLOR_PLAYER}, 10);
+	cat2();
+	bresenham((t_point){(get_player()->pos_x + DIRECTION_OFFSET), \
+				(get_player()->pos_y + DIRECTION_OFFSET), 0x00ff00ff}, \
+			(t_point){get_math()->rx, get_math()->ry, 0x00ff00ff}, 3);
 }

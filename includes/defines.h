@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 11:46:57 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:49:34 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
-# define BITSHIFT 4
+# define BITSHIFT 5
 # define PRECISION 0.0001
 
 #endif

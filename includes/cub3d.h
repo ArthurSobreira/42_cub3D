@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:11:25 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:49:32 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_map		*get_map(void);
 t_cub3d		*get_core(void);
 t_mlx		*get_mlx(void);
 t_player	*get_player(void);
+t_math		*get_math(void);
 
 /* Parser Functions */
 void		get_parser_infos(void);
@@ -88,5 +89,8 @@ void		set_player_direction(void);
 void		draw_player(int x, int y, uint32_t color);
 void		move_right(void);
 void		move_left(void);
+
+void		cat(void);
+void		cat2(void);
 
 #endif

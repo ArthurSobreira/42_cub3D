@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:12:53 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:40:40 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,35 @@ typedef struct s_point
 	float				y;
 	uint32_t			color;
 }						t_point;
+
+/* 	@brief: Structs for calculations
+
+	@r: ray
+	@mx: map x
+	@my: map y
+	@mp: map position
+	@dof: direction of field
+	@atan: angle tangent
+	@rx: ray x
+	@ry: ray y
+	@ra: ray angle
+	@xo: x offset
+	@yo: y offset */
+
+typedef struct s_math
+{
+	int					dof;
+	float				atan;
+	float				ntan;
+	float				rx;
+	float				ry;
+	float				rvx;
+	float				rvy;
+	float				ra;
+	float				xo;
+	float				yo;
+	float				dist;
+}						t_math;
 
 typedef struct s_bres
 {
