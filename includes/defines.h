@@ -54,6 +54,8 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
+# define BITSHIFT 4
+# define PRECISION 0.0001
 
 /* Error Defines */
 # define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
