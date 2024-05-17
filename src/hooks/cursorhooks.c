@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cursorhook.c                                       :+:      :+:    :+:   */
+/*   cursorhooks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:55:12 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 19:02:18 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:52:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	my_cursor(double x, double y, void *param)
 {
 	(void)param;
 	(void)y;
-	printf("x: %f\n", x);
 	if (x < WINDOW_WIDTH / 2)
 		move_left_cursor();
 	else

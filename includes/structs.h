@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:12:53 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:10:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ typedef struct s_mlx
 	mlx_t				*win_ptr;
 	mlx_image_t			*img_ptr;
 	mlx_texture_t		*textures[4];
-	mlx_texture_t		*cursor;
+	mlx_texture_t		*cursor_texture;
+	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
 
@@ -71,21 +72,10 @@ typedef struct s_player
 	char				direction;
 }						t_player;
 
-typedef struct s_cub3d
-{
-	char				*map_path;
-	char				*temp_map_path;
-	short				texture_count;
-	short				color_count;
-	char				*parser_infos[PARSER_INFOS_LEN];
-	t_bool				bad_flag;
-	t_wall				*wall;
-}						t_cub3d;
-
 typedef struct s_point
 {
-	float				x;
-	float				y;
+	float				coord_x;
+	float				coord_y;
 	uint32_t			color;
 }						t_point;
 
@@ -99,5 +89,16 @@ typedef struct s_bres
 	int					y_increment;
 	int					decision;
 }						t_bres;
+
+typedef struct s_cub3d
+{
+	char				*map_path;
+	char				*temp_map_path;
+	short				texture_count;
+	short				color_count;
+	char				*parser_infos[PARSER_INFOS_LEN];
+	t_bool				bad_flag;
+	t_wall				*wall;
+}						t_cub3d;
 
 #endif

@@ -3,34 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 11:46:57 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:09:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
-
-# define TEST_PATH_IMG "./assets/textures/minecraft_diamond.png"
-# define MAX_Y 100
-# define MAX_X 100
-# define MAP_I 6
-
-/* Error Defines */
-# define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
-# define ERROR_MAP_CLOSED_X "\033[0;31mError\nMap is not Closed in X Axis\033[0m\n"
-# define ERROR_MAP_CLOSED_Y "\033[0;31mError\nMap is not Closed in Y Axis\033[0m\n"
-# define ERROR_MAP_PLAYER "\033[0;31mError\nMap Contains Invalid Player :(\033[0m\n"
-# define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0m\n"
-# define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0m\n"
-# define ERROR_INVALID_MAP_PATH "\033[0;31mError\nInvalid Map Path :(\033[0m\n\n"
-# define ERROR_INCOMPLETE_MAP "\033[0;31mError\nIncomplete Map File :(\033[0m\n\n"
-# define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
-# define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
-# define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
-# define CURSOR_PATH "./assets/textures/aim2.png"
 
 /* Utils Defines */
 # define PERMITED_MAP_CHARS " 01NSEW"
@@ -42,6 +23,8 @@
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+# define WIDTH_2 640
+# define HEIGHT_2 360
 # define MOVE_SPEED 4
 # define DIRECTION_OFFSET 4
 # define DIRECTION_LEN 11
@@ -73,5 +56,19 @@
 # define THREE_PI_OVER_TWO 4.71238898038468985769
 # define BITSHIFT 4
 # define PRECISION 0.0001
+
+/* Error Defines */
+# define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
+# define ERROR_MAP_CLOSED_X "\033[0;31mError\nMap is not Closed in X Axis\033[0m\n"
+# define ERROR_MAP_CLOSED_Y "\033[0;31mError\nMap is not Closed in Y Axis\033[0m\n"
+# define ERROR_MAP_PLAYER "\033[0;31mError\nMap Contains Invalid Player :(\033[0m\n"
+# define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0m\n"
+# define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0m\n"
+# define ERROR_INVALID_MAP_PATH "\033[0;31mError\nInvalid Map Path :(\033[0m\n\n"
+# define ERROR_INCOMPLETE_MAP "\033[0;31mError\nIncomplete Map File :(\033[0m\n\n"
+# define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
+# define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
+# define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
+# define CURSOR_PATH "./assets/textures/aim2.png"
 
 #endif

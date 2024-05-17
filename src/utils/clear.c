@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:14:36 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:51:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	clear_mlx(void)
 	if (mlx->textures[EAST])
 		mlx_delete_texture(mlx->textures[EAST]);
 	if (mlx->cursor)
-		mlx_delete_texture(mlx->cursor);
+		mlx_delete_texture(mlx->cursor_texture);
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
 }

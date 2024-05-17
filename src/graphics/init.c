@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:17:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:15:59 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_mlx	*init_mlx(void)
 	mlx->img_ptr = mlx_new_image(mlx->win_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!mlx->img_ptr)
 		ft_error(ERROR_MLX_INIT);
+	mlx->cursor_texture = mlx_load_png(CURSOR_PATH);
+	mlx->cursor = mlx_create_cursor(mlx->cursor_texture);
 	get_color(mlx, CEIL);
 	get_color(mlx, FLOOR);
 	return (mlx);
@@ -52,10 +54,10 @@ void	init_player(void)
 
 void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point)
 {
-	bres_info->delta_x = end_point.x - initial_point.x;
-	bres_info->delta_y = end_point.y - initial_point.y;
-	bres_info->initial_x = initial_point.x;
-	bres_info->initial_y = initial_point.y;
+	bres_info->delta_x = end_point.coord_x - initial_point.coord_x;
+	bres_info->delta_y = end_point.coord_y - initial_point.coord_y;
+	bres_info->initial_x = initial_point.coord_x;
+	bres_info->initial_y = initial_point.coord_y;
 	bres_info->x_increment = 1;
 	bres_info->y_increment = 1;
 	bres_info->decision = 0;

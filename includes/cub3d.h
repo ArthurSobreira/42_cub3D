@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:11:25 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:25:25 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void		draw_background(t_mlx *mlx);
 void		draw_minimap(t_mlx *mlx);
 void		draw_player(int x, int y, uint32_t color);
 void		draw_direction(t_player *player);
-void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
 void		bresenham(t_point inital_point, t_point end_point, int thickness);
@@ -78,15 +77,14 @@ void		map_validation(void);
 void		map_cpy(void);
 
 /* keyhook */
-
-void		my_keyhook(mlx_key_data_t keydata, void *param);
 void		my_cursor(double x, double y, void *param);
+void		my_keyhook(mlx_key_data_t keydata, void *param);
+void		move_right(void);
+void		move_left(void);
 
 /* Player Functions */
 void		init_player(void);
 void		set_player_direction(void);
 void		draw_player(int x, int y, uint32_t color);
-void		move_right(void);
-void		move_left(void);
 
 #endif
