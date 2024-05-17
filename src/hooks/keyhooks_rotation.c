@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:54:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/17 11:31:28 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:26:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	move_right(void)
 	player->delta_x = cos(player->angle);
 	player->delta_y = sin(player->angle);
 }
- 

@@ -6,11 +6,51 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:32:28 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:22:24 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= MAP_CUB)
+	{
+		j = 0;
+		while (j <= MAP_CUB)
+		{
+			if ((color == COLOR_WALL) && \
+				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
+			else
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
+			++j;
+		}
+		++i;
+	}
+}
+
+void	draw_direction(t_player *player)
+{
+	t_point	initial_point;
+	t_point	end_point;
+	short	thickness;
+
+	thickness = 2;
+	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
+	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
+	end_point.coord_x = initial_point.coord_x + \
+		player->delta_x * DIRECTION_LEN;
+	end_point.coord_y = initial_point.coord_y + \
+		player->delta_y * DIRECTION_LEN;
+	initial_point.color = COLOR_BORDER;
+	end_point.color = COLOR_BORDER;
+	bresenham(initial_point, end_point, thickness);
+}
 
 void	draw_background(t_mlx *mlx)
 {
@@ -75,42 +115,4 @@ void	draw_player(int x, int y, uint32_t color)
 		}
 		++i;
 	}
-}
-
-void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i <= MAP_CUB)
-	{
-		j = 0;
-		while (j <= MAP_CUB)
-		{
-			if ((color == COLOR_WALL) && \
-				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
-			else
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
-			++j;
-		}
-		++i;
-	}
-}
-
-void	draw_direction(t_player *player)
-{
-	t_point	initial_point;
-	t_point	end_point;
-	short	thickness;
-
-	thickness = 2;
-	initial_point.x = player->pos_x + DIRECTION_OFFSET;
-	initial_point.y = player->pos_y + DIRECTION_OFFSET;
-	end_point.x = initial_point.x + player->delta_x * DIRECTION_LEN;
-	end_point.y = initial_point.y + player->delta_y * DIRECTION_LEN;
-	initial_point.color = COLOR_BORDER;
-	end_point.color = COLOR_BORDER;
-	bresenham(initial_point, end_point, thickness);
 }
