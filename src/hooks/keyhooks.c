@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 12:32:12 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:30:50 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
-	if (keydata.key == ESC && (keydata.action == P || keydata.action == RE))
+	if (keydata.key == ESC && (keydata.action == P || \
+		keydata.action == RE))
 	{
 		clear_all();
 		exit(EXIT_SUCCESS);
