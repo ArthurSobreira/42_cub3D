@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 12:10:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:38:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct s_mlx
 	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
-
 }						t_mlx;
 
 typedef struct s_player
