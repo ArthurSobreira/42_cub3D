@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 18:17:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:54:31 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_mlx	*init_mlx(void)
 	mlx->img_ptr = mlx_new_image(mlx->win_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!mlx->img_ptr)
 		ft_error(ERROR_MLX_INIT);
+	mlx->cursor_texture = mlx_load_png(CURSOR_PATH);
+	mlx->cursor = mlx_create_cursor(mlx->cursor_texture);
 	get_color(mlx, CEIL);
 	get_color(mlx, FLOOR);
 	return (mlx);
