@@ -28,6 +28,7 @@ UTILS_PATH = utils/
 HOOKS_PATH = hooks/
 
 SOURCES = main.c \
+	math.c \
 	$(GRAPHICS_PATH)draw_line.c \
 	$(GRAPHICS_PATH)draw.c \
 	$(GRAPHICS_PATH)init_utils.c \
@@ -119,6 +120,6 @@ valgrind: all make_temp
 	--track-origins=yes \
 	--suppressions=./suppresion.supp \
 	--log-file=$(TEMP_PATH)valgrind.log \
-	./$(NAME) ./assets/maps/valid.cub 
+	./$(NAME) ./assets/maps/sage.cub 
 
 .PHONY: all clean fclean re libft make_temp valgrind
