@@ -7,10 +7,14 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*   Updated: 2024/05/17 18:40:40 by phenriq2         ###   ########.fr       */
 =======
 /*   Updated: 2024/05/17 12:10:40 by arsobrei         ###   ########.fr       */
 >>>>>>> 19fad299a38b858d8bba80e05fa1b5132a954222
+=======
+/*   Updated: 2024/05/17 17:48:53 by arsobrei         ###   ########.fr       */
+>>>>>>> 516b80a95388c083619f532ad182e77f686b1664
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +67,6 @@ typedef struct s_mlx
 	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
-
 }						t_mlx;
 
 typedef struct s_player
@@ -125,13 +128,13 @@ typedef struct s_bres
 
 typedef struct s_cub3d
 {
+	char				*parser_infos[PARSER_INFOS_LEN];
 	char				*map_path;
 	char				*temp_map_path;
 	short				texture_count;
 	short				color_count;
-	char				*parser_infos[PARSER_INFOS_LEN];
+	t_bool				map_flag;
 	t_bool				bad_flag;
-	t_wall				*wall;
 }						t_cub3d;
 
 #endif
