@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:24:01 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 12:40:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:48:53 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct s_cub3d
 	char				*temp_map_path;
 	short				texture_count;
 	short				color_count;
+	t_bool				map_flag;
 	t_bool				bad_flag;
 }						t_cub3d;
 
