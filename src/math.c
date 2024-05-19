@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/17 18:46:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:05:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	vertical(double ra);
-
 static void	horizontal(double ra)
 {
-	get_math()->atan = -1 / tan(ra);
+	// get_math()->atan = -1 / tan(ra);
 	if (ra > PI)
 	{
 		get_math()->ry = (((int)get_player()->pos_y >> BITSHIFT) << BITSHIFT)
@@ -45,7 +43,10 @@ static void	horizontal(double ra)
 
 static void	vertical(double ra)
 {
-	get_math()->ntan = -tan(ra);
+	// t_math	*math;
+
+	// math = get_math();
+	// math->ntan = -tan(ra);
 	if (ra > PI_OVER_TWO && ra < THREE_PI_OVER_TWO)
 	{
 		get_math()->rx = (((int)get_player()->pos_x >> BITSHIFT) << BITSHIFT)
@@ -72,57 +73,52 @@ static void	vertical(double ra)
 	}
 }
 
-void	cat(void)
+static void	trace_ray(t_math *math)
 {
-	int	mx;
-	int	my;
-	int	mp;
+	t_map	*map;
+	int		map_x;
+	int		map_y;
+	int		map_p;
 
-	get_math()->dof = 0;
-	horizontal(get_player()->angle);
-	while (get_math()->dof < 8)
+	map = get_map();
+	while (math->dof < 8)
 	{
-		mx = (int)(get_math()->rx) >> BITSHIFT;
-		my = (int)(get_math()->ry) >> BITSHIFT;
-		mp = my * get_map()->max_x + mx;
-		if (mx > get_map()->max_x || my > get_map()->max_y || mx < 0 || my < 0)
+		map_x = (int)(math->rx) >> BITSHIFT;
+		map_y = (int)(math->ry) >> BITSHIFT;
+		map_p = map_y * map->max_x + map_x;
+		if (map_x > map->max_x || \
+			map_y > map->max_y|| \
+			map_x < 0 || map_y < 0)
 			break ;
-		if (mp < get_map()->max_x * get_map()->max_y
-			&& get_map()->map_str[my][mx] == '1')
-			get_math()->dof = 8;
+		if (map_p < map->max_x * map->max_y && \
+			map->map_str[map_y][map_x] == '1')
+			math->dof = 8;
 		else
 		{
-			get_math()->rx += get_math()->xo;
-			get_math()->ry += get_math()->yo;
-			get_math()->dof += 1;
+			math->rx += math->xo;
+			math->ry += math->yo;
+			math->dof += 1;
 		}
 	}
+}
+
+void	cat(void)
+{
+	t_math	*math;
+
+	math = get_math();
+	init_math(get_player()->angle);
+	horizontal(get_player()->angle);
+	trace_ray(math);
 }
 
 
 void	cat2(void)
 {
-	int	mx;
-	int	my;
-	int	mp;
+	t_math	*math;
 
-	get_math()->dof = 0;
+	math = get_math();
+	init_math(get_player()->angle);
 	vertical(get_player()->angle);
-	while (get_math()->dof < 8)
-	{
-		mx = (int)(get_math()->rx) >> BITSHIFT;
-		my = (int)(get_math()->ry) >> BITSHIFT;
-		mp = my * get_map()->max_x + mx;
-		if (mx > get_map()->max_x || my > get_map()->max_y || mx < 0 || my < 0)
-			break ;
-		if (mp < get_map()->max_x * get_map()->max_y
-			&& get_map()->map_str[my][mx] == '1')
-			get_math()->dof = 8;
-		else
-		{
-			get_math()->rx += get_math()->xo;
-			get_math()->ry += get_math()->yo;
-			get_math()->dof += 1;
-		}
-	}
+	trace_ray(math);
 }
