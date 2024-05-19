@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:21:58 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 18:59:49 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/18 14:16:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,11 @@ static int	closed_map_validation(void)
 static int	number_players_validation(void)
 {
 	char	**map;
-	t_map	*map_struct;
 	int		i;
 	int		j;
 	int		player_count;
 
 	map = get_map()->map_str;
-	map_struct = get_map();
 	i = 0;
 	player_count = 0;
 	while (map[i])
