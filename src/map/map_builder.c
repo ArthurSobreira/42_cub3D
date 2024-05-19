@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/17 12:28:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/18 14:15:32 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ void	get_map_size_y(void)
 	int		fd;
 	char	*line;
 	int		i;
-	int		ignore;
 
 	i = 0;
-	ignore = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
 	get_next_line(CLEAR_STATIC);
 	while (TRUE)
