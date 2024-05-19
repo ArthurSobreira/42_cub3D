@@ -1,7 +1,8 @@
 NAME = cub3D
 LIBFT = libs/libft/libft.a
-CFLAGS = -Wall -Wextra -Werror -g3
-MFLAGS = -Iinclude -ldl -lglfw -pthread -lm
+CFLAGS = -Wall -Wextra -Werror -g3 -ffast-math \
+	-fno-stack-protector
+MFLAGS = -Iinclude -ldl -lglfw -pthread -lm 
 MLX = ./libs/MLX42/build/libmlx42.a
 MLX_PATH = libs/MLX42
 TEMP_PATH = ./temp/
