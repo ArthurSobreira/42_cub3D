@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 18:55:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:20:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int	main(int argc, char *argv[])
 
 	core = get_core();
 	core->map_path = argv[1];
-	if (argc != 2 || !valid_map_name(core->map_path))
-		ft_error(ERROR_INVALID_MAP_PATH);
 	core->texture_count = 0;
 	core->color_count = 0;
 	core->map_flag = TRUE;
+	core->bad_flag = FALSE;
+	if (argc != 2 || !valid_map_name(core->map_path))
+		ft_error(ERROR_INVALID_MAP_PATH);
 	get_parser_infos();
 	map_builder();
 	init_player();
