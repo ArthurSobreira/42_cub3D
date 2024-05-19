@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/13 11:36:54 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/18 14:13:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	get_parser_infos(void)
 void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
 {
 	t_cub3d		*core;
-	size_t		index;
 	char		**splited_line;
 
 	if (*line == '\0' || *line == '\n')
@@ -55,7 +54,6 @@ void	parser_line(char **parser_infos, char *line, t_bool *is_map_flag)
 		return ;
 	}
 	core = get_core();
-	index = 0;
 	splited_line = ft_split(line, ' ');
 	normalize_element(line);
 	if (!splited_line)
