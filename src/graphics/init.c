@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 18:58:14 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:04:20 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ void	init_player(void)
 		get_player()->angle = TWO_PI;
 	get_player()->delta_x = cos(get_player()->angle);
 	get_player()->delta_y = sin(get_player()->angle);
+}
+
+void	init_math(double ray_angle)
+{
+	t_math	*math;
+
+	math = get_math();
+	math->dof = 0;
+	math->ntan = -tan(ray_angle);
+	math->atan = -1 / tan(ray_angle);
 }
 
 void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point)
