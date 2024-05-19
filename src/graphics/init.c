@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/19 17:04:20 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/19 19:37:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,18 @@ void	init_player(void)
 	get_player()->delta_y = sin(get_player()->angle);
 }
 
-void	init_math(double ray_angle)
+void	init_math(t_player *player)
 {
 	t_math	*math;
 
 	math = get_math();
 	math->dof = 0;
-	math->ntan = -tan(ray_angle);
-	math->atan = -1 / tan(ray_angle);
+	math->ntan = -tan(player->angle);
+	math->atan = -1 / tan(player->angle);
+	// math->horz_x = player->pos_x;
+	// math->horz_y = player->pos_y;
+	// math->vert_x = player->pos_x;
+	// math->vert_y = player->pos_y;
 }
 
 void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point)
