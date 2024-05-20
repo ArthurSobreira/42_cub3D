@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:02:38 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:16:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	mlx_process(void)
 
 void	draw_rays(t_math *math, t_player *player)
 {
-	if (get_core()->draw_map)
+	if (!get_core()->draw_map)
 		return ;
 	for (int i = 0; i < 1; i++)
 	{
