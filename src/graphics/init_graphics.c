@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:20:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:11:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	init_player(void)
 		get_player()->angle = TWO_PI;
 	get_player()->delta_x = cos(get_player()->angle);
 	get_player()->delta_y = sin(get_player()->angle);
+	get_player()->move_w = move_w;
+	get_player()->move_a = move_a;
+	get_player()->move_s = move_s;
+	get_player()->move_d = move_d;
+	get_player()->move_left = move_left;
+	get_player()->move_right = move_right;
 }
 
 void	init_math(t_player *player)
