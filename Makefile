@@ -31,9 +31,9 @@ UTILS_PATH = utils/
 
 SOURCES = main.c \
 	$(GRAPHICS_PATH)draw_line.c \
-	$(GRAPHICS_PATH)draw.c \
 	$(GRAPHICS_PATH)init_utils.c \
 	$(GRAPHICS_PATH)init.c \
+	$(GRAPHICS_PATH)render_utils.c \
 	$(GRAPHICS_PATH)render.c \
 	$(HOOKS_PATH)cursorhooks.c \
 	$(HOOKS_PATH)keyhooks_rotation.c \
