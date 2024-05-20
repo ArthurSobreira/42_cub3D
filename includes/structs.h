@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/19 19:58:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/19 23:17:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,6 @@ typedef struct s_player
 	char				direction;
 }						t_player;
 
-typedef struct s_point
-{
-	float				coord_x;
-	float				coord_y;
-	uint32_t			color;
-}						t_point;
-
 /* 	@brief: Structs for calculations
 
 	@r: ray
@@ -99,22 +92,29 @@ typedef struct s_point
 
 typedef struct s_math
 {
+	double				atan;
+	double				ntan;
+	double				ray_x;
+	double				ray_y;
+	double				ray_ang;
+	double				x_offset;
+	double				y_offset;
+	double				horz_dist;
+	double				horz_x;
+	double				horz_y;
+	double				vert_dist;
+	double				vert_x;
+	double				vert_y;
+	double				dist;
 	int					dof;
-	float				atan;
-	float				ntan;
-	float				ray_x;
-	float				ray_y;
-	float				ray_ang;
-	float				x_offset;
-	float				y_offset;
-	float				horz_dist;
-	float				horz_x;
-	float				horz_y;
-	float				vert_dist;
-	float				vert_x;
-	float				vert_y;
-	float				dist;
 }						t_math;
+
+typedef struct s_point
+{
+	float				coord_x;
+	float				coord_y;
+	uint32_t			color;
+}						t_point;
 
 typedef struct s_bres
 {
