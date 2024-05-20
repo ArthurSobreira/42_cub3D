@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 16:04:41 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:30:34 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_cub(t_cub3d *core, char *argv[])
 	core->map_path = argv[1];
 	core->texture_count = 0;
 	core->color_count = 0;
+	core->draw_rays = FALSE;
 	core->draw_map = TRUE;
 	core->map_flag = TRUE;
 	core->bad_flag = FALSE;
