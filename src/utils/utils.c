@@ -6,13 +6,13 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 15:43:46 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:04:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	setup_cub(t_cub3d *core, char *argv[])
+void	init_cub(t_cub3d *core, char *argv[])
 {
 	core->get_parser_infos = get_parser_infos;
 	core->map_builder = map_builder;
