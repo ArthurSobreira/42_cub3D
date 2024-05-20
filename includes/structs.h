@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 15:37:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:11:18 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,12 @@ typedef struct s_mlx
 
 typedef struct s_player
 {
+	void				(*move_w)(void);
+	void				(*move_a)(void);
+	void				(*move_s)(void);
+	void				(*move_d)(void);
+	void				(*move_left)(void);
+	void				(*move_right)(void);
 	double				pos_x;
 	double				pos_y;
 	double				delta_y;
@@ -115,16 +121,17 @@ typedef struct s_bres
 
 typedef struct s_cub3d
 {
-	void 				(*get_parser_infos)(void);
-    void 				(*map_builder)(void);
-    void 				(*init_player)(void);
-    void 				(*mlx_process)(void);
-    void 				(*clear_all)(void);
+	void				(*get_parser_infos)(void);
+	void				(*map_builder)(void);
+	void				(*init_player)(void);
+	void				(*mlx_process)(void);
+	void				(*clear_all)(void);
 	char				*parser_infos[PARSER_LEN];
 	char				*map_path;
 	char				*temp_map_path;
 	short				texture_count;
 	short				color_count;
+	t_bool				draw_rays;
 	t_bool				draw_map;
 	t_bool				map_flag;
 	t_bool				bad_flag;
