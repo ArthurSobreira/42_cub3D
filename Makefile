@@ -36,7 +36,8 @@ SOURCES = main.c \
 	$(GRAPHICS_PATH)render_utils.c \
 	$(GRAPHICS_PATH)render.c \
 	$(HOOKS_PATH)cursorhooks.c \
-	$(HOOKS_PATH)keyhooks_rotation.c \
+	$(HOOKS_PATH)hooks_movement.c \
+	$(HOOKS_PATH)hooks_rotation.c \
 	$(HOOKS_PATH)keyhooks.c \
 	$(MAP_PATH)map_builder.c \
 	$(MAP_PATH)map_utils.c \
