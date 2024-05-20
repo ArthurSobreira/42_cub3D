@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 11:51:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:38:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_local_matrix(char **matrix)
 	size_t	index;
 
 	index = 0;
-	while (index < PARSER_INFOS_LEN)
+	while (index < PARSER_LEN)
 	{
 		if (matrix[index])
 			free(matrix[index]);
