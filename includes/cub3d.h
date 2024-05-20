@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:12:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:36:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ void		my_cursor(double x, double y, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 void		move_right(void);
 void		move_left(void);
+void		move_w(void);
+void		move_a(void);
+void		move_s(void);
+void		move_d(void);
 
 /* Player Functions */
 void		init_player(void);
