@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 15:44:20 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:12:10 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,13 @@ void		bresenham_low(t_point initial_point, t_point end_point,
 				int thickness);
 
 /* Utils Functions */
-void		setup_cub(t_cub3d *core, char *argv[]);
+void		init_cub(t_cub3d *core, char *argv[]);
 void		ft_error(char *msg);
 void		free_local_matrix(char **matrix);
 void		clear_mlx(void);
 void		clear_all(void);
 
 /* Map Functions */
-void		ft_print_map(void);
 void		map_builder(void);
 t_bool		in_map_line(void);
 t_bool		in_map_line2(void);
