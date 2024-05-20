@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/19 23:05:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:03:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define DOWN MLX_KEY_DOWN
 # define LEFT MLX_KEY_LEFT
 # define RIGHT MLX_KEY_RIGHT
+# define TAB MLX_KEY_TAB
 # define W MLX_KEY_W
 # define S MLX_KEY_S
 # define A MLX_KEY_A
