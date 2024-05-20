@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/19 18:15:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:44:20 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "defines.h"
 # include "structs.h"
 # include <limits.h>
+# include <float.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
@@ -53,6 +54,7 @@ void		draw_background(t_mlx *mlx);
 void		draw_minimap(t_mlx *mlx);
 void		draw_player(int x, int y, uint32_t color);
 void		draw_direction(t_player *player);
+void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
 void		bresenham(t_point inital_point, t_point end_point, int thickness);
@@ -62,11 +64,11 @@ void		bresenham_low(t_point initial_point, t_point end_point,
 				int thickness);
 
 /* Utils Functions */
+void		setup_cub(t_cub3d *core, char *argv[]);
+void		ft_error(char *msg);
 void		free_local_matrix(char **matrix);
 void		clear_mlx(void);
 void		clear_all(void);
-void		print_parser_infos(char **parser_infos);
-void		ft_error(char *msg);
 
 /* Map Functions */
 void		ft_print_map(void);
@@ -90,8 +92,10 @@ void		set_player_direction(void);
 void		draw_player(int x, int y, uint32_t color);
 
 /* Math Functions */
+void		trace_ray(t_math *math, t_map *map, t_axis axis);
+void		check_wall_collision(t_axis axis);
 void		init_math(t_player *player);
-void		cat(void);
-void		cat2(void);
+void		cat(double i);
+void		cat2(double i);
 
 #endif
