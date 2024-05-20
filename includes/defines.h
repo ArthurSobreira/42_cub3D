@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:13:24 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:32:12 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define S MLX_KEY_S
 # define A MLX_KEY_A
 # define D MLX_KEY_D
+# define R MLX_KEY_R
 # define Q MLX_KEY_Q
 # define P MLX_PRESS
 # define RE MLX_REPEAT
