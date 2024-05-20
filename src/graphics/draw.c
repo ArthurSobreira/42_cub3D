@@ -6,33 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 12:22:24 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:06:10 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i <= MAP_CUB)
-	{
-		j = 0;
-		while (j <= MAP_CUB)
-		{
-			if ((color == COLOR_WALL) && \
-				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
-			else
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
-			++j;
-		}
-		++i;
-	}
-}
 
 void	draw_direction(t_player *player)
 {
@@ -40,6 +18,8 @@ void	draw_direction(t_player *player)
 	t_point	end_point;
 	short	thickness;
 
+	if (get_core()->draw_map == FALSE)
+		return ;
 	thickness = 2;
 	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
 	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
@@ -79,6 +59,8 @@ void	draw_minimap(t_mlx *mlx)
 	int		x;
 	int		y;
 
+	if (get_core()->draw_map == FALSE)
+		return ;
 	map = get_map()->map_str;
 	y = 0;
 	while (map[y])
@@ -101,6 +83,8 @@ void	draw_player(int x, int y, uint32_t color)
 	int	i;
 	int	j;
 
+	if (get_core()->draw_map == FALSE)
+		return ;
 	i = 0;
 	while (i <= 7)
 	{
@@ -111,6 +95,28 @@ void	draw_player(int x, int y, uint32_t color)
 				mlx_put_pixel(get_mlx()->img_ptr, x + i, y + j, COLOR_BORDER);
 			else
 				mlx_put_pixel(get_mlx()->img_ptr, x + i, y + j, color);
+			++j;
+		}
+		++i;
+	}
+}
+
+void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= MAP_CUB)
+	{
+		j = 0;
+		while (j <= MAP_CUB)
+		{
+			if ((color == COLOR_WALL) && \
+				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
+			else
+				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
 			++j;
 		}
 		++i;
