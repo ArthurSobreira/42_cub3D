@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/10 17:32:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:43:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	setup_cub(t_cub3d *core, char *argv[])
+{
+	core->get_parser_infos = get_parser_infos;
+	core->map_builder = map_builder;
+	core->init_player = init_player;
+	core->mlx_process = mlx_process;
+	core->clear_all = clear_all;
+	core->map_path = argv[1];
+	core->texture_count = 0;
+	core->color_count = 0;
+	core->draw_map = TRUE;
+	core->map_flag = TRUE;
+	core->bad_flag = FALSE;
+}
 
 void	ft_error(char *msg)
 {
