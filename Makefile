@@ -23,13 +23,13 @@ HEADER_PATH = ./includes
 BIN_PATH = ./bin/
 SOURCES_PATH = ./src/
 GRAPHICS_PATH = graphics/
+HOOKS_PATH = hooks/
 MAP_PATH = map/
+MATH_PATH = math/
 PARSER_PATH = parser/
 UTILS_PATH = utils/
-HOOKS_PATH = hooks/
 
 SOURCES = main.c \
-	math.c \
 	$(GRAPHICS_PATH)draw_line.c \
 	$(GRAPHICS_PATH)draw.c \
 	$(GRAPHICS_PATH)init_utils.c \
@@ -38,17 +38,19 @@ SOURCES = main.c \
 	$(HOOKS_PATH)cursorhooks.c \
 	$(HOOKS_PATH)keyhooks_rotation.c \
 	$(HOOKS_PATH)keyhooks.c \
-	$(PARSER_PATH)parser_colors.c \
-	$(PARSER_PATH)parser_textures.c \
-	$(PARSER_PATH)parser_utils.c \
-	$(PARSER_PATH)parser.c \
 	$(MAP_PATH)map_builder.c \
 	$(MAP_PATH)map_utils.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
+	$(MATH_PATH)math_utils.c \
+	$(MATH_PATH)ray_casting.c \
+	$(PARSER_PATH)parser_colors.c \
+	$(PARSER_PATH)parser_textures.c \
+	$(PARSER_PATH)parser_utils.c \
+	$(PARSER_PATH)parser.c \
 	$(UTILS_PATH)clear.c \
-	$(UTILS_PATH)error.c \
 	$(UTILS_PATH)getters.c \
+	$(UTILS_PATH)utils.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
@@ -91,6 +93,7 @@ $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)$(GRAPHICS_PATH)
 	@mkdir -p $(BIN_PATH)$(HOOKS_PATH)
 	@mkdir -p $(BIN_PATH)$(MAP_PATH)
+	@mkdir -p $(BIN_PATH)$(MATH_PATH)
 	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
 	@mkdir -p $(BIN_PATH)$(UTILS_PATH)
 
