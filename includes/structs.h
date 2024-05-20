@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 19:11:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:28:55 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 # define STRUCTS_H
 
 # include "cub3d.h"
-
-typedef struct s_core	t_core;
-typedef struct s_map	t_map;
-typedef struct s_wall	t_wall;
-typedef struct s_mlx	t_mlx;
 
 enum					e_rgb
 {
