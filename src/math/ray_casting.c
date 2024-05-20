@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 15:27:46 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:22:31 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	cat(double i)
 	horizontal(math->ray_ang);
 	trace_ray(math, map, HORIZONTAL);
 }
-
 
 void	cat2(double i)
 {
