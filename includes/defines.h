@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 15:03:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:36:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* Utils Defines */
 # define PERMITED_MAP_CHARS " 01NSEW"
 # define PERMITED_PLAYER_CHARS "NSEW"
-# define PARSER_INFOS_LEN 6
+# define PARSER_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
 # define MAP_CUB 32
