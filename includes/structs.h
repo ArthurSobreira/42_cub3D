@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/19 23:17:38 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:53:42 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,6 @@ typedef struct s_player
 	char				direction;
 }						t_player;
 
-/* 	@brief: Structs for calculations
-
-	@r: ray
-	@mx: map x
-	@my: map y
-	@mp: map position
-	@dof: direction of field
-	@atan: angle tangent
-	@rx: ray x
-	@ry: ray y
-	@ra: ray angle
-	@xo: x offset
-	@yo: y offset */
-
 typedef struct s_math
 {
 	double				atan;
@@ -106,7 +92,7 @@ typedef struct s_math
 	double				vert_x;
 	double				vert_y;
 	double				dist;
-	int					dof;
+	t_bool				collision;
 }						t_math;
 
 typedef struct s_point
