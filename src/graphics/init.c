@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/19 19:37:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:55:48 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	init_math(t_player *player)
 	t_math	*math;
 
 	math = get_math();
-	math->dof = 0;
+	math->collision = FALSE;
 	math->ntan = -tan(player->angle);
 	math->atan = -1 / tan(player->angle);
 	// math->horz_x = player->pos_x;
