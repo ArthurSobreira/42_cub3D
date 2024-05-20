@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhooks_rotation.c                                :+:      :+:    :+:   */
+/*   hooks_rotation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:54:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 14:50:37 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:15:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_left(void)
 	t_player	*player;
 
 	player = get_player();
-	player->angle -= 0.05;
+	player->angle -= 0.1;
 	if (player->angle < 0)
 		player->angle += TWO_PI;
 	player->delta_x = cos(player->angle);
@@ -29,7 +29,7 @@ void	move_right(void)
 	t_player	*player;
 
 	player = get_player();
-	player->angle += 0.05;
+	player->angle += 0.1;
 	if (player->angle > TWO_PI)
 		player->angle -= TWO_PI;
 	player->delta_x = cos(player->angle);
