@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 15:01:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:37:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,12 @@ typedef struct s_bres
 
 typedef struct s_cub3d
 {
-	char				*parser_infos[PARSER_INFOS_LEN];
+	void 				(*get_parser_infos)(void);
+    void 				(*map_builder)(void);
+    void 				(*init_player)(void);
+    void 				(*mlx_process)(void);
+    void 				(*clear_all)(void);
+	char				*parser_infos[PARSER_LEN];
 	char				*map_path;
 	char				*temp_map_path;
 	short				texture_count;
