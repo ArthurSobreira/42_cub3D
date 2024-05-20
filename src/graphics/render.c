@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/19 20:08:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/19 23:07:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	render(void *param)
 	}
 	bresenham((t_point){(get_player()->pos_x + DIRECTION_OFFSET), \
 				(get_player()->pos_y + DIRECTION_OFFSET), COLOR_PLAYER}, \
-			(t_point){get_math()->ray_x, get_math()->ray_y, COLOR_PLAYER}, 2);
+			(t_point){get_math()->ray_x, get_math()->ray_y, COLOR_PLAYER}, 1);
 	draw_direction(get_player());
 	draw_player(get_player()->pos_x, \
 		get_player()->pos_y, COLOR_PLAYER);
