@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/19 20:06:57 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/19 23:14:53 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	vertical(double ra)
 	}
 }
 
-static float	pythagorean(float ax, float ay, float bx, float by)
+static double	pythagorean(double ax, double ay, double bx, double by)
 {
 	return (sqrt((bx - ax) * (bx + ax) + (by - ay) * (by + ay)));
 }
@@ -132,12 +132,17 @@ void	cat(void)
 	math = get_math();
 	map = get_map();
 	math->dof = 0;
+	math->ray_ang = get_player()->angle;
+	// if (math->ray_ang < 0)
+	// 	math->ray_ang += TWO_PI;
+	// if (math->ray_ang > TWO_PI)
+	// 	math->ray_ang -= TWO_PI;
 	math->atan = -1 / tan(get_player()->angle);
 	math->horz_dist = INT_MAX;
 	math->horz_x = get_player()->pos_x;
 	math->horz_y = get_player()->pos_y;
 	// init_math(get_player());
-	horizontal(get_player()->angle);
+	horizontal(math->ray_ang);
 	trace_ray(math, map, HORIZONTAL);
 }
 
@@ -150,11 +155,16 @@ void	cat2(void)
 	math = get_math();
 	map = get_map();
 	math->dof = 0;
+	math->ray_ang = get_player()->angle;
+	// if (math->ray_ang < 0)
+	// 	math->ray_ang += 2 * PI;
+	// if (math->ray_ang > 2 * PI)
+	// 	math->ray_ang -= 2 * PI;
 	math->ntan = -tan(get_player()->angle);
 	math->vert_dist = INT_MAX;
 	math->vert_x = get_player()->pos_x;
 	math->vert_y = get_player()->pos_y;
 	// init_math(get_player());
-	vertical(get_player()->angle);
+	vertical(math->ray_ang);
 	trace_ray(math, map, VERTICAL);
 }
