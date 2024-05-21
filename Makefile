@@ -43,8 +43,8 @@ SOURCES = main.c \
 	$(MAP_PATH)map_utils.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
-	$(MATH_PATH)math_utils.c \
 	$(MATH_PATH)ray_casting.c \
+	$(MATH_PATH)ray_utils.c \
 	$(PARSER_PATH)parser_colors.c \
 	$(PARSER_PATH)parser_textures.c \
 	$(PARSER_PATH)parser_utils.c \
