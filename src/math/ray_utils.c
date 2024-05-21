@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 06:46:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:28:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	check_wall_collision(t_axis axis)
 void	update_distance(double horizontal_dist, double vertical_dist)
 {
 	t_math		*math;
+	double		fisheye_fix;
 
 	math = get_math();
 	if (vertical_dist < horizontal_dist)
@@ -79,6 +80,9 @@ void	update_distance(double horizontal_dist, double vertical_dist)
 		math->ray_x = math->horz_x;
 		math->ray_y = math->horz_y;
 	}
+	fisheye_fix = get_player()->angle - math->ray_ang;
+	normalize_angle(&fisheye_fix);
+	math->dist *= cos(fisheye_fix);
 }
 
 void	draw_rays(t_math *math, t_player *player)
