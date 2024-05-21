@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:32:12 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 20:56:42 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define PRECISION 0.0001
 # define ANG_1 0.0174533
 
-/* Error Defines */
+/* String Defines */
 # define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
 # define ERROR_MAP_CLOSED "\033[0;31mError\nMap is not Closed\033[0m\n"
 # define ERROR_MAP_PLAYER "\033[0;31mError\nMap Contains Invalid Player :(\033[0m\n"
@@ -72,5 +72,6 @@
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
 # define CURSOR_PATH "./assets/textures/aim2.png"
+# define SUCCESS_MESSAGE "\033[32;3mCub3D closed, Thank You :)\033[0m\n"
 
 #endif
