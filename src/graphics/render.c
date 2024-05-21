@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 23:39:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 00:45:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,19 @@ void	mlx_process(void)
 
 void	render(void *param)
 {
-	t_mlx	*mlx;
+	t_math		*math;
+	t_map		*map;
+	t_player	*player;
+	t_mlx		*mlx;
 
+	math = get_math();
+	map = get_map();
+	player = get_player();
 	mlx = (t_mlx *)param;
 	draw_background(mlx);
 	draw_minimap(mlx);
-	casting_rays(get_math(), get_player());
-	draw_direction(get_player());
-	draw_player(get_player()->pos_x, \
-		get_player()->pos_y, COLOR_PLAYER);
+	casting_rays(math, map, player);
+	draw_direction(player);
+	draw_player(player->pos_x, \
+		player->pos_y, COLOR_PLAYER);
 }
