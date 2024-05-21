@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/21 03:04:52 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 06:45:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_cub(t_cub3d *core, char *argv[])
 	core->draw_rays = FALSE;
 	core->draw_map = TRUE;
 	core->map_flag = TRUE;
+	core->wall_flag = FALSE;
 	core->bad_flag = FALSE;
 }
 
