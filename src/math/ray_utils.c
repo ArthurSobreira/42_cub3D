@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 03:02:41 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:09:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	draw_rays(t_math *math, t_player *player)
 	t_point	initial_point;
 	t_point	final_point;
 	short	thickness;
-	
+
 	if ((!get_core()->draw_map) || (!get_core()->draw_rays))
 		return ;
 	thickness = 1;
