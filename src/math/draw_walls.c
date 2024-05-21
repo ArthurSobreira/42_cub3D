@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 07:10:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:36:47 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	draw_walls(t_math *math, int current_ray)
 	initial_point.coord_y = (WINDOW_HEIGHT / 2) - (wall_height / 2);
 	final_point.coord_x = initial_point.coord_x;
 	final_point.coord_y = initial_point.coord_y + wall_height;
-	initial_point.color = COLOR_PLAYER;
+	if (math->horz_dist < math->vert_dist)
+		initial_point.color = COLOR_PLAYER;
+	else
+		initial_point.color = 0xbd0000ff;
 	final_point.color = COLOR_PLAYER;
 	bresenham(initial_point, final_point, wall_width);
 }
