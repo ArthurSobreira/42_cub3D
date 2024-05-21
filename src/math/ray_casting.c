@@ -6,113 +6,97 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 16:22:31 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:10:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	horizontal(double ra)
+static void	handle_ray_angle_collision(t_math *math, t_player *player)
 {
-	printf("ray_ang: %lf\n", ra);
-	if (ra > PI)
+	if (math->ray_ang == 0 || math->ray_ang == PI)
 	{
-		get_math()->ray_y = (((int)get_player()->pos_y >> BITSHIFT) << BITSHIFT)
-		- PRECISION;
-		get_math()->ray_x = (get_player()->pos_y - get_math()->ray_y)
-		* get_math()->atan + get_player()->pos_x;
-		get_math()->y_offset = -MAP_CUB;
-		get_math()->x_offset = -get_math()->y_offset * get_math()->atan;
-	}
-	if (ra < PI)
-	{
-		get_math()->ray_y = (((int)get_player()->pos_y >> BITSHIFT) << BITSHIFT)
-		+ MAP_CUB;
-		get_math()->ray_x = (get_player()->pos_y - get_math()->ray_y)
-		* get_math()->atan + get_player()->pos_x;
-		get_math()->y_offset = MAP_CUB;
-		get_math()->x_offset = -get_math()->y_offset * get_math()->atan;
-	}
-	if (ra == 0 || ra == PI)
-	{
-		get_math()->ray_x = get_player()->pos_x;
-		get_math()->ray_y = get_player()->pos_y;
-		get_math()->collision = TRUE;
+		math->ray_x = player->pos_x;
+		math->ray_y = player->pos_y;
+		math->collision = TRUE;
 	}
 }
 
-static void	vertical(double ra)
+void	cat_horizontal_rays(t_math *math, t_map *map, t_player *player)
 {
-	if (ra > PI_OVER_TWO && ra < THREE_PI_OVER_TWO)
+	init_axis(math, player, HORIZONTAL);
+	if (math->ray_ang > PI)
 	{
-		get_math()->ray_x = (((int)get_player()->pos_x >> BITSHIFT) << BITSHIFT)
-		- PRECISION;
-		get_math()->ray_y = (get_player()->pos_x - get_math()->ray_x)
-		* get_math()->ntan + get_player()->pos_y;
-		get_math()->x_offset = -MAP_CUB;
-		get_math()->y_offset = -get_math()->x_offset * get_math()->ntan;
+		math->ray_y = (((int)player->pos_y >> BITSHIFT) << BITSHIFT)
+			- PRECISION;
+		math->ray_x = (player->pos_y - math->ray_y)
+			* math->atan + player->pos_x;
+		math->y_offset = -MAP_CUB;
+		math->x_offset = -math->y_offset * math->atan;
 	}
-	if (ra < PI_OVER_TWO || ra > THREE_PI_OVER_TWO)
+	if (math->ray_ang < PI)
 	{
-		get_math()->ray_x = (((int)get_player()->pos_x >> BITSHIFT) << BITSHIFT)
-		+ MAP_CUB;
-		get_math()->ray_y = (get_player()->pos_x - get_math()->ray_x)
-		* get_math()->ntan + get_player()->pos_y;
-		get_math()->x_offset = MAP_CUB;
-		get_math()->y_offset = -get_math()->x_offset * get_math()->ntan;
+		math->ray_y = (((int)player->pos_y >> BITSHIFT) << BITSHIFT)
+			+ MAP_CUB;
+		math->ray_x = (player->pos_y - math->ray_y)
+			* math->atan + player->pos_x;
+		math->y_offset = MAP_CUB;
+		math->x_offset = -math->y_offset * math->atan;
 	}
-	if (ra == 0 || ra == PI)
-	{
-		get_math()->ray_x = get_player()->pos_x;
-		get_math()->ray_y = get_player()->pos_y;
-		get_math()->collision = TRUE;
-	}
-}
-
-void	cat(double i)
-{
-	t_math	*math;
-	t_map	*map;
-
-	(void)i;
-	math = get_math();
-	map = get_map();
-	math->collision = FALSE;
-	printf("angle: %lf\n", get_player()->angle);
-	math->ray_ang = get_player()->angle;
-	printf("ray_ang: %lf\n", math->ray_ang);
-	if (get_math()->ray_ang < 0)
-		get_math()->ray_ang += TWO_PI;
-	if (get_math()->ray_ang > TWO_PI)
-		get_math()->ray_ang -= TWO_PI;
-	math->atan = -1 / tan(get_player()->angle);
-	math->horz_dist = DBL_MAX;
-	math->horz_x = get_player()->pos_x;
-	math->horz_y = get_player()->pos_y;
-	// init_math(get_player());
-	horizontal(math->ray_ang);
+	handle_ray_angle_collision(math, player);
 	trace_ray(math, map, HORIZONTAL);
 }
 
-void	cat2(double i)
+void	cat_vertical_rays(t_math *math, t_map *map, t_player *player)
 {
-	t_math	*math;
-	t_map	*map;
-
-	(void)i;
-	math = get_math();
-	map = get_map();
-	math->collision = FALSE;
-	math->ray_ang = get_player()->angle;
-	if (get_math()->ray_ang < 0)
-		get_math()->ray_ang += TWO_PI;
-	if (get_math()->ray_ang > TWO_PI)
-		get_math()->ray_ang -= TWO_PI;
-	math->ntan = -tan(get_player()->angle);
-	math->vert_dist = DBL_MAX;
-	math->vert_x = get_player()->pos_x;
-	math->vert_y = get_player()->pos_y;
-	// init_math(get_player());
-	vertical(math->ray_ang);
+	init_axis(math, player, VERTICAL);
+	if (math->ray_ang > PI_OVER_TWO && math->ray_ang < THREE_PI_OVER_TWO)
+	{
+		math->ray_x = (((int)player->pos_x >> BITSHIFT) << BITSHIFT)
+			- PRECISION;
+		math->ray_y = (player->pos_x - math->ray_x)
+			* math->ntan + player->pos_y;
+		math->x_offset = -MAP_CUB;
+		math->y_offset = -math->x_offset * math->ntan;
+	}
+	if (math->ray_ang < PI_OVER_TWO || math->ray_ang > THREE_PI_OVER_TWO)
+	{
+		math->ray_x = (((int)player->pos_x >> BITSHIFT) << BITSHIFT)
+			+ MAP_CUB;
+		math->ray_y = (player->pos_x - math->ray_x)
+			* math->ntan + player->pos_y;
+		math->x_offset = MAP_CUB;
+		math->y_offset = -math->x_offset * math->ntan;
+	}
+	handle_ray_angle_collision(math, player);
 	trace_ray(math, map, VERTICAL);
+}
+
+void	casting_rays(t_math *math, t_map *map, t_player *player)
+{
+	int		angle;
+
+	if (!get_core()->draw_map)
+		return ;
+	angle = 0;
+	math->ray_ang = player->angle - ANG_1 * 30;
+	normalize_angle(&math->ray_ang);
+	while (angle++ < PLAYER_FOV)
+	{
+		cat_horizontal_rays(math, map, player);
+		cat_vertical_rays(math, map, player);
+		if (math->vert_dist < math->horz_dist)
+		{
+			math->ray_x = math->vert_x;
+			math->ray_y = math->vert_y;
+		}
+		else if (math->horz_dist < math->vert_dist)
+		{
+			math->ray_x = math->horz_x;
+			math->ray_y = math->horz_y;
+		}
+		draw_rays(math, player);
+		math->ray_ang += ANG_1;
+		normalize_angle(&math->ray_ang);
+	}
 }
