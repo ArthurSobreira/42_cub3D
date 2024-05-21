@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 15:38:43 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 20:58:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void	clear_all(void)
 	free_local_matrix(core->parser_infos);
 	if (get_map()->map_str)
 		ft_free_matrix(get_map()->map_str);
+	if (!get_core()->bad_flag)
+		ft_putstr_fd(SUCCESS_MESSAGE, STDOUT_FILENO);
 }
