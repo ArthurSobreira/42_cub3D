@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 03:04:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:33:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void		init_axis(t_math *math, t_player *player, t_axis axis);
 void		casting_rays(t_math *math, t_map *map, t_player *player);
 void		cat_horizontal_rays(t_math *math, t_map *map, t_player *player);
 void		cat_vertical_rays(t_math *math, t_map *map, t_player *player);
+void		update_distance(double horizontal_dist, double vertical_dist);
 void		trace_ray(t_math *math, t_map *map, t_axis axis);
 void		check_wall_collision(t_axis axis);
 void		draw_rays(t_math *math, t_player *player);
