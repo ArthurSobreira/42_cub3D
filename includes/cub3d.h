@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 07:05:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:10:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void		update_distance(double horizontal_dist, double vertical_dist);
 void		trace_ray(t_math *math, t_map *map, t_axis axis);
 void		check_wall_collision(t_axis axis);
 void		draw_rays(t_math *math, t_player *player);
+void		draw_walls(t_math *math, int current_ray);
 void		normalize_angle(double *angle);
 
 #endif
