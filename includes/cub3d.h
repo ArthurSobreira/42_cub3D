@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:11:25 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:04:19 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "../libs/libft/libft.h"
 # include "defines.h"
 # include "structs.h"
+# include <limits.h>
+# include <float.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
@@ -30,6 +32,7 @@ t_map		*get_map(void);
 t_cub3d		*get_core(void);
 t_mlx		*get_mlx(void);
 t_player	*get_player(void);
+t_math		*get_math(void);
 
 /* Parser Functions */
 void		get_parser_infos(void);
@@ -61,14 +64,13 @@ void		bresenham_low(t_point initial_point, t_point end_point,
 				int thickness);
 
 /* Utils Functions */
+void		init_cub(t_cub3d *core, char *argv[]);
+void		ft_error(char *msg);
 void		free_local_matrix(char **matrix);
 void		clear_mlx(void);
 void		clear_all(void);
-void		print_parser_infos(char **parser_infos);
-void		ft_error(char *msg);
 
 /* Map Functions */
-void		ft_print_map(void);
 void		map_builder(void);
 t_bool		in_map_line(void);
 t_bool		in_map_line2(void);
@@ -77,16 +79,29 @@ int			player_locale_x_valid(void);
 void		map_validation(void);
 void		map_cpy(void);
 
-/* keyhook */
-
-void		my_keyhook(mlx_key_data_t keydata, void *param);
+/* Keyhook Functions */
 void		my_cursor(double x, double y, void *param);
+void		my_keyhook(mlx_key_data_t keydata, void *param);
+void		move_right(void);
+void		move_left(void);
+void		move_w(void);
+void		move_a(void);
+void		move_s(void);
+void		move_d(void);
 
 /* Player Functions */
 void		init_player(void);
 void		set_player_direction(void);
 void		draw_player(int x, int y, uint32_t color);
-void		move_right(void);
-void		move_left(void);
+
+/* Ray Casting Functions */
+void		init_axis(t_math *math, t_player *player, t_axis axis);
+void		casting_rays(t_math *math, t_map *map, t_player *player);
+void		cat_horizontal_rays(t_math *math, t_map *map, t_player *player);
+void		cat_vertical_rays(t_math *math, t_map *map, t_player *player);
+void		trace_ray(t_math *math, t_map *map, t_axis axis);
+void		check_wall_collision(t_axis axis);
+void		draw_rays(t_math *math, t_player *player);
+void		normalize_angle(double *angle);
 
 #endif

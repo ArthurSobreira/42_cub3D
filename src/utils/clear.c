@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:14:36 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/20 20:58:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_local_matrix(char **matrix)
 	size_t	index;
 
 	index = 0;
-	while (index < PARSER_INFOS_LEN)
+	while (index < PARSER_LEN)
 	{
 		if (matrix[index])
 			free(matrix[index]);
@@ -41,7 +41,7 @@ void	clear_mlx(void)
 	if (mlx->textures[EAST])
 		mlx_delete_texture(mlx->textures[EAST]);
 	if (mlx->cursor)
-		mlx_delete_texture(mlx->cursor);
+		mlx_delete_texture(mlx->cursor_texture);
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
 }
@@ -55,4 +55,6 @@ void	clear_all(void)
 	free_local_matrix(core->parser_infos);
 	if (get_map()->map_str)
 		ft_free_matrix(get_map()->map_str);
+	if (!get_core()->bad_flag)
+		ft_putstr_fd(SUCCESS_MESSAGE, STDOUT_FILENO);
 }

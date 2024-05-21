@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_builder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:32 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 14:13:13 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:14:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	map_generate(void)
 	max_x = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
 	get_next_line(CLEAR_STATIC);
-	while (1)
+	while (TRUE)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -46,13 +46,11 @@ void	get_map_size_y(void)
 	int		fd;
 	char	*line;
 	int		i;
-	int ignore;
 
 	i = 0;
-	ignore = 0;
 	fd = open(get_core()->map_path, O_RDONLY);
 	get_next_line(CLEAR_STATIC);
-	while (1)
+	while (TRUE)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -66,15 +64,15 @@ void	get_map_size_y(void)
 	get_map()->max_y = i;
 }
 
-// void	normalize_map(void);
-
 void	map_builder(void)
 {
+	t_map	*map;
+
+	map = get_map();
 	get_map_size_y();
-	get_map()->map_str = ft_calloc(get_map()->max_y + 1, sizeof(char *));
-	get_map()->map_str[get_map()->max_y] = NULL;
+	map->map_str = ft_calloc(map->max_y + 1, sizeof(char *));
+	map->map_str[map->max_y] = NULL;
 	map_generate();
-	ft_print_map();
 	map_validation();
 	map_cpy();
 }

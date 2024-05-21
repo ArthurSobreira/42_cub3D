@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/16 19:14:02 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/21 00:45:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	mlx_cursor(void)
-{
-	mlx_texture_t		*texture;
-	mlx_win_cursor_t	*cursor;
-	t_mlx				*mlx;
-
-	mlx = get_mlx();
-	texture = mlx_load_png(CURSOR_PATH);
-	get_mlx()->cursor = texture;
-	cursor = mlx_create_cursor(texture);
-	mlx_set_cursor(mlx->win_ptr, cursor);
-	mlx_cursor_hook(mlx->win_ptr, my_cursor, NULL);
-}
 
 void	mlx_process(void)
 {
@@ -33,19 +19,28 @@ void	mlx_process(void)
 	mlx = init_mlx();
 	mlx_loop_hook(mlx->win_ptr, render, mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
-	mlx_cursor();
+	mlx_set_cursor(mlx->win_ptr, mlx->cursor);
+	mlx_cursor_hook(mlx->win_ptr, my_cursor, NULL);
 	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
+	mlx_set_mouse_pos(mlx->win_ptr, WIDTH_2, HEIGHT_2);
 	mlx_loop(mlx->win_ptr);
 }
 
 void	render(void *param)
 {
-	t_mlx	*mlx;
+	t_math		*math;
+	t_map		*map;
+	t_player	*player;
+	t_mlx		*mlx;
 
+	math = get_math();
+	map = get_map();
+	player = get_player();
 	mlx = (t_mlx *)param;
 	draw_background(mlx);
 	draw_minimap(mlx);
-	draw_direction(get_player());
-	draw_player(get_player()->pos_x, \
-		get_player()->pos_y, COLOR_PLAYER);
+	casting_rays(math, map, player);
+	draw_direction(player);
+	draw_player(player->pos_x, \
+		player->pos_y, COLOR_PLAYER);
 }
