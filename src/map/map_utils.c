@@ -6,25 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:51:41 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/17 12:04:44 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:12:16 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_print_map(void)
-{
-	char	**map;
-	int		i;
-
-	map = get_map()->map_str;
-	i = 0;
-	while (map[i])
-	{
-		printf("[%s]\n", map[i]);
-		i++;
-	}
-}
 
 t_bool	in_map_line(void)
 {

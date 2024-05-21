@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:14:17 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/16 13:41:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:23:43 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ t_player	*get_player(void)
 	static t_player	player;
 
 	return (&player);
+}
+
+t_math	*get_math(void)
+{
+	static t_math	math;
+
+	return (&math);
 }
