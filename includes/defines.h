@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 23:56:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 04:30:03 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define PARSER_LEN 6
 # define TEXTURES_LEN 4
 # define COLORS_LEN 2
-# define MAP_CUB 32
+# define MAP_CUB 16
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
@@ -56,8 +56,8 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
-# define PLAYER_FOV 60
-# define BITSHIFT 5
+# define PLAYER_FOV 90
+# define BITSHIFT 4
 # define PRECISION 0.0001
 # define ANG_1 0.0174533
 
