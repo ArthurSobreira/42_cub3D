@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 03:36:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 06:46:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	draw_rays(t_math *math, t_player *player)
 
 	if ((!get_core()->draw_map) || (!get_core()->draw_rays))
 		return ;
+	get_core()->wall_flag = FALSE;
 	thickness = 1;
 	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
 	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
