@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 19:14:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:39:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,6 @@ void	mlx_process(void)
 	mlx_loop(mlx->win_ptr);
 }
 
-void	draw_rays(t_math *math, t_player *player)
-{
-	if (!get_core()->draw_map)
-		return ;
-	for (int i = 0; i < 1; i++)
-	{
-		cat(i * ANG_1);
-		cat2(i * ANG_1);
-		if (math->vert_dist < math->horz_dist)
-		{
-			math->ray_x = math->vert_x;
-			math->ray_y = math->vert_y;
-		}
-		else if (math->horz_dist < math->vert_dist)
-		{
-			math->ray_x = math->horz_x;
-			math->ray_y = math->horz_y;
-		}
-		if (get_core()->draw_rays)
-			bresenham((t_point){(player->pos_x + DIRECTION_OFFSET), \
-						(player->pos_y + DIRECTION_OFFSET), COLOR_PLAYER}, \
-					(t_point){math->ray_x, math->ray_y, COLOR_PLAYER}, 1);
-	}
-}
-
 void	render(void *param)
 {
 	t_mlx	*mlx;
@@ -58,7 +33,7 @@ void	render(void *param)
 	mlx = (t_mlx *)param;
 	draw_background(mlx);
 	draw_minimap(mlx);
-	draw_rays(get_math(), get_player());
+	casting_rays(get_math(), get_player());
 	draw_direction(get_player());
 	draw_player(get_player()->pos_x, \
 		get_player()->pos_y, COLOR_PLAYER);
