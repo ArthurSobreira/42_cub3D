@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 16:30:34 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 20:59:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_error(char *msg)
 	core = get_core();
 	if (!core->bad_flag)
 		ft_putstr_fd(msg, STDERR_FILENO);
+	core->bad_flag = TRUE;
 	clear_all();
 	exit(EXIT_FAILURE);
 }
