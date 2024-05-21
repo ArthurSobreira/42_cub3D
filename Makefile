@@ -1,6 +1,6 @@
 NAME = cub3D
 LIBFT = libs/libft/libft.a
-CFLAGS = -Wall -Wextra -Werror -g3 -ffast-math \
+CFLAGS = -Wall -Wextra -Werror -O3 -ffast-math \
 	-fno-stack-protector
 MFLAGS = -Iinclude -ldl -lglfw -pthread -lm 
 MLX = ./libs/MLX42/build/libmlx42.a
@@ -43,6 +43,7 @@ SOURCES = main.c \
 	$(MAP_PATH)map_utils.c \
 	$(MAP_PATH)map_validation_utils.c \
 	$(MAP_PATH)map_validation.c \
+	$(MATH_PATH)draw_walls.c \
 	$(MATH_PATH)ray_casting.c \
 	$(MATH_PATH)ray_utils.c \
 	$(PARSER_PATH)parser_colors.c \
