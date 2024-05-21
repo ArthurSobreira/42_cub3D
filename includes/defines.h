@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 20:56:42 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:56:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
+# define PLAYER_FOV 60
 # define BITSHIFT 5
 # define PRECISION 0.0001
 # define ANG_1 0.0174533
