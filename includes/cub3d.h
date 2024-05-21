@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 06:55:57 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:05:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
+void		plot_thick_pixel(t_point point, int thickness);
 void		bresenham(t_point inital_point, t_point end_point, int thickness);
 void		bresenham_high(t_point initial_point, t_point end_point,
 				int thickness);
