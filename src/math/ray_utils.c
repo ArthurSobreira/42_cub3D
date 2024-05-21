@@ -6,35 +6,17 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 23:52:11 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:02:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_rays(t_math *math, t_player *player)
-{
-	t_point	initial_point;
-	t_point	final_point;
-	short	thickness;
-	
-	if ((!get_core()->draw_map) || (!get_core()->draw_rays))
-		return ;
-	thickness = 1;
-	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
-	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
-	final_point.coord_x = math->ray_x;
-	final_point.coord_y = math->ray_y;
-	initial_point.color = COLOR_PLAYER;
-	final_point.color = COLOR_PLAYER;
-	bresenham(initial_point, final_point, thickness);
-}
-
 void	trace_ray(t_math *math, t_map *map, t_axis axis)
 {
-	int			map_x;
-	int			map_y;
-	int			map_p;
+	int		map_x;
+	int		map_y;
+	int		map_p;
 
 	while (!math->collision)
 	{
@@ -78,6 +60,24 @@ void	check_wall_collision(t_axis axis)
 		math->vert_dist = hypot(math->vert_x - player->pos_x, \
 			math->vert_y - player->pos_y);
 	}
+}
+
+void	draw_rays(t_math *math, t_player *player)
+{
+	t_point	initial_point;
+	t_point	final_point;
+	short	thickness;
+	
+	if ((!get_core()->draw_map) || (!get_core()->draw_rays))
+		return ;
+	thickness = 1;
+	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
+	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
+	final_point.coord_x = math->ray_x;
+	final_point.coord_y = math->ray_y;
+	initial_point.color = COLOR_PLAYER;
+	final_point.color = COLOR_PLAYER;
+	bresenham(initial_point, final_point, thickness);
 }
 
 void	normalize_angle(double *angle)
