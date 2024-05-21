@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 20:59:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 00:21:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,25 @@ void	init_cub(t_cub3d *core, char *argv[])
 	core->draw_map = TRUE;
 	core->map_flag = TRUE;
 	core->bad_flag = FALSE;
+}
+
+void	init_axis(t_math *math, t_axis axis)
+{
+	math->collision = FALSE;
+	if (axis == HORIZONTAL)
+	{
+		math->horz_dist = DBL_MAX;
+		math->atan = -1 / tan(math->ray_ang);
+		math->horz_x = get_player()->pos_x;
+		math->horz_y = get_player()->pos_y;
+	}
+	else if (axis == VERTICAL)
+	{
+		math->vert_dist = DBL_MAX;
+		math->ntan = -tan(math->ray_ang);
+		math->vert_x = get_player()->pos_x;
+		math->vert_y = get_player()->pos_y;
+	}
 }
 
 void	ft_error(char *msg)
