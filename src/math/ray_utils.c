@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 03:21:38 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 03:36:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,25 @@ void	check_wall_collision(t_axis axis)
 		math->vert_y = math->ray_y;
 		math->vert_dist = hypot(math->vert_x - player->pos_x, \
 			math->vert_y - player->pos_y);
+	}
+}
+
+void	update_distance(double horizontal_dist, double vertical_dist)
+{
+	t_math		*math;
+
+	math = get_math();
+	if (vertical_dist < horizontal_dist)
+	{
+		math->dist = vertical_dist;
+		math->ray_x = math->vert_x;
+		math->ray_y = math->vert_y;
+	}
+	else if (horizontal_dist < vertical_dist)
+	{
+		math->dist = horizontal_dist;
+		math->ray_x = math->horz_x;
+		math->ray_y = math->horz_y;
 	}
 }
 
