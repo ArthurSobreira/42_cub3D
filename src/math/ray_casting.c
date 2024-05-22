@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/22 18:21:24 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:46:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	casting_rays(t_math *math, t_map *map, t_player *player)
 	int		current_ray;
 
 	current_ray = -1;
-	math->ray_ang = player->angle - ANG_1 * PLAYER_FOV_HALF;
+	math->ray_ang = player->angle - ANG_1 * PLAYER_HALF_FOV;
 	normalize_angle(&math->ray_ang);
 	while (current_ray++ <= RAYS_PER_FOV)
 	{
