@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/21 03:10:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:21:24 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,29 +74,19 @@ void	cat_vertical_rays(t_math *math, t_map *map, t_player *player)
 
 void	casting_rays(t_math *math, t_map *map, t_player *player)
 {
-	int		angle;
+	int		current_ray;
 
-	if (!get_core()->draw_map)
-		return ;
-	angle = 0;
-	math->ray_ang = player->angle - ANG_1 * 30;
+	current_ray = -1;
+	math->ray_ang = player->angle - ANG_1 * PLAYER_FOV_HALF;
 	normalize_angle(&math->ray_ang);
-	while (angle++ < PLAYER_FOV)
+	while (current_ray++ <= RAYS_PER_FOV)
 	{
 		cat_horizontal_rays(math, map, player);
 		cat_vertical_rays(math, map, player);
-		if (math->vert_dist < math->horz_dist)
-		{
-			math->ray_x = math->vert_x;
-			math->ray_y = math->vert_y;
-		}
-		else if (math->horz_dist < math->vert_dist)
-		{
-			math->ray_x = math->horz_x;
-			math->ray_y = math->horz_y;
-		}
+		update_distance(math->horz_dist, math->vert_dist);
 		draw_rays(math, player);
-		math->ray_ang += ANG_1;
+		draw_walls(math, current_ray);
+		math->ray_ang += ANG_1 * ANG_INCREMENT;
 		normalize_angle(&math->ray_ang);
 	}
 }

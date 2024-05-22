@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 15:52:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 21:22:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	draw_direction(t_player *player)
 
 	if (!get_core()->draw_map)
 		return ;
+	get_core()->wall_flag = FALSE;
 	thickness = 2;
 	initial_point.coord_x = player->pos_x + DIRECTION_OFFSET;
 	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
@@ -62,6 +63,7 @@ void	draw_minimap(t_mlx *mlx)
 	if (!get_core()->draw_map)
 		return ;
 	map = get_map()->map_str;
+	x = 0;
 	y = 0;
 	while (map[y])
 	{
@@ -76,6 +78,8 @@ void	draw_minimap(t_mlx *mlx)
 		}
 		++y;
 	}
+	get_map()->limit_x = x * MAP_CUB;
+	get_map()->limit_y = y * MAP_CUB;
 }
 
 void	draw_player(int x, int y, uint32_t color)

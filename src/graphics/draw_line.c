@@ -6,13 +6,26 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:28:08 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/17 12:13:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:06:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	plot_thick_pixel(t_point point, int thickness)
+static void	plot_pixel(t_point point)
+{
+	if (get_core()->draw_map)
+	{
+		if (!is_map_pixel((t_point){point.coord_x, point.coord_y, 0}))
+			mlx_put_pixel(get_mlx()->img_ptr, point.coord_x,
+				point.coord_y, point.color);
+	}
+	else
+		mlx_put_pixel(get_mlx()->img_ptr, point.coord_x,
+			point.coord_y, point.color);
+}
+
+void	plot_thick_pixel(t_point point, int thickness)
 {
 	short	i;
 	short	j;
@@ -26,10 +39,8 @@ static void	plot_thick_pixel(t_point point, int thickness)
 			if ((point.coord_x + i >= 0) && (point.coord_y + j >= 0) && \
 				(point.coord_x + i < WINDOW_WIDTH) && \
 				(point.coord_y + j < WINDOW_HEIGHT))
-			{
-				mlx_put_pixel(get_mlx()->img_ptr, point.coord_x + i, \
-					point.coord_y + j, point.color);
-			}
+				plot_pixel((t_point){point.coord_x + i, point.coord_y + j,
+					point.color});
 			j++;
 		}
 		i++;
@@ -67,7 +78,7 @@ void	bresenham_high(t_point initial_point, t_point end_point, int thickness)
 	bres.decision = (2 * bres.delta_y) - bres.delta_x;
 	while (bres.initial_x <= end_point.coord_x)
 	{
-		plot_thick_pixel((t_point){bres.initial_x, bres.initial_y, \
+		plot_thick_pixel((t_point){bres.initial_x, bres.initial_y,
 			initial_point.color}, thickness);
 		if (bres.decision > 0)
 		{
@@ -88,7 +99,7 @@ void	bresenham_low(t_point initial_point, t_point end_point, int thickness)
 	bres.decision = (2 * bres.delta_x) - bres.delta_y;
 	while (bres.initial_y <= end_point.coord_y)
 	{
-		plot_thick_pixel((t_point){bres.initial_x, bres.initial_y, \
+		plot_thick_pixel((t_point){bres.initial_x, bres.initial_y,
 			initial_point.color}, thickness);
 		if (bres.decision > 0)
 		{
