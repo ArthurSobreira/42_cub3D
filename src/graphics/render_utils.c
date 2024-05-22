@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 06:47:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 21:22:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	draw_minimap(t_mlx *mlx)
 	if (!get_core()->draw_map)
 		return ;
 	map = get_map()->map_str;
+	x = 0;
 	y = 0;
 	while (map[y])
 	{
