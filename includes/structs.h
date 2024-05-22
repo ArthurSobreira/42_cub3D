@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/20 19:28:55 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 06:39:18 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_map
 	char				**map_str;
 	int					max_x;
 	int					max_y;
+	float				limit_x;
+	float				limit_y;
 }						t_map;
 
 typedef struct s_mlx
@@ -128,6 +130,7 @@ typedef struct s_cub3d
 	short				color_count;
 	t_bool				draw_rays;
 	t_bool				draw_map;
+	t_bool				wall_flag;
 	t_bool				map_flag;
 	t_bool				bad_flag;
 }						t_cub3d;

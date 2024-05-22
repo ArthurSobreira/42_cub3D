@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 03:04:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/21 07:10:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
+void		plot_thick_pixel(t_point point, int thickness);
 void		bresenham(t_point inital_point, t_point end_point, int thickness);
 void		bresenham_high(t_point initial_point, t_point end_point,
 				int thickness);
@@ -74,6 +75,7 @@ void		clear_all(void);
 void		map_builder(void);
 t_bool		in_map_line(void);
 t_bool		in_map_line2(void);
+t_bool		is_map_pixel(t_point point);
 int			player_locale_y_valid(void);
 int			player_locale_x_valid(void);
 void		map_validation(void);
@@ -99,9 +101,11 @@ void		init_axis(t_math *math, t_player *player, t_axis axis);
 void		casting_rays(t_math *math, t_map *map, t_player *player);
 void		cat_horizontal_rays(t_math *math, t_map *map, t_player *player);
 void		cat_vertical_rays(t_math *math, t_map *map, t_player *player);
+void		update_distance(double horizontal_dist, double vertical_dist);
 void		trace_ray(t_math *math, t_map *map, t_axis axis);
 void		check_wall_collision(t_axis axis);
 void		draw_rays(t_math *math, t_player *player);
+void		draw_walls(t_math *math, int current_ray);
 void		normalize_angle(double *angle);
 
 #endif
