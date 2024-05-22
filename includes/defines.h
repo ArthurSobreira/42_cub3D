@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 07:42:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:22:07 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define COLORS_LEN 2
 # define MAP_CUB 16
 # define WINDOW_NAME "cub4D - 42"
-# define WINDOW_WIDTH 1280
+# define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
 # define WIDTH_2 640
 # define HEIGHT_2 360
@@ -56,10 +56,14 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
-# define PLAYER_FOV 80
+# define PLAYER_FOV_HALF 30
+# define RAYS_PER_FOV 1080
 # define BITSHIFT 4
-# define PRECISION 0.0001
 # define ANG_1 0.0174533
+# define PRECISION 0.0001
+# define ANG_INCREMENT 0.0556
+# define WIDTH_INCREMENT 0.6667
+# define HEIGHT_INCREMENT 0.5
 
 /* String Defines */
 # define ERROR_MAP_CHARS "\033[0;31mError\nMap Contains Invalid Characters\033[0m\n"
@@ -72,7 +76,7 @@
 # define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
-# define CURSOR_PATH "./assets/textures/aim2.png"
 # define SUCCESS_MESSAGE "\033[32;3mCub3D closed, Thank You :)\033[0m\n"
+# define CURSOR_PATH "./assets/textures/aim2.png"
 
 #endif
