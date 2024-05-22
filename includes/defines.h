@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 18:22:07 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:46:10 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
-# define PLAYER_FOV_HALF 30
+# define PLAYER_HALF_FOV 30
 # define RAYS_PER_FOV 1080
 # define BITSHIFT 4
 # define ANG_1 0.0174533
