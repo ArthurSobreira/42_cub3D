@@ -46,6 +46,7 @@ SOURCES = main.c \
 	$(MATH_PATH)draw_walls.c \
 	$(MATH_PATH)ray_casting.c \
 	$(MATH_PATH)ray_utils.c \
+	$(MATH_PATH)wall_utils.c \
 	$(PARSER_PATH)parser_colors.c \
 	$(PARSER_PATH)parser_textures.c \
 	$(PARSER_PATH)parser_utils.c \
