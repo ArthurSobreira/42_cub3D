@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 21:22:35 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 20:46:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	draw_direction(t_player *player)
 		player->delta_x * DIRECTION_LEN;
 	end_point.coord_y = initial_point.coord_y + \
 		player->delta_y * DIRECTION_LEN;
-	initial_point.color = COLOR_BORDER;
-	end_point.color = COLOR_BORDER;
+	initial_point.color = COLOR_DIRECTION;
+	end_point.color = COLOR_DIRECTION;
 	bresenham(initial_point, end_point, thickness);
 }
 

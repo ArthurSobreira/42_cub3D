@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 18:30:06 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/22 19:25:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,14 @@
 
 static void	handle_wall_colors(t_math *math, uint32_t *color)
 {
-	if (math->horz_dist < math->vert_dist)
-	{
-		if (get_math()->ray_ang > PI && get_math()->ray_ang < TWO_PI)
-			*color = 0xff0000ff;
-		else if (get_player()->angle > 0 && get_math()->ray_ang < PI)
-			*color = 0x00ff00ff;
-	}
-	else if (math->vert_dist < math->horz_dist)
-	{
-		if (get_math()->ray_ang > PI_OVER_TWO && \
-			get_math()->ray_ang < THREE_PI_OVER_TWO)
-			*color = 0x0000ffff;
-		else if (get_math()->ray_ang > THREE_PI_OVER_TWO || \
-			get_math()->ray_ang < PI_OVER_TWO)
-			*color = 0xffffffff;
-	}
+	if (is_nouth_wall(math))
+		*color = 0xff0000ff;
+	else if (is_south_wall(math))
+		*color = 0x00ff00ff;
+	else if (is_west_wall(math))
+		*color = 0x0000ffff;
+	else if (is_east_wall(math))
+		*color = 0xffffffff;
 }
 
 void	draw_walls(t_math *math, int current_ray)
