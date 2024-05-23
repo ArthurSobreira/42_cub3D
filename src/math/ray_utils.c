@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 21:11:04 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 21:44:02 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	trace_ray(t_math *math, t_map *map, t_axis axis)
 			check_wall_collision(axis);
 		else
 		{
-			math->ray_x += math->x_offset;
-			math->ray_y += math->y_offset;
+			math->ray_x += math->offset_x;
+			math->ray_y += math->offset_y;
 		}
 	}
 }
