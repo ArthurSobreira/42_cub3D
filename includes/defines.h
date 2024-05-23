@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 21:31:34 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 21:53:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
-# define WIDTH_2 640
+# define WIDTH_2 540
 # define HEIGHT_2 360
 # define MOVE_SPEED 4
 # define ROTATE_SPEED 0.02
