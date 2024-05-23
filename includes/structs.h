@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 05:16:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:30:58 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ typedef struct s_math
 
 typedef struct s_wall
 {
-	double  			height;
-    int     			init;
-    int     			ray_x;
+	double				height;
+	int					init;
+	int					ray_x;
 }						t_wall;
 
 typedef struct s_point
