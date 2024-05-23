@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 23:42:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/23 04:34:25 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ t_mlx	*init_mlx(void)
 void	init_player(void)
 {
 	set_player_direction();
-	get_player()->offset_x = 0;
-	get_player()->offset_y = 0;
 	if (get_player()->direction == 'N')
 		get_player()->angle = THREE_PI_OVER_TWO;
 	else if (get_player()->direction == 'S')
