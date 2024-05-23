@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 04:34:28 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/23 05:16:19 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,13 @@ typedef struct s_math
 	double				dist;
 	t_bool				collision;
 }						t_math;
+
+typedef struct s_wall
+{
+	double  			height;
+    int     			init;
+    int     			ray_x;
+}						t_wall;
 
 typedef struct s_point
 {
