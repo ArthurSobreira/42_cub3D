@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/22 18:46:35 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 21:44:02 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	cat_horizontal_rays(t_math *math, t_map *map, t_player *player)
 			- PRECISION;
 		math->ray_x = (player->pos_y - math->ray_y)
 			* math->atan + player->pos_x;
-		math->y_offset = -MAP_CUB;
-		math->x_offset = -math->y_offset * math->atan;
+		math->offset_y = -MAP_CUB;
+		math->offset_x = -math->offset_y * math->atan;
 	}
 	if (math->ray_ang < PI)
 	{
@@ -40,8 +40,8 @@ void	cat_horizontal_rays(t_math *math, t_map *map, t_player *player)
 			+ MAP_CUB;
 		math->ray_x = (player->pos_y - math->ray_y)
 			* math->atan + player->pos_x;
-		math->y_offset = MAP_CUB;
-		math->x_offset = -math->y_offset * math->atan;
+		math->offset_y = MAP_CUB;
+		math->offset_x = -math->offset_y * math->atan;
 	}
 	handle_ray_angle_collision(math, player);
 	trace_ray(math, map, HORIZONTAL);
@@ -56,8 +56,8 @@ void	cat_vertical_rays(t_math *math, t_map *map, t_player *player)
 			- PRECISION;
 		math->ray_y = (player->pos_x - math->ray_x)
 			* math->ntan + player->pos_y;
-		math->x_offset = -MAP_CUB;
-		math->y_offset = -math->x_offset * math->ntan;
+		math->offset_x = -MAP_CUB;
+		math->offset_y = -math->offset_x * math->ntan;
 	}
 	if (math->ray_ang < PI_OVER_TWO || math->ray_ang > THREE_PI_OVER_TWO)
 	{
@@ -65,8 +65,8 @@ void	cat_vertical_rays(t_math *math, t_map *map, t_player *player)
 			+ MAP_CUB;
 		math->ray_y = (player->pos_x - math->ray_x)
 			* math->ntan + player->pos_y;
-		math->x_offset = MAP_CUB;
-		math->y_offset = -math->x_offset * math->ntan;
+		math->offset_x = MAP_CUB;
+		math->offset_y = -math->offset_x * math->ntan;
 	}
 	handle_ray_angle_collision(math, player);
 	trace_ray(math, map, VERTICAL);
