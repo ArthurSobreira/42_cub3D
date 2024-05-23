@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 18:46:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 20:49:21 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define COLOR_WALL 0x616060ff
 # define COLOR_FLOOR 0xd1d1d1ff
 # define COLOR_PLAYER 0xff0000ff
+# define COLOR_DIRECTION 0x2b2b2bff
+# define COLOR_RAY 0x919191ff
 
 /* Key Defines */
 # define ESC MLX_KEY_ESCAPE
