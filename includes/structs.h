@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/22 21:46:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/23 04:34:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ typedef struct s_player
 	double				pos_y;
 	double				delta_y;
 	double				delta_x;
-	double				offset_x;
-	double				offset_y;
 	double				angle;
 	char				direction;
 }						t_player;
