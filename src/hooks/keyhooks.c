@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 04:34:41 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:07:20 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	move_player(t_mlx *mlx, t_player *player)
 {
-	if (mlx_is_key_down(mlx->win_ptr, W) || \
-		mlx_is_key_down(mlx->win_ptr, UP))
+	if ((mlx_is_key_down(mlx->win_ptr, W) || \
+		mlx_is_key_down(mlx->win_ptr, UP)))
 		player->move_w();
 	if (mlx_is_key_down(mlx->win_ptr, S) || \
 		mlx_is_key_down(mlx->win_ptr, DOWN))
