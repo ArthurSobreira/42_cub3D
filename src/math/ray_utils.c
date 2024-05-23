@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 17:53:28 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/22 21:11:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ void	draw_rays(t_math *math, t_player *player)
 	initial_point.coord_y = player->pos_y + DIRECTION_OFFSET;
 	final_point.coord_x = math->ray_x;
 	final_point.coord_y = math->ray_y;
-	initial_point.color = COLOR_PLAYER;
-	final_point.color = COLOR_PLAYER;
+	initial_point.color = COLOR_RAY;
+	final_point.color = COLOR_RAY;
 	bresenham(initial_point, final_point, thickness);
 }
 
