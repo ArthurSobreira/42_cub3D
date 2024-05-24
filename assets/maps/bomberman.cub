@@ -1,7 +1,7 @@
-SO textures/bomberman_wall_normal.png
-NO textures/bomberman_wall_desert.png
-EA textures/bomberman_wall_normal.png
-WE textures/bomberman_wall_desert.png
+SO assets/textures/bomberman_wall_normal.png
+NO assets/textures/bomberman_wall_desert.png
+EA assets/textures/bomberman_wall_normal.png
+WE assets/textures/bomberman_wall_desert.png
 
 F 0,127,0
 C 130,202,255

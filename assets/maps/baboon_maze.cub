@@ -1,10 +1,10 @@
 C 20,151,222
 F 137,136,133
 
-NO textures/baboon.png
-EA textures/baboon.png
-WE textures/baboon.png
-SO textures/baboon.png
+NO assets/textures/baboon.png
+EA assets/textures/baboon.png
+WE assets/textures/baboon.png
+SO assets/textures/baboon.png
 
 
 11111111111111111111111111111111111111111111111111111111111111111111111111111111
