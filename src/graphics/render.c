@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 00:45:06 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/22 22:16:19 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mlx_process(void)
 	mlx_loop_hook(mlx->win_ptr, render, mlx);
 	mlx_image_to_window(mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_set_cursor(mlx->win_ptr, mlx->cursor);
-	mlx_cursor_hook(mlx->win_ptr, my_cursor, NULL);
+	mlx_cursor_hook(mlx->win_ptr, my_cursor, mlx);
 	mlx_key_hook(mlx->win_ptr, &my_keyhook, mlx);
 	mlx_set_mouse_pos(mlx->win_ptr, WIDTH_2, HEIGHT_2);
 	mlx_loop(mlx->win_ptr);

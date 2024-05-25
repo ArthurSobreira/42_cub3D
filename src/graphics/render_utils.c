@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 21:22:35 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:14:34 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	draw_direction(t_player *player)
 		player->delta_x * DIRECTION_LEN;
 	end_point.coord_y = initial_point.coord_y + \
 		player->delta_y * DIRECTION_LEN;
-	initial_point.color = COLOR_BORDER;
-	end_point.color = COLOR_BORDER;
+	initial_point.color = COLOR_DIRECTION;
+	end_point.color = COLOR_DIRECTION;
 	bresenham(initial_point, end_point, thickness);
 }
 
@@ -45,9 +45,9 @@ void	draw_background(t_mlx *mlx)
 		while (x < WINDOW_WIDTH)
 		{
 			if (y < WINDOW_HEIGHT / 2)
-				mlx_put_pixel(mlx->img_ptr, x, y, mlx->ceil_color);
+				plot_pixel(mlx, x, y, mlx->ceil_color);
 			else
-				mlx_put_pixel(mlx->img_ptr, x, y, mlx->floor_color);
+				plot_pixel(mlx, x, y, mlx->floor_color);
 			++x;
 		}
 		++y;
@@ -96,9 +96,9 @@ void	draw_player(int x, int y, uint32_t color)
 		while (j <= 7)
 		{
 			if (i == 0 || i == 7 || j == 0 || j == 7)
-				mlx_put_pixel(get_mlx()->img_ptr, x + i, y + j, COLOR_BORDER);
+				plot_pixel(get_mlx(), x + i, y + j, COLOR_BORDER);
 			else
-				mlx_put_pixel(get_mlx()->img_ptr, x + i, y + j, color);
+				plot_pixel(get_mlx(), x + i, y + j, color);
 			++j;
 		}
 		++i;
@@ -118,9 +118,9 @@ void	draw_square(t_mlx *mlx, int x, int y, uint32_t color)
 		{
 			if ((color == COLOR_WALL) && \
 				(i == 0 || i == MAP_CUB || j == 0 || j == MAP_CUB))
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, COLOR_BORDER);
+				plot_pixel(mlx, x + i, y + j, COLOR_BORDER);
 			else
-				mlx_put_pixel(mlx->img_ptr, x + i, y + j, color);
+				plot_pixel(mlx, x + i, y + j, color);
 			++j;
 		}
 		++i;

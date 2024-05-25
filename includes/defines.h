@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 18:22:07 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/22 21:53:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
-# define WIDTH_2 640
+# define WIDTH_2 540
 # define HEIGHT_2 360
 # define MOVE_SPEED 4
+# define ROTATE_SPEED 0.02
 # define DIRECTION_OFFSET 4
 # define DIRECTION_LEN 11
 
@@ -34,6 +35,8 @@
 # define COLOR_WALL 0x616060ff
 # define COLOR_FLOOR 0xd1d1d1ff
 # define COLOR_PLAYER 0xff0000ff
+# define COLOR_DIRECTION 0x2b2b2bff
+# define COLOR_RAY 0x919191ff
 
 /* Key Defines */
 # define ESC MLX_KEY_ESCAPE
@@ -56,7 +59,7 @@
 # define TWO_PI 6.28318530717958647692
 # define PI_OVER_TWO 1.57079632679489661923
 # define THREE_PI_OVER_TWO 4.71238898038468985769
-# define PLAYER_FOV_HALF 30
+# define PLAYER_HALF_FOV 30
 # define RAYS_PER_FOV 1080
 # define BITSHIFT 4
 # define ANG_1 0.0174533
