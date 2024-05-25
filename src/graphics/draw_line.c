@@ -6,46 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:28:08 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/21 07:06:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:10:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	plot_pixel(t_point point)
-{
-	if (get_core()->draw_map)
-	{
-		if (!is_map_pixel((t_point){point.coord_x, point.coord_y, 0}))
-			mlx_put_pixel(get_mlx()->img_ptr, point.coord_x,
-				point.coord_y, point.color);
-	}
-	else
-		mlx_put_pixel(get_mlx()->img_ptr, point.coord_x,
-			point.coord_y, point.color);
-}
-
-void	plot_thick_pixel(t_point point, int thickness)
-{
-	short	i;
-	short	j;
-
-	i = -thickness / 2;
-	while (i <= thickness / 2)
-	{
-		j = -thickness / 2;
-		while (j <= thickness / 2)
-		{
-			if ((point.coord_x + i >= 0) && (point.coord_y + j >= 0) && \
-				(point.coord_x + i < WINDOW_WIDTH) && \
-				(point.coord_y + j < WINDOW_HEIGHT))
-				plot_pixel((t_point){point.coord_x + i, point.coord_y + j,
-					point.color});
-			j++;
-		}
-		i++;
-	}
-}
 
 void	bresenham(t_point inital_point, t_point end_point, int thickness)
 {

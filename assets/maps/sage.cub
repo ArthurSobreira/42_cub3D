@@ -1,10 +1,10 @@
-NO       assets/textures/fern_north.png
-           SO        assets/textures/fern_south.png
-WE assets/textures/fern_west.png
-EA assets/textures/fern_east.png
+EA assets/textures/resident_evil_gaiden_living_room.png
+WE assets/textures/resident_evil_gaiden_living_room.png
+SO assets/textures/resident_evil_gaiden_wall_lamp.png
+NO assets/textures/resident_evil_gaiden_wall_lamp.png
 
-C     122,233,255
-F 38,139,7
+C 129,97,64
+F 127,17,1
 
 11111111
 10100001
