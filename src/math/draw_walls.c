@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/24 22:29:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:38:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static	uint32_t	texture_to_rgb(mlx_texture_t *texture, int x, int y)
 
 void	apply_wall_texture(t_mlx *mlx, t_wall wall, mlx_texture_t *texture)
 {
-	int		y_min;
-	int		y_max;
-	double	tex_y;
 	double	inc_tex;
 	double	tex_off;
+	double	tex_y;
+	int		y_min;
+	int		y_max;
 
 	if (texture == mlx->textures[SOUTH] || texture == mlx->textures[WEST])
 		wall.ray_x = (texture->width - 1) - wall.ray_x;
