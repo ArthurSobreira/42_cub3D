@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/22 21:44:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:23:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	casting_rays(t_math *math, t_map *map, t_player *player)
 {
 	int		current_ray;
 
-	current_ray = -1;
+	current_ray = 0;
 	math->ray_ang = player->angle - ANG_1 * PLAYER_HALF_FOV;
 	normalize_angle(&math->ray_ang);
 	while (current_ray++ <= RAYS_PER_FOV)
