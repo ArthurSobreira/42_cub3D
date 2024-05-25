@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/24 12:57:54 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/25 01:49:11 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ typedef enum e_axis
 	VERTICAL,
 	HORIZONTAL
 }						t_axis;
+
+typedef enum e_col
+{
+	NO_COLLISION,
+	COLLISION_X,
+	COLLISION_Y,
+	COLLISION_XY
+}						t_col;
 
 typedef struct s_map
 {
