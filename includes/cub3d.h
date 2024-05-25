@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 19:17:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:17:53 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include "../libs/libft/libft.h"
 # include "defines.h"
 # include "structs.h"
-# include <limits.h>
-# include <float.h>
 # include <errno.h>
 # include <fcntl.h>
+# include <float.h>
+# include <limits.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -57,6 +57,8 @@ void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
+void		plot_pixel(t_mlx *mlx, int x, int y, uint32_t color);
+void		plot_pixel_outside_map(t_point point);
 void		plot_thick_pixel(t_point point, int thickness);
 void		bresenham(t_point inital_point, t_point end_point, int thickness);
 void		bresenham_high(t_point initial_point, t_point end_point,
@@ -90,6 +92,8 @@ void		move_w(void);
 void		move_a(void);
 void		move_s(void);
 void		move_d(void);
+t_bool		is_colliding(float x, float y);
+t_bool		wall_collision(float x, float y);
 
 /* Player Functions */
 void		init_player(void);

@@ -1,11 +1,13 @@
-SO textures/resident_evil_gaiden_elevator.png
-NO textures/resident_evil_gaiden_elevator.png
-EA textures/resident_evil_gaiden_elevator.png
-WE textures/resident_evil_gaiden_elevator.png
+SO assets/textures/backroom.png
+NO assets/textures/backroom.png
+EA assets/textures/backroom.png
+WE assets/textures/backroom.png
 
-C 67,47,87
-F 45,24,50
+C 138,137,97
+F 96,95,67
 
-111
-1N1
-111
+11111
+10001
+10N01
+10001
+11111
