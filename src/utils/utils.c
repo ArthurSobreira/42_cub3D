@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 12:32:29 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:01:31 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_bool	is_colliding(float x, float y)
 {
 	float	half_size;
 
-	half_size = 3.5;
+	half_size = 2.0;
 	return (wall_collision(x - half_size, y - half_size) || \
 		wall_collision(x + half_size, y - half_size) || \
 		wall_collision(x - half_size, y + half_size) || \

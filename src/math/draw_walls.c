@@ -6,18 +6,18 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/24 22:38:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:47:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static	uint32_t	texture_to_rgb(mlx_texture_t *texture, int x, int y)
+static uint32_t	texture_to_rgb(mlx_texture_t *texture, int x, int y)
 {
 	uint8_t	*rgb;
 
 	rgb = &texture->pixels[(y * texture->width + x) * \
-		texture->bytes_per_pixel];
+						texture->bytes_per_pixel];
 	return (rgb[RED] << 24 | rgb[GREEN] << 16 | rgb[BLUE] << 8 | rgb[ALPHA]);
 }
 
