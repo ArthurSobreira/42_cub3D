@@ -1,7 +1,7 @@
-EA assets/textures/resident_evil_gaiden_living_room.png
-WE assets/textures/resident_evil_gaiden_living_room.png
-SO assets/textures/resident_evil_gaiden_wall_lamp.png
-NO assets/textures/resident_evil_gaiden_wall_lamp.png
+EA assets/textures/resident_evil/resident_evil_gaiden_living_room.png
+WE assets/textures/resident_evil/resident_evil_gaiden_living_room.png
+SO assets/textures/resident_evil/resident_evil_gaiden_staircase.png
+NO assets/textures/resident_evil/resident_evil_gaiden_staircase.png
 
 F 0,31,40
 C 255,0,0
