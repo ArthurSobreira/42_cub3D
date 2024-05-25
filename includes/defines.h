@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/25 02:19:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/25 05:15:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,13 @@
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
 # define SUCCESS_MESSAGE "\033[32;3mCub3D closed, Thank You :)\033[0m\n"
+
+/* Path Defines */
 # define CURSOR_PATH "./assets/textures/aim.png"
+# define GUN_0_PATH "./assets/textures/gun/gun_0.png"
+# define GUN_1_PATH "./assets/textures/gun/gun_1.png"
+# define GUN_2_PATH "./assets/textures/gun/gun_2.png"
+# define GUN_3_PATH "./assets/textures/gun/gun_3.png"
+# define GUN_4_PATH "./assets/textures/gun/gun_4.png"
 
 #endif

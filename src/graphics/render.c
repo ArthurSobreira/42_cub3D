@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 22:16:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/25 05:23:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ void	mlx_process(void)
 	mlx_loop(mlx->win_ptr);
 }
 
+// void	draw_gun(t_mlx *mlx)
+// {
+// 	int	index;
+
+// 	index = 0;
+// 	mlx->gun_img[0]->enabled = true;
+// 	mlx_image_to_window(mlx->win_ptr, mlx->gun_img[0], WIDTH_2, \
+// 		WINDOW_HEIGHT - mlx->gun_texture[0]->height);
+// 	// while (index < 5)
+// 	// {
+// 	// 	if (mlx->gun_img[index]->enabled)
+// 	// 		mlx_image_to_window(mlx->win_ptr, mlx->gun_img[index], WIDTH_2, \
+// 	// 			WINDOW_HEIGHT - mlx->gun_texture[0]->height);
+// 	// 	index++;
+// 	// }
+// }
+
 void	render(void *param)
 {
 	t_math		*math;
@@ -41,6 +58,7 @@ void	render(void *param)
 	draw_minimap(mlx);
 	casting_rays(math, map, player);
 	draw_direction(player);
+	// draw_gun(mlx);
 	draw_player(player->pos_x, \
 		player->pos_y, COLOR_PLAYER);
 }

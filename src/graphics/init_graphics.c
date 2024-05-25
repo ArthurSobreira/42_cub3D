@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_graphics.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/23 14:47:34 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/25 05:23:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,31 @@ t_mlx	*init_mlx(void)
 	get_color(mlx, CEIL);
 	get_color(mlx, FLOOR);
 	return (mlx);
+}
+
+void	load_gun_textures(t_mlx *mlx)
+{
+	int	index;
+
+	mlx->gun_texture[0] = mlx_load_png(GUN_0_PATH);
+	mlx->gun_texture[1] = mlx_load_png(GUN_1_PATH);
+	mlx->gun_texture[2] = mlx_load_png(GUN_2_PATH);
+	mlx->gun_texture[3] = mlx_load_png(GUN_3_PATH);
+	if (!mlx->gun_img[0] || !mlx->gun_img[1] || \
+		!mlx->gun_img[2] || !mlx->gun_img[3])
+		ft_error(ERROR_TEXTURE_INIT);
+	index = 0;
+	while (index < 5)
+	{
+		mlx->gun_img[index] = mlx_texture_to_image(mlx->win_ptr, \
+			mlx->gun_texture[index]);
+		if (!mlx->gun_texture[index])
+			ft_error(ERROR_TEXTURE_INIT);
+		mlx->gun_img[index]->enabled = true;
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_img[index], WIDTH_2, \
+			WINDOW_HEIGHT - mlx->gun_texture[index]->height);
+		index++;
+	}
 }
 
 void	init_player(void)
