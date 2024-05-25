@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/24 22:17:53 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/25 01:55:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		move_a(void);
 void		move_s(void);
 void		move_d(void);
 t_bool		is_colliding(float x, float y);
-t_bool		wall_collision(float x, float y);
+t_col		wall_collision(t_player	*player, float x, float y);
 
 /* Player Functions */
 void		init_player(void);
