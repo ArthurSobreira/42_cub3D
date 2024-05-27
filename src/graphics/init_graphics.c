@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/25 05:23:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:48:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_mlx	*init_mlx(void)
 	mlx->cursor = mlx_create_cursor(mlx->cursor_texture);
 	get_color(mlx, CEIL);
 	get_color(mlx, FLOOR);
+	load_gun_textures(mlx);
 	return (mlx);
 }
 
@@ -41,24 +42,25 @@ void	load_gun_textures(t_mlx *mlx)
 {
 	int	index;
 
-	mlx->gun_texture[0] = mlx_load_png(GUN_0_PATH);
-	mlx->gun_texture[1] = mlx_load_png(GUN_1_PATH);
-	mlx->gun_texture[2] = mlx_load_png(GUN_2_PATH);
-	mlx->gun_texture[3] = mlx_load_png(GUN_3_PATH);
-	if (!mlx->gun_img[0] || !mlx->gun_img[1] || \
-		!mlx->gun_img[2] || !mlx->gun_img[3])
+	mlx->gun_textures[0] = mlx_load_png(GUN_0_PATH);
+	mlx->gun_textures[1] = mlx_load_png(GUN_1_PATH);
+	mlx->gun_textures[2] = mlx_load_png(GUN_2_PATH);
+	mlx->gun_textures[3] = mlx_load_png(GUN_3_PATH);
+	mlx->gun_textures[4] = mlx_load_png(GUN_4_PATH);
+	if (!mlx->gun_textures[0] || !mlx->gun_textures[1] || \
+		!mlx->gun_textures[2] || !mlx->gun_textures[3])
 		ft_error(ERROR_TEXTURE_INIT);
-	index = 0;
-	while (index < 5)
+	index = -1;
+	while (++index < 5)
 	{
-		mlx->gun_img[index] = mlx_texture_to_image(mlx->win_ptr, \
-			mlx->gun_texture[index]);
-		if (!mlx->gun_texture[index])
+		mlx->gun_imgs[index] = mlx_texture_to_image(mlx->win_ptr, \
+			mlx->gun_textures[index]);
+		if (!mlx->gun_imgs[index])
 			ft_error(ERROR_TEXTURE_INIT);
-		mlx->gun_img[index]->enabled = true;
-		mlx_image_to_window(mlx->win_ptr, mlx->gun_img[index], WIDTH_2, \
-			WINDOW_HEIGHT - mlx->gun_texture[index]->height);
-		index++;
+		mlx_resize_image(mlx->gun_imgs[index], GUN_WIDTH, GUN_HEIGHT);
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index], \
+			WIDTH_2 - 250, WINDOW_HEIGHT - 500);
+		mlx->gun_imgs[index]->enabled = false;
 	}
 }
 
