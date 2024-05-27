@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/25 02:08:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:22:58 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void		check_wall_collision(t_axis axis);
 void		draw_rays(t_math *math, t_player *player);
 void		draw_walls(t_math *math, int current_ray);
 void		normalize_angle(double *angle);
-t_bool		is_nouth_wall(t_math *math);
+t_bool		is_north_wall(t_math *math);
 t_bool		is_south_wall(t_math *math);
 t_bool		is_west_wall(t_math *math);
 t_bool		is_east_wall(t_math *math);
