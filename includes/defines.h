@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 11:36:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:22:12 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
+# define GUN_WIDTH 500
+# define GUN_HEIGHT 500
 # define WIDTH_2 540
 # define HEIGHT_2 360
 # define MOVE_SPEED 4
@@ -39,6 +41,7 @@
 # define COLOR_RAY 0x919191ff
 
 /* Key Defines */
+# define L_CLICK MLX_MOUSE_BUTTON_LEFT
 # define ESC MLX_KEY_ESCAPE
 # define UP MLX_KEY_UP
 # define DOWN MLX_KEY_DOWN

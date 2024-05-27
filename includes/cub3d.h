@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 11:34:22 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:22:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		map_cpy(void);
 void		my_cursor(double x, double y, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 t_col		wall_collision(t_player	*player, float x, float y);
+void		left_click(void *param);
 void		move_right(void);
 void		move_left(void);
 void		move_w(void);
