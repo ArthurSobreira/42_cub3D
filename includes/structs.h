@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/25 05:04:55 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:01:56 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ typedef struct s_mlx
 {
 	mlx_t				*win_ptr;
 	mlx_image_t			*img_ptr;
-	mlx_image_t			*gun_img[5];
+	mlx_image_t			*gun_imgs[5];
 	mlx_texture_t		*textures[4];
-	mlx_texture_t		*gun_texture[5];
+	mlx_texture_t		*gun_textures[5];
 	mlx_texture_t		*cursor_texture;
 	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
