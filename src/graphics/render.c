@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 14:47:54 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:13:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,23 @@ void	draw_gun(t_mlx *mlx)
 		WIDTH_2 - 250, WINDOW_HEIGHT - 500);
 	if (get_core()->reload)
 	{
-		// if (mlx->gun_imgs[index])
-		// 	mlx_delete_image(mlx->win_ptr, mlx->gun_imgs[index]);
-		// if (mlx->gun_imgs[index + 1])
-		// 	mlx_delete_image(mlx->win_ptr, mlx->gun_imgs[index + 1]);
-		while (++index < 4)
-		{
-			mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 1], \
-					WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-			usleep(10000000);
-		}
-
-		// while (++index < 4)
-		// {
-		// 	mlx_delete_image(mlx->win_ptr, mlx->gun_imgs[index]);
-		// 	mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 1], \
-		// 		WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		// 	// sleep(1);
-		// }
-		
-		// mlx->gun_imgs[index]->enabled = false;
-		// mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 1], \
-		// 	WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		// mlx->gun_imgs[index]->enabled = false;
-		// usleep(100000);
-		// mlx_delete_texture(mlx->gun_textures[index]);
-		// mlx_delete_image(mlx->win_ptr, mlx->gun_imgs[index]);
+		mlx->gun_imgs[index]->enabled = false;
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 1], \
+				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
+		usleep(100);
+		mlx->gun_imgs[index + 1]->enabled = !(mlx->gun_imgs[index + 1]->enabled);
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 2], \
+				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
+		usleep(100);
+		mlx->gun_imgs[index + 2]->enabled = !(mlx->gun_imgs[index + 2]->enabled);
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 3], \
+				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
+		usleep(100);
+		mlx->gun_imgs[index + 3]->enabled = !(mlx->gun_imgs[index + 3]->enabled);	
+		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 4], \
+				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
+		mlx->gun_imgs[index + 4]->enabled = !(mlx->gun_imgs[index + 4]->enabled);
+		usleep(100);
 	}
 	get_core()->reload = FALSE;
 }
