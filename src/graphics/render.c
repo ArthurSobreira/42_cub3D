@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 15:13:35 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:39:25 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,26 @@ void	draw_gun(t_mlx *mlx)
 	if (get_core()->reload)
 	{
 		mlx->gun_imgs[index]->enabled = false;
+		mlx->gun_imgs[index + 1]->enabled = !(mlx->gun_imgs[index + 1]->enabled);
 		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 1], \
 				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		usleep(100);
-		mlx->gun_imgs[index + 1]->enabled = !(mlx->gun_imgs[index + 1]->enabled);
+		usleep(10000);
+		mlx->gun_imgs[index + 2]->enabled = !(mlx->gun_imgs[index + 2]->enabled);
 		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 2], \
 				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		usleep(100);
-		mlx->gun_imgs[index + 2]->enabled = !(mlx->gun_imgs[index + 2]->enabled);
+		usleep(10000);
+		mlx->gun_imgs[index + 3]->enabled = !(mlx->gun_imgs[index + 3]->enabled);
 		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 3], \
 				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		usleep(100);
-		mlx->gun_imgs[index + 3]->enabled = !(mlx->gun_imgs[index + 3]->enabled);	
+		usleep(10000);
+		mlx->gun_imgs[index + 4]->enabled = !(mlx->gun_imgs[index + 4]->enabled);	
 		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index + 4], \
 				WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		mlx->gun_imgs[index + 4]->enabled = !(mlx->gun_imgs[index + 4]->enabled);
-		usleep(100);
+		usleep(1000);
 	}
+	mlx->gun_imgs[0]->enabled = true;
+	mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[0], \
+		WIDTH_2 - 250, WINDOW_HEIGHT - 500);
 	get_core()->reload = FALSE;
 }
 

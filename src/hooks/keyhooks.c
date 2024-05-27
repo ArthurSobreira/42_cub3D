@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/27 15:14:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:38:16 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,19 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 
 void	left_click(void *param)
 {
-	t_mlx	*mlx;
+	static int		was_pressed = 0;
+	t_mlx			*mlx;
 
 	mlx = (t_mlx *)param;
 	if (mlx_is_mouse_down(mlx->win_ptr, L_CLICK))
 	{
-		printf("shoot\n");
-		get_core()->reload = TRUE;
+		if (!was_pressed)
+		{
+			was_pressed = 1;
+			get_core()->reload = TRUE;
+			printf("Reload\n");
+		}
 	}
+	else
+		was_pressed = 0;
 }
