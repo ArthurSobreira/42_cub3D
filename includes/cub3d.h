@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 11:22:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:34:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_bool		is_color(char *line);
 
 /* Graphic Functions */
 t_mlx		*init_mlx(void);
+void		load_gun_textures(t_mlx *mlx);
 void		mlx_process(void);
 void		get_color(t_mlx *mlx, t_colors identifier);
 void		render(void *param);
