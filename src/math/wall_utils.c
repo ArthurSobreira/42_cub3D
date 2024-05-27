@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-t_bool	is_nouth_wall(t_math *math)
+t_bool	is_north_wall(t_math *math)
 {
 	if (math->horz_dist < math->vert_dist && \
 		math->ray_ang > PI && math->ray_ang < TWO_PI)
