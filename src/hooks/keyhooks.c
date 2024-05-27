@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 12:07:20 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:32:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	if (mlx_is_key_down(mlx->win_ptr, R))
 		get_core()->draw_rays = !get_core()->draw_rays;
 	move_player(mlx, get_player());
+}
+
+void	left_click(void *param)
+{
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
+	if (mlx_is_mouse_down(mlx->win_ptr, L_CLICK))
+	{
+		printf("shoot\n");
+		get_core()->reload = TRUE;
+	}
 }
