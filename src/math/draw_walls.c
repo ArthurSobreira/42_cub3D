@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/24 22:47:41 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:25:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	draw_walls(t_math *math, int current_ray)
 	texture = NULL;
 	get_core()->wall_flag = TRUE;
 	wall_height = (MAP_CUB * (WINDOW_WIDTH * WIDTH_INCREMENT)) / math->dist;
-	if (is_nouth_wall(math))
+	if (is_north_wall(math))
 		texture = get_mlx()->textures[NORTH];
 	else if (is_south_wall(math))
 		texture = get_mlx()->textures[SOUTH];
