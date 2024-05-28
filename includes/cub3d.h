@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 18:54:15 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:24:19 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,17 @@ void		map_cpy(void);
 /* Keyhook Functions */
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 t_col		wall_collision(t_player	*player, float x, float y);
+
+/* Player Functions */
+void		init_player(void);
+void		set_player_direction(void);
+void		draw_player(int x, int y, uint32_t color);
 void		move_right(void);
 void		move_left(void);
 void		move_w(void);
 void		move_a(void);
 void		move_s(void);
 void		move_d(void);
-
-/* Player Functions */
-void		init_player(void);
-void		set_player_direction(void);
-void		draw_player(int x, int y, uint32_t color);
 
 /* Ray Casting Functions */
 void		init_axis(t_math *math, t_player *player, t_axis axis);
