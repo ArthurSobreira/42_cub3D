@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/25 02:19:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:13:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@
 # define ERROR_MAP_PLAYER "\033[0;31mError\nMap Contains Invalid Player :(\033[0m\n"
 # define ERROR_INVALID_TEXTURE "\033[0;31mError\nInvalid Texture :(\033[0m\n"
 # define ERROR_INVALID_COLOR "\033[0;31mError\nInvalid Color :(\033[0m\n"
-# define ERROR_INVALID_MAP_PATH "\033[0;31mError\nInvalid Map Path :(\033[0m\n\n"
-# define ERROR_INCOMPLETE_MAP "\033[0;31mError\nIncomplete Map File :(\033[0m\n\n"
+# define ERROR_INVALID_MAP_PATH "\033[0;31mError\nInvalid Map Path :(\033[0m\n"
+# define ERROR_INCOMPLETE_MAP "\033[0;31mError\nIncomplete Map File :(\033[0m\n"
 # define ERROR_MLX_INIT "\033[0;31mError\nMLX Init Failed :(\033[0m\n"
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
