@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/27 15:38:16 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:22:21 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 
 void	left_click(void *param)
 {
-	static int		was_pressed = 0;
+	static t_bool	was_pressed = FALSE;
 	t_mlx			*mlx;
 
 	mlx = (t_mlx *)param;
@@ -58,11 +58,10 @@ void	left_click(void *param)
 	{
 		if (!was_pressed)
 		{
-			was_pressed = 1;
+			was_pressed = TRUE;
 			get_core()->reload = TRUE;
-			printf("Reload\n");
 		}
 	}
 	else
-		was_pressed = 0;
+		was_pressed = FALSE;
 }
