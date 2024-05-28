@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/22 22:16:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:36:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,26 @@ void	render(void *param)
 	player = get_player();
 	mlx = (t_mlx *)param;
 	draw_background(mlx);
-	draw_minimap(mlx);
 	casting_rays(math, map, player);
-	draw_direction(player);
-	draw_player(player->pos_x, \
-		player->pos_y, COLOR_PLAYER);
+}
+
+void	draw_background(t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < WINDOW_HEIGHT)
+	{
+		x = 0;
+		while (x < WINDOW_WIDTH)
+		{
+			if (y < WINDOW_HEIGHT / 2)
+				plot_pixel(mlx, x, y, mlx->ceil_color);
+			else
+				plot_pixel(mlx, x, y, mlx->floor_color);
+			++x;
+		}
+		++y;
+	}
 }
