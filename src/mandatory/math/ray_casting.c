@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/24 22:48:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:29:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	casting_rays(t_math *math, t_map *map, t_player *player)
 		cat_horizontal_rays(math, map, player);
 		cat_vertical_rays(math, map, player);
 		update_distance(math->horz_dist, math->vert_dist);
-		draw_rays(math, player);
 		draw_walls(math, current_ray);
 		math->ray_ang += ANG_1 * ANG_INCREMENT;
 		normalize_angle(&math->ray_ang);
