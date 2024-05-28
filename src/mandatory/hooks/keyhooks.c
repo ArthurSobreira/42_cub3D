@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:55:53 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/23 12:07:20 by phenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:24:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,5 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 		clear_all();
 		exit(EXIT_SUCCESS);
 	}
-	if (mlx_is_key_down(mlx->win_ptr, TAB))
-		get_core()->draw_map = !get_core()->draw_map;
-	if (mlx_is_key_down(mlx->win_ptr, R))
-		get_core()->draw_rays = !get_core()->draw_rays;
 	move_player(mlx, get_player());
 }
