@@ -1,15 +1,14 @@
 NAME = cub3D
-LIBFT = libs/libft/libft.a
 CFLAGS = -Wall -Wextra -Werror -O3 -ffast-math \
 	-fno-stack-protector
 MFLAGS = -Iinclude -ldl -lglfw -pthread -lm 
-MLX = ./libs/MLX42/build/libmlx42.a
-MLX_PATH = libs/MLX42
 TEMP_PATH = ./temp/
 
 # Paths for libraries
 LIB_PATH = ./libs/libft
 LIB_NAME = libft.a
+MLX_PATH = ./libs/MLX42/build/
+MLX_NAME = libmlx42.a
 
 # Colors Definition 
 GREEN = "\033[32;1m"
@@ -21,6 +20,8 @@ COLOR_LIMITER = "\033[0m"
 # Paths Definitions
 HEADER_PATH = ./includes
 BIN_PATH = ./bin/
+MANDATORY_PATH = mandatory/
+BONUS_PATH = bonus/
 SOURCES_PATH = ./src/
 GRAPHICS_PATH = graphics/
 HOOKS_PATH = hooks/
@@ -56,18 +57,21 @@ SOURCES = main.c \
 	$(UTILS_PATH)getters.c \
 	$(UTILS_PATH)utils.c \
 
-OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
+OBJECTS = $(addprefix $(BIN_PATH), \
+	$(addprefix $(MANDATORY_PATH), $(SOURCES:%.c=%.o)))
 
-all: libft $(MLX) $(BIN_PATH) $(NAME)
+all: libft mlx $(BIN_PATH) $(NAME)
 
-$(MLX):
-	@mkdir -p $(MLX_PATH)/build
-	@cd $(MLX_PATH)/build && cmake ..
-	@cmake --build $(MLX_PATH)/build -j4
+mlx:
+ifeq ($(wildcard $(MLX_PATH)/$(MLX_NAME)),)
+	@mkdir -p $(MLX_PATH)
+	@cd $(MLX_PATH) && cmake ..
+	@cmake --build $(MLX_PATH) -j4
 	@echo $(CYAN)" --------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"|  MLX  Was Compiled Successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------"$(COLOR_LIMITER)
 	@echo " "
+endif
 
 libft:
 ifeq ($(wildcard $(LIB_PATH)/$(LIB_NAME)),)
@@ -89,17 +93,19 @@ $(NAME): $(OBJECTS)
 	@echo $(CYAN)" ----------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| CUB3D executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"----------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(RFLAGS) $(MLX) -L $(LIB_PATH) -lft $(MFLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(RFLAGS) $(MLX_PATH)$(MLX_NAME) \
+		-L $(LIB_PATH) -lft $(MFLAGS)
 	@echo " "
 
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
-	@mkdir -p $(BIN_PATH)$(GRAPHICS_PATH)
-	@mkdir -p $(BIN_PATH)$(HOOKS_PATH)
-	@mkdir -p $(BIN_PATH)$(MAP_PATH)
-	@mkdir -p $(BIN_PATH)$(MATH_PATH)
-	@mkdir -p $(BIN_PATH)$(PARSER_PATH)
-	@mkdir -p $(BIN_PATH)$(UTILS_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(GRAPHICS_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(HOOKS_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(MAP_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(MATH_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(PARSER_PATH)
+	@mkdir -p $(BIN_PATH)$(MANDATORY_PATH)$(UTILS_PATH)
 
 clean:
 	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
@@ -111,7 +117,7 @@ fclean: clean
 	@echo $(RED)[Removing $(TEMP_PATH)]$(COLOR_LIMITER)
 	@make fclean -C $(LIB_PATH) --no-print-directory
 	@rm -rf ./tests/$(NAME)
-	@rm -rf ./libs/MLX42/build
+	@rm -rf $(MLX_PATH)
 	@rm -rf $(NAME)
 	@rm -rf $(TEMP_PATH)
 
