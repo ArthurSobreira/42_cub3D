@@ -6,13 +6,13 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:15:56 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:40:32 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:54:47 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_bool	is_nouth_wall(t_math *math)
+t_bool	is_north_wall(t_math *math)
 {
 	if (math->horz_dist < math->vert_dist && \
 		math->ray_ang > PI && math->ray_ang < TWO_PI)
