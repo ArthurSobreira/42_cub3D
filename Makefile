@@ -37,7 +37,6 @@ SOURCES = main.c \
 	$(GRAPHICS_PATH)init_graphics.c \
 	$(GRAPHICS_PATH)init_utils.c \
 	$(GRAPHICS_PATH)pixel_utils.c \
-	$(GRAPHICS_PATH)render_utils.c \
 	$(GRAPHICS_PATH)render.c \
 	$(HOOKS_PATH)cursorhooks.c \
 	$(HOOKS_PATH)hooks_movement.c \
