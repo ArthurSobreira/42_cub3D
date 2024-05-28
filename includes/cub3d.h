@@ -6,17 +6,13 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/25 02:08:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:25:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../libs/MLX42/include/MLX42/MLX42.h"
-# include "../libs/libft/libft.h"
-# include "defines.h"
-# include "structs.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <float.h>
@@ -26,6 +22,10 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "MLX42.h"
+# include "libft.h"
+# include "defines.h"
+# include "structs.h"
 
 /* Getters Functions */
 t_map		*get_map(void);
