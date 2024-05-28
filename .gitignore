@@ -55,6 +55,7 @@ dkms.conf
 .vscode/
 .dist/
 cub3D
+cub3D_bonus
 bin/
 temp/
 libs/MLX42/build/
