@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 18:40:20 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:54:15 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,10 @@ t_bool		is_color(char *line);
 
 /* Graphic Functions */
 t_mlx		*init_mlx(void);
-void		load_gun_textures(t_mlx *mlx);
 void		mlx_process(void);
 void		get_color(t_mlx *mlx, t_colors identifier);
 void		render(void *param);
 void		draw_background(t_mlx *mlx);
-void		draw_minimap(t_mlx *mlx);
-void		draw_player(int x, int y, uint32_t color);
-void		draw_direction(t_player *player);
-void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
-void		draw_gun(t_mlx *mlx);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
 void		plot_pixel(t_mlx *mlx, int x, int y, uint32_t color);
@@ -85,8 +79,7 @@ void		map_cpy(void);
 
 /* Keyhook Functions */
 void		my_keyhook(mlx_key_data_t keydata, void *param);
-t_col		wall_collision(t_player *player, float x, float y);
-void		left_click(void *param);
+t_col		wall_collision(t_player	*player, float x, float y);
 void		move_right(void);
 void		move_left(void);
 void		move_w(void);
