@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 15:34:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:18:51 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void		draw_minimap(t_mlx *mlx);
 void		draw_player(int x, int y, uint32_t color);
 void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
+void		draw_gun(t_mlx *mlx);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
 void		plot_pixel(t_mlx *mlx, int x, int y, uint32_t color);
@@ -87,7 +88,7 @@ void		map_cpy(void);
 /* Keyhook Functions */
 void		my_cursor(double x, double y, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
-t_col		wall_collision(t_player	*player, float x, float y);
+t_col		wall_collision(t_player *player, float x, float y);
 void		left_click(void *param);
 void		move_right(void);
 void		move_left(void);
