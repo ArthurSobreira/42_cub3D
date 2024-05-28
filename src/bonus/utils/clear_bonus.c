@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:54:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:09:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ void	free_local_matrix(char **matrix)
 void	clear_mlx(void)
 {
 	t_mlx	*mlx;
+	int		i;
 
 	mlx = get_mlx();
+	i = -1;
 	if (mlx->img_ptr)
 		mlx_delete_image(mlx->win_ptr, mlx->img_ptr);
 	if (mlx->textures[NORTH])
@@ -42,6 +44,11 @@ void	clear_mlx(void)
 		mlx_delete_texture(mlx->textures[EAST]);
 	if (mlx->cursor)
 		mlx_delete_texture(mlx->cursor_texture);
+	while (++i < 5)
+	{
+		if (mlx->gun_textures[i])
+			mlx_delete_texture(mlx->gun_textures[i]);
+	}
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
 }
