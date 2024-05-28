@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/28 14:13:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:44:52 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,11 @@ typedef struct s_mlx
 {
 	mlx_t				*win_ptr;
 	mlx_image_t			*img_ptr;
+	mlx_image_t			*gun_imgs[5];
 	mlx_texture_t		*textures[4];
+	mlx_texture_t		*gun_textures[5];
+	mlx_texture_t		*cursor_texture;
+	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
 }						t_mlx;
@@ -139,6 +143,9 @@ typedef struct s_cub3d
 	char				*temp_map_path;
 	short				texture_count;
 	short				color_count;
+	t_bool				reload;
+	t_bool				draw_rays;
+	t_bool				draw_map;
 	t_bool				wall_flag;
 	t_bool				bad_flag;
 }						t_cub3d;

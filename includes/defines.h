@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:12 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 14:07:56 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:42:59 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define WINDOW_NAME "cub4D - 42"
 # define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 720
+# define GUN_WIDTH 500
+# define GUN_HEIGHT 500
 # define WIDTH_2 540
 # define HEIGHT_2 360
 # define MOVE_SPEED 4
@@ -39,6 +41,7 @@
 # define COLOR_RAY 0x919191ff
 
 /* Key Defines */
+# define L_CLICK MLX_MOUSE_BUTTON_LEFT
 # define ESC MLX_KEY_ESCAPE
 # define UP MLX_KEY_UP
 # define DOWN MLX_KEY_DOWN
@@ -80,5 +83,13 @@
 # define ERROR_TEXTURE_INIT "\033[0;31mError\nTexture Load Failed :(\033[0m\n"
 # define ERROR_IMAGE_INIT "\033[0;31mError\nImage Load Failed :(\033[0m\n"
 # define SUCCESS_MESSAGE "\033[32;3mCub3D closed, Thank You :)\033[0m\n"
+
+/* Path Defines */
+# define CURSOR_PATH "./assets/textures/aim.png"
+# define GUN_0_PATH "./assets/textures/gun/gun_0.png"
+# define GUN_1_PATH "./assets/textures/gun/gun_1.png"
+# define GUN_2_PATH "./assets/textures/gun/gun_2.png"
+# define GUN_3_PATH "./assets/textures/gun/gun_3.png"
+# define GUN_4_PATH "./assets/textures/gun/gun_4.png"
 
 #endif
