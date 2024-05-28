@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:25 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 20:58:22 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:10:16 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	clear_mlx(void)
 		mlx_delete_texture(mlx->textures[WEST]);
 	if (mlx->textures[EAST])
 		mlx_delete_texture(mlx->textures[EAST]);
-	if (mlx->cursor)
-		mlx_delete_texture(mlx->cursor_texture);
 	if (mlx->win_ptr)
 		mlx_terminate(mlx->win_ptr);
 }
