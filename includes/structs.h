@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:02:29 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/28 13:28:42 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:13:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ typedef struct s_mlx
 	mlx_t				*win_ptr;
 	mlx_image_t			*img_ptr;
 	mlx_texture_t		*textures[4];
-	mlx_texture_t		*cursor_texture;
-	mlx_win_cursor_t	*cursor;
 	uint32_t			ceil_color;
 	uint32_t			floor_color;
 }						t_mlx;

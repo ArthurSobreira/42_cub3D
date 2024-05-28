@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 13:31:53 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:10:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void		map_validation(void);
 void		map_cpy(void);
 
 /* Keyhook Functions */
-void		my_cursor(double x, double y, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 t_col		wall_collision(t_player	*player, float x, float y);
 void		move_right(void);
