@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:02:07 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/25 02:08:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:28:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void	init_cub(t_cub3d *core, char *argv[])
 	core->map_path = argv[1];
 	core->texture_count = 0;
 	core->color_count = 0;
-	core->draw_rays = FALSE;
-	core->draw_map = TRUE;
-	core->map_flag = TRUE;
 	core->wall_flag = FALSE;
 	core->bad_flag = FALSE;
 }
@@ -46,19 +43,6 @@ void	init_axis(t_math *math, t_player *player, t_axis axis)
 		math->vert_x = player->pos_x;
 		math->vert_y = player->pos_y;
 	}
-}
-
-t_bool	is_map_pixel(t_point point)
-{
-	if (get_core()->wall_flag)
-	{
-		if (point.coord_x >= 0 && \
-			point.coord_x <= get_map()->limit_x && \
-			point.coord_y >= 0 && \
-			point.coord_y <= get_map()->limit_y)
-			return (TRUE);
-	}
-	return (FALSE);
 }
 
 void	ft_error(char *msg)
