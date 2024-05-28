@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_graphics.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:31:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 17:08:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:20:31 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ void	load_gun_textures(t_mlx *mlx)
 		mlx_resize_image(mlx->gun_imgs[index], GUN_WIDTH, GUN_HEIGHT);
 		mlx_image_to_window(mlx->win_ptr, mlx->gun_imgs[index], \
 			WIDTH_2 - 250, WINDOW_HEIGHT - 500);
-		mlx->gun_imgs[index]->enabled = false;
+		mlx->gun_imgs[index]->instances[0].enabled = FALSE;
 	}
+	mlx->gun_imgs[0]->instances[0].enabled = TRUE;
 }
 
 void	init_player(void)
