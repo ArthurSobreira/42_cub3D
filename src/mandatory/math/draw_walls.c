@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/27 11:25:28 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:01:53 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	apply_wall_texture(t_mlx *mlx, t_wall wall, mlx_texture_t *texture)
 	tex_y = tex_off * inc_tex;
 	while (y_max > y_min)
 	{
-		plot_pixel_outside_map((t_point){wall.init, y_min, \
-			texture_to_rgb(texture, wall.ray_x, (int)tex_y)});
+		plot_pixel(get_mlx(), wall.init, y_min, \
+			texture_to_rgb(texture, wall.ray_x, (int)tex_y));
 		tex_y += inc_tex;
 		y_min++;
 	}
@@ -57,7 +57,6 @@ void	draw_walls(t_math *math, int current_ray)
 	double			wall_height;
 
 	texture = NULL;
-	get_core()->wall_flag = TRUE;
 	wall_height = (MAP_CUB * (WINDOW_WIDTH * WIDTH_INCREMENT)) / math->dist;
 	if (is_north_wall(math))
 		texture = get_mlx()->textures[NORTH];

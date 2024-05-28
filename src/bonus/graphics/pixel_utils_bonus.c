@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel_utils.c                                      :+:      :+:    :+:   */
+/*   pixel_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 22:09:18 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/24 22:24:12 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:42:13 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	plot_pixel(t_mlx *mlx, int x, int y, uint32_t color)
 {
