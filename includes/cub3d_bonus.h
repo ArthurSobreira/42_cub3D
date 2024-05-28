@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:56:47 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:23:58 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_bool		is_color(char *line);
 
 /* Graphic Functions */
 t_mlx		*init_mlx(void);
+void		load_gun_textures(t_mlx *mlx);
 void		mlx_process(void);
 void		get_color(t_mlx *mlx, t_colors identifier);
 void		render(void *param);
@@ -55,6 +56,7 @@ void		draw_minimap(t_mlx *mlx);
 void		draw_player(int x, int y, uint32_t color);
 void		draw_direction(t_player *player);
 void		draw_square(t_mlx *mlx, int x, int y, uint32_t color);
+void		draw_gun(t_mlx *mlx);
 void		init_bres(t_bres *bres_info, t_point initial_point,
 				t_point end_point);
 void		plot_pixel(t_mlx *mlx, int x, int y, uint32_t color);
@@ -87,17 +89,18 @@ void		map_cpy(void);
 void		my_cursor(double x, double y, void *param);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 t_col		wall_collision(t_player	*player, float x, float y);
+void		left_click(void *param);
+
+/* Player Functions */
+void		init_player(void);
+void		set_player_direction(void);
+void		draw_player(int x, int y, uint32_t color);
 void		move_right(void);
 void		move_left(void);
 void		move_w(void);
 void		move_a(void);
 void		move_s(void);
 void		move_d(void);
-
-/* Player Functions */
-void		init_player(void);
-void		set_player_direction(void);
-void		draw_player(int x, int y, uint32_t color);
 
 /* Ray Casting Functions */
 void		init_axis(t_math *math, t_player *player, t_axis axis);
@@ -110,7 +113,7 @@ void		check_wall_collision(t_axis axis);
 void		draw_rays(t_math *math, t_player *player);
 void		draw_walls(t_math *math, int current_ray);
 void		normalize_angle(double *angle);
-t_bool		is_nouth_wall(t_math *math);
+t_bool		is_north_wall(t_math *math);
 t_bool		is_south_wall(t_math *math);
 t_bool		is_west_wall(t_math *math);
 t_bool		is_east_wall(t_math *math);
