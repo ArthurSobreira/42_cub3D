@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:34 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 19:23:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:04:43 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void		map_builder(void);
 t_bool		in_map_line(void);
 t_bool		in_map_line2(void);
 t_bool		is_map_pixel(t_point point);
-int			player_locale_y_valid(void);
+t_bool		xy_process(char **map, int i, int j);
 int			player_locale_x_valid(void);
 void		map_validation(void);
 void		map_cpy(void);
