@@ -15,12 +15,10 @@
 int	player_locale_x_valid(void)
 {
 	char	**map;
-	t_map	*map_struct;
 	int		i;
 	int		j;
 
 	map = get_map()->map_str;
-	map_struct = get_map();
 	i = 0;
 	while (map[i])
 	{
