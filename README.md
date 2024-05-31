@@ -22,7 +22,7 @@
    <table>
      <tr>
        <td style="border: 5px solid darkgray;">
-         <img height="550" src="https://github.com/ArthurSobreira/42_cub3D/blob/master/images/cub3d.gif">
+         <img height="550" src="https://github.com/ArthurSobreira/42_cub3D/blob/master/cub3d.gif">
        </td>
      </tr>
    </table>
