@@ -19,8 +19,8 @@
 
 <br>
 <div align="center">
-   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/42_map.png" target="_blank">
-      <img height=550 src="images/42_map.png">
+   <a href="https://github.com/ArthurSobreira/42_cub3D/blob/master/images/cub3d.gif" target="_blank">
+      <img height=550 src="images/cub3d.gif" style="border: 5px solid darkgray;">
    </a>
 </div>
 <br>
