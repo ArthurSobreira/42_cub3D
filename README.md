@@ -27,7 +27,7 @@
      </tr>
    </table>
 </div>
-<br><br>
+<br>
 
 ## Run the Program
 
