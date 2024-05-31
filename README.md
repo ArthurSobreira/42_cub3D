@@ -12,3 +12,29 @@
 > <i>which also uses <strong>MinilibX</strong> as graphics library. The project is based on the creation of a program that receives </i>
 > <i>as a parameter a path to a map (any valid map with '.cub' extension) and displays it as a Three-Dimensional First-Person Game, </i>
 > <i>applying some <strong>Ray Casting</strong> concepts.</i>
+
+<br>
+
+## The Project
+
+<br>
+<div align="center">
+   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/42_map.png" target="_blank">
+      <img height=550 src="images/42_map.png">
+   </a>
+</div>
+<br>
+
+## Run the Program
+
+* Make sure you clone the repository with the following command:
+
+```bash
+$> git clone git@github.com:ArthurSobreira/42_cub3D.git
+```
+
+* Once cloned, to compile and run the program, use the following commands:
+
+```bash
+$> make bonus
+$> ./cub3D_bonus ./assets/maps/<map-name>.cub
