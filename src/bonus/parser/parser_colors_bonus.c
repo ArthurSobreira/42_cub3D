@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:59:32 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:38:15 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:26:44 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 static t_bool	match_color(char *identifier, t_colors match, \
 											short color_count)

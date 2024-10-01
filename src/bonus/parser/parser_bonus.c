@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:01:54 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:38:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:26:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	get_parser_infos(void)
 {
