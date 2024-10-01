@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:55:12 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/28 18:46:50 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:59 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 static void	move_left_cursor(void)
 {
