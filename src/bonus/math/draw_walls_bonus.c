@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 07:08:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 18:47:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:26:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 static uint32_t	texture_to_rgb(mlx_texture_t *texture, int x, int y)
 {

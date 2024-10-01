@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:58 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:40:25 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:26:32 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	trace_ray(t_math *math, t_map *map, t_axis axis)
 {

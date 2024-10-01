@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:50:31 by phenriq2          #+#    #+#             */
-/*   Updated: 2024/05/28 12:40:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:26:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 static void	handle_ray_angle_collision(t_math *math, t_player *player)
 {
