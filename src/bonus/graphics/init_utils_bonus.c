@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 12:22:48 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:42:19 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 static uint32_t	create_rgb(char *r, char *g, char *b)
 {

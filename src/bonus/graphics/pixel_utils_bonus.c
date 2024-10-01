@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 22:09:18 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:42:13 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:48 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	plot_pixel(t_mlx *mlx, int x, int y, uint32_t color)
 {

@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:28:08 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:42:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	bresenham(t_point inital_point, t_point end_point, int thickness)
 {

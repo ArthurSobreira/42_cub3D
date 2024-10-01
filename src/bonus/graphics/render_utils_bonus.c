@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:13:55 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 12:54:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:54 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	draw_direction(t_player *player)
 {

@@ -6,11 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:33:27 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/28 18:46:15 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	mlx_process(void)
 {
