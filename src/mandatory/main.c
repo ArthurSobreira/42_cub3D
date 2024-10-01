@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:22:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2024/05/20 16:04:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:38:20 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int	main(int argc, char *argv[])
 	core->init_player();
 	core->mlx_process();
 	core->clear_all();
+	return (EXIT_SUCCESS);
 }
